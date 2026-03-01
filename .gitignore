@@ -1,0 +1,89 @@
+# Dependencies
+node_modules/
+jspm_packages/
+bower_components/
+
+# Build output
+dist/
+dist-ssr/
+build/Release/
+.vuepress/dist/
+.serverless/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime & cache
+.npm
+.cache/
+.eslintcache
+.parcel-cache
+*.tsbuildinfo
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.fusebox/
+
+# Coverage
+coverage/
+*.lcov
+.nyc_output/
+lib-cov
+
+# Environment
+.env
+.env.local
+.env.test
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Diagnostic & misc
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+pids/
+*.pid
+*.seed
+*.pid.lock
+.lock-wscript
+.node_repl_history
+*.tgz
+.yarn-integrity
+.tern-port
+.dynamodb/
+
+# Tooling
+.grunt
+typings/
+
+# Lighthouse
+.lighthouseci/
+
+# Editor & IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.cursor/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+
+# Project-specific
+claude.md
+.claude
+.worktrees
+.serena
+.continue
+*.local
