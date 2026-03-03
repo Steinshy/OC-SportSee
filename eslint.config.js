@@ -27,7 +27,7 @@ export default [
     },
     languageOptions: {
       ecmaVersion: 2020,
-      globals: { ...globals.browser, ...globals.node },
+      globals: { ...globals.browser },
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
@@ -58,14 +58,6 @@ export default [
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
-    },
-  },
-  {
-    files: ['src/index.js', 'src/routes.js', 'src/models.js', 'src/middleware.js'],
-    languageOptions: {
-      parserOptions: {
-        sourceType: 'commonjs',
-      },
     },
   },
   ...tseslint.configs.recommended,

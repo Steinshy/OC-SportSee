@@ -2,8 +2,6 @@ node_modules
 dist
 build
 coverage
-.oc
-public
 *.lock
 package-lock.json
 yarn.lock

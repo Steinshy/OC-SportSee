@@ -1,6 +1,6 @@
 {
   "upgrade": true,
   "target": "minor",
-  "doctorTest": "node -c src/index.js",
+  "doctorTest": "npm run build",
   "reject": []
 }
