@@ -135,7 +135,7 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
   if (mode === 'development') {
     Object.assign(commonServerOptions, {
       host: 'localhost',
-      port: 3000,
+      port: 5173,
     });
   }
 
