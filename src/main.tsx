@@ -7,22 +7,25 @@ import Dashboard from './pages/Dashboard';
 
 import './index.css';
 
-const router = createBrowserRouter([
-  {
-    index: true,
-    element: <Navigate to="/user/12" replace />,
-  },
-  {
-    path: 'user/:id',
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Dashboard />,
-      },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      index: true,
+      element: <Navigate to="/user/12" replace />,
+    },
+    {
+      path: 'user/:id',
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <Dashboard />,
+        },
+      ],
+    },
+  ],
+  { basename: import.meta.env.BASE_URL }
+);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
