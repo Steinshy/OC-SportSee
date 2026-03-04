@@ -9,15 +9,15 @@ import './index.css';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    index: true,
+    element: <Navigate to="/user/12" replace />,
+  },
+  {
+    path: 'user/:id',
     element: <Layout />,
     children: [
       {
         index: true,
-        element: <Navigate to="/user/12" replace />,
-      },
-      {
-        path: 'user/:id',
         element: <Dashboard />,
       },
     ],

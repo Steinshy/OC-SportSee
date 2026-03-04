@@ -1,0 +1,25 @@
+/* Metric card styles */
+
+.metric-card {
+  align-items: center;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.metric-card__icon {
+  font-size: 2rem;
+}
+
+.metric-card__value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.metric-card__label {
+  color: #666;
+  margin: 0;
+}

@@ -118,16 +118,6 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
           gzipSize: true,
         }),
       ],
-      output: {
-        manualChunks: (id: string) => {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'vendor-react';
-            }
-            return 'vendor';
-          }
-        },
-      },
     },
   };
 
@@ -135,7 +125,7 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
   if (mode === 'development') {
     Object.assign(commonServerOptions, {
       host: 'localhost',
-      port: 3000,
+      port: 5173,
     });
   }
 

@@ -1,0 +1,11 @@
+/* Chart styles */
+
+.score-radial-chart__value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.score-radial-chart__subtitle {
+  text-align: center;
+}

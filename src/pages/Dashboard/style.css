@@ -1,0 +1,13 @@
+/* Dashboard styles */
+
+.dashboard {
+  padding: 1rem;
+}
+
+.dashboard__charts,
+.dashboard__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
