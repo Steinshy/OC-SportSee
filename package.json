@@ -7,6 +7,7 @@
     "dev": "vite",
     "dev:api": "tsx api/server.ts",
     "dev:all": "concurrently \"npm run dev\" \"npm run dev:api\"",
+    "prebuild": "node scripts/generate-static-api.js",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src",
@@ -61,7 +62,7 @@
   },
   "overrides": {
     "glob": "^13.0.0",
-    "source-map": "^0.7.4",
+    "source-map": "0.7.4",
     "magic-string": "^0.30.0",
     "serialize-javascript": "^7.0.3",
     "tmp": "^0.2.5"
