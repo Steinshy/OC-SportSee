@@ -2,6 +2,7 @@
   "name": "sportsee",
   "version": "1.0.0",
   "description": "SportSee sports analytics dashboard",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,7 +11,7 @@
     "lint:fix": "eslint src --fix",
     "lint:styles": "stylelint \"src/**/*.{css,scss}\"",
     "format": "prettier --write \"src/**/*.{js,ts,tsx,css,scss}\"",
-    "format:check": "prettier --check \"src/**/*.{js,ts,tsx,css,scss}\"",
+    "format:check": "prettier --check \"src/**/*.{js,ts,tsx,css,scss}\""
   },
   "dependencies": {
     "axios": "^1.6.0",
