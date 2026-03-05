@@ -2,7 +2,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-import './style.css';
+import {
+  getUser,
+  getUserActivity,
+  getUserAverageSessions,
+  getUserPerformance,
+} from '@/api/client';
 import {
   ActivityBarChart,
   PerformanceRadarChart,
@@ -10,12 +15,8 @@ import {
   SessionLineChart,
 } from '@/components/Charts';
 import MetricCard from '@/components/MetricCard';
-import {
-  getUser,
-  getUserActivity,
-  getUserAverageSessions,
-  getUserPerformance,
-} from '@/utils/sportseeApi';
+
+import './style.css';
 export default function Dashboard() {
   const { id } = useParams<{ id: string }>();
   const userId = Number(id);

@@ -80,6 +80,46 @@ export interface UserPerformance {
 }
 
 /**
+ * Raw mock data types (before service-layer transformation)
+ */
+interface RawUserMainData {
+  id: UserId;
+  userInfos: {
+    firstName: string;
+    lastName: string;
+    age: number;
+  };
+  todayScore?: number;
+  score?: number;
+  keyData: {
+    calorieCount: number;
+    proteinCount: number;
+    carbohydrateCount: number;
+    lipidCount: number;
+  };
+}
+
+interface RawUserPerformance {
+  userId: UserId;
+  kind: {
+    1: string;
+    2: string;
+    3: string;
+    4: string;
+    5: string;
+    6: string;
+  };
+  data: { value: number; kind: number }[];
+}
+
+export interface DataModule {
+  USER_MAIN_DATA: RawUserMainData[];
+  USER_ACTIVITY: UserActivity[];
+  USER_AVERAGE_SESSIONS: UserAverageSessions[];
+  USER_PERFORMANCE: RawUserPerformance[];
+}
+
+/**
  * API response types (before transformation)
  * Some fields may be undefined or in different formats
  */

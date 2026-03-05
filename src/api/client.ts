@@ -1,6 +1,12 @@
 import axios from 'axios';
 
 import {
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE,
+} from '@/data/data';
+import {
   ensureArray,
   ensureExists,
   ensureNumber,
@@ -19,8 +25,9 @@ import type {
   UserId,
 } from '@/types';
 
-// Initialize Axios instance with API base URL from env
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5173/api';
+// Configuration
+const USE_MOCK_DATA = import.meta.env.VITE_USE_MOCK_DATA === 'true';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 const apiClient = axios.create({
   baseURL: API_URL,
@@ -32,6 +39,19 @@ const apiClient = axios.create({
 // ============================================================================
 
 const fetchUser = async (userId: UserId): Promise<ApiResponse> => {
+  if (USE_MOCK_DATA) {
+    const mockData = USER_MAIN_DATA.find((user) => user.id === userId);
+    if (!mockData) {
+      throw new Error(`User ${userId} not found in mock data`);
+    }
+    // Transform keyData to nutritionData for consistency with API
+    const { keyData, ...rest } = mockData;
+    return {
+      ...rest,
+      nutritionData: keyData,
+    };
+  }
+
   try {
     const response = await apiClient.get(`/user/${userId}`);
     return response.data;
@@ -44,6 +64,14 @@ const fetchUser = async (userId: UserId): Promise<ApiResponse> => {
 };
 
 const fetchUserActivity = async (userId: UserId): Promise<UserActivity> => {
+  if (USE_MOCK_DATA) {
+    const mockData = USER_ACTIVITY.find((activity) => activity.userId === userId);
+    if (!mockData) {
+      throw new Error(`Activity for user ${userId} not found in mock data`);
+    }
+    return mockData;
+  }
+
   try {
     const response = await apiClient.get(`/user/${userId}/activity`);
     return response.data;
@@ -58,6 +86,18 @@ const fetchUserActivity = async (userId: UserId): Promise<UserActivity> => {
 const fetchUserAverageSessions = async (
   userId: UserId
 ): Promise<UserAverageSessions> => {
+  if (USE_MOCK_DATA) {
+    const mockData = USER_AVERAGE_SESSIONS.find(
+      (sessions) => sessions.userId === userId
+    );
+    if (!mockData) {
+      throw new Error(
+        `Average sessions for user ${userId} not found in mock data`
+      );
+    }
+    return mockData;
+  }
+
   try {
     const response = await apiClient.get(`/user/${userId}/average-sessions`);
     return response.data;
@@ -74,6 +114,23 @@ const fetchUserAverageSessions = async (
 const fetchUserPerformance = async (
   userId: UserId
 ): Promise<UserPerformance> => {
+  if (USE_MOCK_DATA) {
+    const mockData = USER_PERFORMANCE.find(
+      (perf) => perf.userId === userId
+    );
+    if (!mockData) {
+      throw new Error(`Performance for user ${userId} not found in mock data`);
+    }
+    return {
+      userId: mockData.userId,
+      categories: mockData.kind,
+      data: mockData.data.map((item) => ({
+        value: item.value,
+        type: item.kind,
+      })),
+    };
+  }
+
   try {
     const response = await apiClient.get(`/user/${userId}/performance`);
     return response.data;
