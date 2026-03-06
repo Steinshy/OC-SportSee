@@ -65,7 +65,9 @@ const fetchUser = async (userId: UserId): Promise<ApiResponse> => {
 
 const fetchUserActivity = async (userId: UserId): Promise<UserActivity> => {
   if (USE_MOCK_DATA) {
-    const mockData = USER_ACTIVITY.find((activity) => activity.userId === userId);
+    const mockData = USER_ACTIVITY.find(
+      (activity) => activity.userId === userId
+    );
     if (!mockData) {
       throw new Error(`Activity for user ${userId} not found in mock data`);
     }
@@ -115,9 +117,7 @@ const fetchUserPerformance = async (
   userId: UserId
 ): Promise<UserPerformance> => {
   if (USE_MOCK_DATA) {
-    const mockData = USER_PERFORMANCE.find(
-      (perf) => perf.userId === userId
-    );
+    const mockData = USER_PERFORMANCE.find((perf) => perf.userId === userId);
     if (!mockData) {
       throw new Error(`Performance for user ${userId} not found in mock data`);
     }
@@ -138,9 +138,7 @@ const fetchUserPerformance = async (
     if (axios.isAxiosError(error) && error.response?.status === 404) {
       throw error;
     }
-    throw new Error(
-      `Failed to fetch performance for user ${userId}: ${error}`
-    );
+    throw new Error(`Failed to fetch performance for user ${userId}: ${error}`);
   }
 };
 
@@ -180,7 +178,10 @@ const buildUser = (apiUser: ApiResponse): UserMainData => {
     0
   );
   const carbohydrateCount = ensureNumber(
-    ensureExists(nutritionData.carbohydrateCount, 'nutritionData.carbohydrateCount'),
+    ensureExists(
+      nutritionData.carbohydrateCount,
+      'nutritionData.carbohydrateCount'
+    ),
     0
   );
   const lipidCount = ensureNumber(
@@ -219,11 +220,7 @@ const buildActivity = (apiActivity: UserActivity): UserActivity => {
   }));
 
   return {
-    userId: ensureNumber(
-      ensureExists(apiActivity.userId, 'userId'),
-      0,
-      99999
-    ),
+    userId: ensureNumber(ensureExists(apiActivity.userId, 'userId'), 0, 99999),
     sessions: validatedSessions,
   };
 };
@@ -234,11 +231,7 @@ const buildAverageSessions = (
   const sessions = ensureArray<AverageSession>(apiData.sessions);
 
   const validatedSessions = sessions.map((session) => ({
-    day: ensureNumber(
-      ensureExists(session.day, 'session.day'),
-      1,
-      7
-    ),
+    day: ensureNumber(ensureExists(session.day, 'session.day'), 1, 7),
     sessionLength: ensureNumber(
       ensureExists(session.sessionLength, 'session.sessionLength'),
       0,
@@ -247,11 +240,7 @@ const buildAverageSessions = (
   }));
 
   return {
-    userId: ensureNumber(
-      ensureExists(apiData.userId, 'userId'),
-      0,
-      99999
-    ),
+    userId: ensureNumber(ensureExists(apiData.userId, 'userId'), 0, 99999),
     sessions: validatedSessions,
   };
 };
@@ -260,24 +249,12 @@ const buildPerformance = (apiData: UserPerformance): UserPerformance => {
   const data = ensureArray<PerformanceData>(apiData.data);
 
   const validatedData = data.map((item) => ({
-    value: ensureNumber(
-      ensureExists(item.value, 'data.value'),
-      0,
-      1000
-    ),
-    type: ensureNumber(
-      ensureExists(item.type, 'data.type'),
-      1,
-      6
-    ),
+    value: ensureNumber(ensureExists(item.value, 'data.value'), 0, 1000),
+    type: ensureNumber(ensureExists(item.type, 'data.type'), 1, 6),
   }));
 
   return {
-    userId: ensureNumber(
-      ensureExists(apiData.userId, 'userId'),
-      0,
-      99999
-    ),
+    userId: ensureNumber(ensureExists(apiData.userId, 'userId'), 0, 99999),
     categories: apiData.categories || {
       1: 'cardio',
       2: 'energy',

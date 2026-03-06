@@ -8,7 +8,8 @@ interface Props {
 
 export default function PerformanceRadarChart({ performance }: Props) {
   const data = performance.data.map((entry) => ({
-    subject: performance.categories[entry.type as keyof typeof performance.categories],
+    subject:
+      performance.categories[entry.type as keyof typeof performance.categories],
     value: entry.value,
   }));
 
