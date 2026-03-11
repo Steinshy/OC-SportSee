@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Logs
+*.log
+
+# Runtime & cache
+.cache/
+.eslintcache
+
+# Environment
+.env
+*.local
+
+# Editor & IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.cursor/
+
+# OS
+.DS_Store
+
+# AI tooling
+CLAUDE.md
+.claude/
+
+# Project-specific
+public/api/
