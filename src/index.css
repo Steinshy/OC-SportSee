@@ -10,3 +10,19 @@ body {
   font-family: 'Roboto', sans-serif;
   min-width: 1024px;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-body {
+  display: flex;
+  min-height: calc(100vh - 90px);
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}

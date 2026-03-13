@@ -7,9 +7,9 @@ import './style.css';
 export default function Layout() {
   return (
     <div className="app">
-      <header className="navbar">
+      <div className="navbar">
         <div className="navbar__brand">
-          <img src="/logo.svg" alt="SportSee" />
+          <img className="navbar__logo" src="/logo.svg" alt="SportSee" />
         </div>
         <nav className="navbar__links" aria-label="Navigation principale">
           <a href="/">Accueil</a>
@@ -17,7 +17,7 @@ export default function Layout() {
           <a href="/">Reglage</a>
           <a href="/">Communaute</a>
         </nav>
-      </header>
+      </div>
       <div className="app-body">
         <Sidebar />
         <main className="main-content">
