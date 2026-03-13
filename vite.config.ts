@@ -57,16 +57,6 @@ const vitePWA = VitePWA({
         },
       },
       {
-        urlPattern: /\/api\/.*/i,
-        handler: 'NetworkFirst',
-        options: {
-          cacheName: 'api-cache',
-          networkTimeoutSeconds: 10,
-          expiration: { maxEntries: 50, maxAgeSeconds: 60 * 5 },
-          cacheableResponse: { statuses: [0, 200] },
-        },
-      },
-      {
         urlPattern: /\.(?:js|css)$/,
         handler: 'StaleWhileRevalidate',
         options: {
@@ -83,16 +73,6 @@ const vitePWA = VitePWA({
 });
 
 export default defineConfig(({ mode }) => {
-  const commonServerOptions = {
-    proxy: {
-      '/api': {
-        target: process.env.VITE_PUBLIC_API_SERVER || 'http://localhost:3000',
-        changeOrigin: true,
-        rewrite: (path: string) => path.replace(/^\/api/, ''),
-      },
-    },
-  };
-
   // Common Build Options
   const buildOptions = {
     target: 'esnext',
@@ -112,7 +92,7 @@ export default defineConfig(({ mode }) => {
 
   // Development Mode
   if (mode === 'development') {
-    Object.assign(commonServerOptions, {
+    Object.assign({
       host: 'localhost',
       port: 5173,
     });
@@ -135,7 +115,6 @@ export default defineConfig(({ mode }) => {
     ],
     base: process.env.VITE_BASE_PATH || '/',
     publicDir: './public',
-    server: commonServerOptions,
     build: buildOptions,
     optimizeDeps: {
       include: ['axios', 'lucide-react', 'react', 'react-dom', 'react-router', 'recharts'],

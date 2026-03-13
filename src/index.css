@@ -1,5 +1,12 @@
+/* Main styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  color: #282d30;
+  font-family: 'Roboto', sans-serif;
+  min-width: 1024px;
 }
