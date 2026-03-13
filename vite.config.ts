@@ -120,7 +120,7 @@ export default defineConfig(({ mode }) => {
       include: ['axios', 'lucide-react', 'react', 'react-dom', 'react-router', 'recharts'],
     },
     preview: {
-      host: '0.0.0.0',
+      host: 'localhost',
       port: 3000,
     },
   };

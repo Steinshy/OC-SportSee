@@ -20,7 +20,8 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "^7.13.1",
-    "recharts": "^3.8.0"
+    "recharts": "^3.8.0",
+    "serialize-javascript": "7.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
@@ -45,5 +46,8 @@
     "vite-plugin-checker": "^0.12.0",
     "vite-plugin-pwa": "^1.2.0",
     "vite-tsconfig-paths": "^6.1.1"
+  },
+  "overrides": {
+    "serialize-javascript": "7.0.3"
   }
 }
