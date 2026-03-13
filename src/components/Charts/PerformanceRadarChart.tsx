@@ -8,7 +8,7 @@ import {
 
 import type { UserPerformance } from '@/types/user';
 
-import './style.css';
+import './PerformanceRadarChart.css';
 
 type Props = {
   performance: UserPerformance;
@@ -30,7 +30,12 @@ export default function PerformanceRadarChart({ performance }: Props) {
             dataKey="subject"
             tick={{ fill: '#fff', fontSize: 12 }}
           />
-          <Radar dataKey="value" fill="#ff0101" fillOpacity={0.7} />
+          <Radar
+            dataKey="value"
+            fill="#e60000"
+            fillOpacity={0.6}
+            stroke="#e60000"
+          />
         </RadarChart>
       </ResponsiveContainer>
     </div>

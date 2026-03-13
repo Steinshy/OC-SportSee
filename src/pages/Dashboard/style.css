@@ -1,5 +1,5 @@
 .dashboard {
-  padding: 44px 90px 24px 90px;
+  padding: 44px 90px 24px;
 }
 
 .dashboard--error {
@@ -59,17 +59,17 @@
 }
 
 .metric-card__icon--red {
-  background: rgba(255, 0, 0, 0.07);
+  background: rgb(255 0 0 / 7%);
 }
 
 .metric-card__icon--blue {
-  background: rgba(74, 184, 255, 0.1);
+  background: rgb(74 184 255 / 10%);
 }
 
 .metric-card__icon--yellow {
-  background: rgba(249, 206, 35, 0.1);
+  background: rgb(249 206 35 / 10%);
 }
 
 .metric-card__icon--pink {
-  background: rgba(253, 81, 129, 0.1);
+  background: rgb(253 81 129 / 10%);
 }

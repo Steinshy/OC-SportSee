@@ -1,0 +1,43 @@
+.chart-card--sessions {
+  background: linear-gradient(135deg, #e60000 0%, #ff6b5b 100%);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  padding: 20px;
+}
+
+.chart-card--sessions .chart-card__header h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+
+.chart-card--sessions .recharts-cartesian-axis-tick text {
+  fill: #fff;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.chart-card--sessions .recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.chart-card--sessions .recharts-tooltip {
+  background-color: rgb(0 0 0 / 80%) !important;
+  border: none !important;
+  border-radius: 4px;
+  padding: 8px 12px !important;
+}
+
+.chart-card--sessions .recharts-tooltip-label {
+  display: none !important;
+}
+
+.chart-card--sessions .recharts-tooltip-item {
+  color: #fff !important;
+  font-size: 12px;
+}
+
+.chart-card--sessions .recharts-cursor {
+  fill: rgb(0 0 0 / 20%) !important;
+}

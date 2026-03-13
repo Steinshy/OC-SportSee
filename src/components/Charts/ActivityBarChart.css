@@ -1,0 +1,39 @@
+.chart-card--activity {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  padding: 20px;
+}
+
+.chart-card--activity .chart-card__header h3 {
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.chart-card--activity .recharts-surface {
+  background-color: #fff !important;
+}
+
+.chart-card--activity .recharts-legend-wrapper {
+  padding-top: 16px !important;
+}
+
+.chart-card--activity .recharts-legend-item-text {
+  color: #000 !important;
+  font-size: 12px;
+}
+
+.chart-card--activity .recharts-cartesian-axis-tick text {
+  fill: #9b9eac;
+  font-size: 12px;
+}
+
+.chart-card--activity .recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.chart-card--activity .recharts-tooltip-label {
+  display: none !important;
+}

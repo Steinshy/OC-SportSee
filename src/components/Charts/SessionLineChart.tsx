@@ -2,7 +2,7 @@ import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from './index';
 
 import type { AverageSession } from '@/types/user';
 
-import './style.css';
+import './SessionLineChart.css';
 
 const DAY_LABELS: Record<number, string> = {
   1: 'L',

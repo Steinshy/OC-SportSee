@@ -11,7 +11,7 @@ import {
 
 import type { ActivitySession } from '@/types/user';
 
-import './style.css';
+import './ActivityBarChart.css';
 
 type Props = {
   sessions: ActivitySession[];
@@ -33,7 +33,7 @@ export default function ActivityBarChart({ sessions }: Props) {
         <BarChart
           data={data}
           barGap={8}
-          margin={{ top: 16, right: 24, left: 24 }}
+          margin={{ top: 16, right: 24, left: 24, bottom: 20 }}
         >
           <CartesianGrid
             strokeDasharray="2 2"

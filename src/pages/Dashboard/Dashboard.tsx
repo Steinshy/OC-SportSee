@@ -1,12 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
-import { useParams } from 'react-router';
+import { useMemo } from 'react';
+import { useLoaderData } from 'react-router';
 
-import {
-  getUser,
-  getUserActivity,
-  getUserAverageSessions,
-  getUserPerformance,
-} from '@/client/client';
 import {
   ActivityBarChart,
   PerformanceRadarChart,
@@ -14,46 +8,13 @@ import {
   SessionLineChart,
 } from '@/components/Charts';
 import MetricCard from '@/components/MetricCard';
-import type {
-  UserActivity,
-  UserAverageSessions,
-  UserMainData,
-  UserPerformance,
-} from '@/types/user';
+import type { DashboardLoaderData } from '@/loaders/dashboardLoader';
 
 import './style.css';
 
 export default function Dashboard() {
-  const { id } = useParams<{ id: string }>();
-  const userId = id ?? '12';
-  const [user, setUser] = useState<UserMainData | null>(null);
-  const [activity, setActivity] = useState<UserActivity | null>(null);
-  const [avgSessions, setAvgSessions] = useState<UserAverageSessions | null>(
-    null
-  );
-  const [performance, setPerformance] = useState<UserPerformance | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    Promise.all([
-      getUser(userId),
-      getUserActivity(userId),
-      getUserAverageSessions(userId),
-      getUserPerformance(userId),
-    ])
-      .then(([user, activity, avgSessions, performance]) => {
-        setUser(user);
-        setActivity(activity);
-        setAvgSessions(avgSessions);
-        setPerformance(performance);
-        setError(null);
-        console.log({ user, activity, avgSessions, performance });
-      })
-      .catch((error: unknown) => {
-        setError('Impossible de charger les donnees utilisateur.');
-        console.error('Dashboard data error:', error);
-      });
-  }, [userId]);
+  const { user, activity, avgSessions, performance } =
+    useLoaderData<DashboardLoaderData>();
 
   const metricCards = useMemo(() => {
     if (!user) return [];
@@ -88,14 +49,6 @@ export default function Dashboard() {
       },
     ];
   }, [user]);
-
-  if (error) {
-    return <div className="dashboard dashboard--error">{error}</div>;
-  }
-
-  if (!user || !activity || !avgSessions || !performance) {
-    return <div className="dashboard">Chargement...</div>;
-  }
 
   return (
     <div className="dashboard">

@@ -22,13 +22,13 @@
 }
 
 .chart-card--sessions {
-  background: #ff0000;
+  background: #f00;
   color: #fff;
   overflow: hidden;
 }
 
 .chart-card--sessions h3 {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255 255 255 / 50%);
   line-height: 24px;
   max-width: 150px;
 }
