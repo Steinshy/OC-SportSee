@@ -20,7 +20,7 @@
 }
 
 .session-chart {
-  margin: auto auto 0;
+  margin: 0;
 }
 
 .session-overlay {
@@ -44,4 +44,28 @@
 
 .chart-card--sessions .recharts-text {
   font-weight: 500;
+}
+
+@media (width <= 900px) {
+  .chart-card--sessions h3 {
+    font-size: 14px;
+    left: 20px;
+    top: 20px;
+  }
+}
+
+@media (width <= 768px) {
+  .chart-card--sessions h3 {
+    font-size: 13px;
+    left: 14px;
+    line-height: 20px;
+    top: 14px;
+  }
+}
+
+@media (width <= 420px) {
+  .chart-card--sessions h3 {
+    left: 10px;
+    top: 10px;
+  }
 }

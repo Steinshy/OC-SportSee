@@ -6,3 +6,15 @@
 .chart-card--performance .recharts-polar-grid-concentric-polygon {
   stroke: #fff;
 }
+
+@media (width <= 768px) {
+  .chart-card--performance .recharts-polar-angle-axis text {
+    font-size: 11px;
+  }
+}
+
+@media (width <= 420px) {
+  .chart-card--performance .recharts-polar-angle-axis text {
+    font-size: 10px;
+  }
+}

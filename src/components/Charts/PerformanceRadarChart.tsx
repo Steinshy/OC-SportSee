@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -38,7 +40,7 @@ function renderPolarAngleAxis({
   y: number;
   cx: number;
   cy: number;
-}) {
+}, fontSize: number) {
   return (
     <Text
       {...rest}
@@ -46,7 +48,7 @@ function renderPolarAngleAxis({
       y={y + (y - cy) / 10}
       x={x + (x - cx) / 100}
       fill="#FFFFFF"
-      fontSize={12}
+      fontSize={fontSize}
     >
       {payload.value}
     </Text>
@@ -54,6 +56,31 @@ function renderPolarAngleAxis({
 }
 
 export default function PerformanceRadarChart({ performance }: Props) {
+  const [screenWidth, setScreenWidth] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 1024;
+    }
+    return window.innerWidth;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const isMobileScreen = screenWidth <= 768;
+  const isExtraSmallScreen = screenWidth <= 420;
+  const axisFontSize = isExtraSmallScreen ? 10 : isMobileScreen ? 11 : 12;
+  const outerRadius = isExtraSmallScreen ? 62 : isMobileScreen ? 78 : 90;
+
   const data = [...performance.data].reverse().map((entry) => {
     const categoryKey = entry.type as keyof typeof performance.categories;
     const categoryName = performance.categories[categoryKey];
@@ -69,13 +96,14 @@ export default function PerformanceRadarChart({ performance }: Props) {
   return (
     <div className="chart-card chart-card--performance">
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart data={data} outerRadius={90}>
+        <RadarChart data={data} outerRadius={outerRadius}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis
             dataKey="subject"
             tick={(props: Record<string, unknown>) =>
               renderPolarAngleAxis(
                 props as Parameters<typeof renderPolarAngleAxis>[0],
+                axisFontSize,
               )
             }
           />

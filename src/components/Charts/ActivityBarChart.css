@@ -2,20 +2,31 @@
   background: #fbfbfb;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 2%);
-  padding: 24px 30px 20px 32px;
+  min-width: 0;
+  padding: 24px 24px 18px;
   position: relative;
+  width: 100%;
 }
 
 .activity-chart__title {
   color: #20253a;
   font-size: 15px;
   font-weight: 500;
+  left: 24px;
   position: absolute;
+  top: 20px;
   z-index: 2;
 }
 
+.chart-card--activity .recharts-legend-wrapper {
+  left: auto !important;
+  right: 24px !important;
+  top: 16px !important;
+  width: auto !important;
+}
+
 .chart-card--activity .recharts-legend-item {
-  margin-left: 32px !important;
+  margin-left: 18px !important;
   margin-right: 0 !important;
 }
 
@@ -26,7 +37,7 @@
 }
 
 .chart-card--activity .recharts-surface {
-  margin-right: 12px !important;
+  margin-right: 8px !important;
 }
 
 .activity-tooltip {
@@ -37,4 +48,77 @@
   line-height: 24px;
   padding: 4px 7px;
   text-align: center;
+}
+
+@media (width <= 1200px) {
+  .chart-card--activity {
+    padding: 20px 16px 14px;
+  }
+
+  .activity-chart__title {
+    left: 16px;
+    top: 14px;
+  }
+
+  .chart-card--activity .recharts-legend-wrapper {
+    right: 14px !important;
+    top: 12px !important;
+  }
+
+  .chart-card--activity .recharts-legend-item {
+    margin-left: 12px !important;
+  }
+
+  .chart-card--activity .recharts-legend-item-text {
+    font-size: 13px;
+  }
+}
+
+@media (width <= 900px) {
+  .chart-card--activity {
+    padding: 16px 12px 12px;
+  }
+
+  .activity-chart__title {
+    font-size: 14px;
+    left: 12px;
+    top: 12px;
+    white-space: nowrap;
+  }
+
+  .chart-card--activity .recharts-legend-wrapper {
+    right: 10px !important;
+    top: 10px !important;
+  }
+
+  .chart-card--activity .recharts-legend-item {
+    margin-left: 8px !important;
+  }
+
+  .chart-card--activity .recharts-legend-item-text {
+    font-size: 12px;
+  }
+}
+
+@media (width <= 768px) {
+  .chart-card--activity {
+    padding: 14px 10px 10px;
+  }
+
+  .activity-chart__title {
+    left: 10px;
+    top: 10px;
+  }
+}
+
+@media (width <= 420px) {
+  .chart-card--activity {
+    padding: 12px 8px 8px;
+  }
+
+  .activity-chart__title {
+    font-size: 13px;
+    left: 8px;
+    top: 8px;
+  }
 }

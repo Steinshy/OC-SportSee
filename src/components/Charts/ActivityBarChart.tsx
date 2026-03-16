@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   Bar,
   BarChart,
@@ -60,6 +62,28 @@ function CustomCursor({
 }
 
 export default function ActivityBarChart({ sessions }: Props) {
+  const [screenWidth, setScreenWidth] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 1024;
+    }
+    return window.innerWidth;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const isMobileScreen = screenWidth <= 768;
+  const isExtraSmallScreen = screenWidth <= 420;
+
   const data = sessions.map((session, index) => ({
     day: index + 1,
     kg: session.kilogram,
@@ -73,8 +97,14 @@ export default function ActivityBarChart({ sessions }: Props) {
         <BarChart
           data={data}
           barGap={8}
-          barSize={7}
-          margin={{ top: 24, right: 30, left: 32, bottom: 20 }}
+          barSize={isExtraSmallScreen ? 5 : isMobileScreen ? 6 : 7}
+          margin={
+            isExtraSmallScreen
+              ? { top: 18, right: 0, left: 0, bottom: 4 }
+              : isMobileScreen
+                ? { top: 18, right: 8, left: 8, bottom: 8 }
+                : { top: 18, right: 20, left: 20, bottom: 12 }
+          }
         >
           <CartesianGrid
             strokeDasharray="3"
@@ -86,8 +116,8 @@ export default function ActivityBarChart({ sessions }: Props) {
             tickLine={false}
             stroke="#dedede"
             strokeWidth={2}
-            tick={{ fill: '#9b9eac', fontSize: 14 }}
-            tickMargin={16}
+            tick={{ fill: '#9b9eac', fontSize: isMobileScreen ? 12 : 14 }}
+            tickMargin={isMobileScreen ? 6 : 16}
           />
           <YAxis
             yAxisId="kg"
@@ -96,21 +126,23 @@ export default function ActivityBarChart({ sessions }: Props) {
             tickCount={3}
             tickLine={false}
             axisLine={false}
-            tick={{ fill: '#9b9eac', fontSize: 14 }}
-            tickMargin={30}
+            tick={{ fill: '#9b9eac', fontSize: isMobileScreen ? 12 : 14 }}
+            tickMargin={isExtraSmallScreen ? 0 : isMobileScreen ? 6 : 30}
           />
           <YAxis yAxisId="kcal" hide />
           <Tooltip
             content={<CustomTooltip />}
             cursor={<CustomCursor />}
           />
-          <Legend
-            verticalAlign="top"
-            align="right"
-            iconType="circle"
-            iconSize={10}
-            height={80}
-          />
+          {!isMobileScreen && (
+            <Legend
+              verticalAlign="top"
+              align="right"
+              iconType="circle"
+              iconSize={10}
+              height={44}
+            />
+          )}
           <Bar
             name="Poids (kg)"
             yAxisId="kg"

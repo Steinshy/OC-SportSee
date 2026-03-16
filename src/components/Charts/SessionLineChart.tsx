@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import {
   Line,
@@ -46,6 +46,27 @@ function CustomTooltip({
 
 export default function SessionLineChart({ sessions }: Props) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [screenWidth, setScreenWidth] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 1024;
+    }
+    return window.innerWidth;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const isMobileScreen = screenWidth <= 768;
 
   const data = sessions.map((session) => ({
     day: DAY_LABELS[session.day],
@@ -83,10 +104,15 @@ export default function SessionLineChart({ sessions }: Props) {
           }}
         />
       )}
-      <ResponsiveContainer width="90%" height="75%" className="session-chart">
+      <ResponsiveContainer width="100%" height="100%" className="session-chart">
         <LineChart
           data={data}
-          margin={{ top: 0, right: 0, left: 0, bottom: 20 }}
+          margin={{
+            top: isMobileScreen ? 44 : 58,
+            right: isMobileScreen ? 6 : 10,
+            left: isMobileScreen ? 2 : 6,
+            bottom: isMobileScreen ? 10 : 14,
+          }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
@@ -103,9 +129,15 @@ export default function SessionLineChart({ sessions }: Props) {
             dataKey="day"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: 'rgba(255,255,255,0.6)', fontSize: 12 }}
-            tickMargin={10}
-            padding={{ left: 10, right: 10 }}
+            tick={{
+              fill: 'rgba(255,255,255,0.6)',
+              fontSize: isMobileScreen ? 11 : 12,
+            }}
+            tickMargin={isMobileScreen ? 6 : 10}
+            padding={{
+              left: isMobileScreen ? 6 : 10,
+              right: isMobileScreen ? 6 : 10,
+            }}
           />
           <YAxis hide domain={['dataMin-10', 'dataMax+10']} />
           <Tooltip
@@ -120,7 +152,7 @@ export default function SessionLineChart({ sessions }: Props) {
             dot={false}
             activeDot={{
               r: 4,
-              strokeWidth: 8,
+              strokeWidth: isMobileScreen ? 6 : 8,
               stroke: 'rgba(255,255,255,0.2)',
               fill: '#fff',
             }}

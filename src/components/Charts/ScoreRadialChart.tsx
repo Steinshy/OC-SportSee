@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   PolarAngleAxis,
   RadialBar,
@@ -12,6 +14,28 @@ type Props = {
 };
 
 export default function ScoreRadialChart({ score }: Props) {
+  const [screenWidth, setScreenWidth] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 1024;
+    }
+    return window.innerWidth;
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const isMobileScreen = screenWidth <= 768;
+  const isExtraSmallScreen = screenWidth <= 420;
   const percentage = score * 100;
 
   return (
@@ -26,11 +50,11 @@ export default function ScoreRadialChart({ score }: Props) {
           data={[{ score: percentage }]}
           cx="50%"
           cy="50%"
-          innerRadius="70%"
-          outerRadius="80%"
+          innerRadius={isExtraSmallScreen ? '64%' : isMobileScreen ? '68%' : '70%'}
+          outerRadius={isExtraSmallScreen ? '76%' : '80%'}
           startAngle={90}
           endAngle={450}
-          barSize={10}
+          barSize={isExtraSmallScreen ? 8 : isMobileScreen ? 9 : 10}
         >
           <PolarAngleAxis
             type="number"

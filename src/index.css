@@ -8,7 +8,8 @@
 body {
   color: #282d30;
   font-family: Roboto, sans-serif;
-  min-width: 1024px;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .app {
@@ -25,4 +26,11 @@ body {
 .main-content {
   flex: 1;
   min-width: 0;
+}
+
+@media (width <= 1024px) {
+  .app-body {
+    flex-direction: column;
+    min-height: auto;
+  }
 }

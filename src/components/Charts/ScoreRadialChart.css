@@ -58,3 +58,54 @@
   font-weight: 500;
   line-height: 26px;
 }
+
+@media (width <= 900px) {
+  .score-radial-chart__title {
+    font-size: 14px;
+    left: 20px;
+    top: 16px;
+  }
+
+  .score-radial-chart__value {
+    font-size: 22px;
+  }
+
+  .score-radial-chart__subtitle {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media (width <= 768px) {
+  .score-radial-chart__title {
+    font-size: 13px;
+    left: 14px;
+    top: 12px;
+  }
+
+  .score-radial-chart__value {
+    font-size: 20px;
+  }
+
+  .score-radial-chart__subtitle {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+@media (width <= 420px) {
+  .score-radial-chart__title {
+    font-size: 12px;
+    left: 10px;
+    top: 10px;
+  }
+
+  .score-radial-chart__value {
+    font-size: 18px;
+  }
+
+  .score-radial-chart__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
