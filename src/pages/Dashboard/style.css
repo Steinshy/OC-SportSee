@@ -31,11 +31,19 @@
   min-width: 0;
 }
 
+.dashboard-grid__charts > .chart-card--activity {
+  height: 320px;
+}
+
 .dashboard-grid__bottom {
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 30px;
+}
+
+.dashboard-grid__bottom > .chart-card {
+  height: 260px;
 }
 
 .dashboard-grid__cards {

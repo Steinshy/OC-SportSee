@@ -1,43 +1,47 @@
 .chart-card--sessions {
-  background: linear-gradient(135deg, #e60000 0%, #ff6b5b 100%);
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  padding: 20px;
+  background: #f00;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 
-.chart-card--sessions .chart-card__header h3 {
-  color: #fff;
+.chart-card--sessions h3 {
+  color: rgb(255 255 255 / 50%);
   font-size: 15px;
   font-weight: 500;
-  margin: 0 0 16px;
+  left: 34px;
+  line-height: 24px;
+  max-width: 150px;
+  position: absolute;
+  top: 29px;
+  z-index: 2;
 }
 
-.chart-card--sessions .recharts-cartesian-axis-tick text {
-  fill: #fff;
-  font-size: 12px;
-  opacity: 0.8;
+.session-chart {
+  margin: auto auto 0;
 }
 
-.chart-card--sessions .recharts-tooltip-wrapper {
-  outline: none;
+.session-overlay {
+  background: rgb(0 0 0 / 10%);
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
 
-.chart-card--sessions .recharts-tooltip {
-  background-color: rgb(0 0 0 / 80%) !important;
-  border: none !important;
-  border-radius: 4px;
-  padding: 8px 12px !important;
+.session-tooltip {
+  background: #fff;
+  color: #000;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 1px 7px;
+  text-align: center;
+  white-space: nowrap;
 }
 
-.chart-card--sessions .recharts-tooltip-label {
-  display: none !important;
-}
-
-.chart-card--sessions .recharts-tooltip-item {
-  color: #fff !important;
-  font-size: 12px;
-}
-
-.chart-card--sessions .recharts-cursor {
-  fill: rgb(0 0 0 / 20%) !important;
+.chart-card--sessions .recharts-text {
+  font-weight: 500;
 }

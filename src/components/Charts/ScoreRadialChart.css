@@ -1,53 +1,60 @@
 .chart-card--score {
   background: #fbfbfb;
   border-radius: 5px;
-  padding: 20px;
   position: relative;
 }
 
-.chart-card--score .recharts-wrapper {
-  margin: 0;
-}
-
-.chart-card--score .recharts-surface {
-  background: transparent;
-}
-
-.chart-card__header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.chart-card__header h3 {
-  color: #282d30;
+.score-radial-chart__title {
+  color: #20253a;
   font-size: 15px;
   font-weight: 500;
+  left: 30px;
+  position: absolute;
+  top: 24px;
+  z-index: 2;
+}
+
+.score-chart-container {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.score-radial-chart__circle {
+  aspect-ratio: 1;
+  background: #fff;
+  border-radius: 50%;
+  height: 70%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  z-index: 1;
 }
 
 .score-radial-chart__center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   left: 50%;
   position: absolute;
   text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 4;
 }
 
 .score-radial-chart__value {
   color: #282d30;
+  display: block;
   font-size: 26px;
   font-weight: 700;
-  line-height: 1;
 }
 
 .score-radial-chart__subtitle {
   color: #74798c;
-  font-size: 14px;
-  line-height: 1.5;
-  margin-top: 4px;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
 }

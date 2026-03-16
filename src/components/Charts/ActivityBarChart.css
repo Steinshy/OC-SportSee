@@ -1,22 +1,40 @@
 .chart-card--activity {
   background: #fbfbfb;
   border-radius: 5px;
-  padding: 12px 20px 20px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 2%);
+  padding: 24px 30px 20px 32px;
+  position: relative;
 }
 
-.chart-card--activity .recharts-wrapper {
-  margin-top: 8px;
+.activity-chart__title {
+  color: #20253a;
+  font-size: 15px;
+  font-weight: 500;
+  position: absolute;
+  z-index: 2;
 }
 
-.chart-card--activity .recharts-default-tooltip {
-  background: #e60000 !important;
-  border: none !important;
-  border-radius: 8px;
+.chart-card--activity .recharts-legend-item {
+  margin-left: 32px !important;
+  margin-right: 0 !important;
+}
+
+.chart-card--activity .recharts-legend-item-text {
+  color: #74798c !important;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.chart-card--activity .recharts-surface {
+  margin-right: 12px !important;
+}
+
+.activity-tooltip {
+  background: #e60000;
   color: #fff;
-  padding: 8px 12px;
-}
-
-.chart-card--activity .recharts-tooltip-label {
-  color: #fff;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 4px 7px;
+  text-align: center;
 }

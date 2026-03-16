@@ -1,76 +1,10 @@
 .chart-card {
   background: #fbfbfb;
   border-radius: 5px;
-  padding: 20px;
 }
 
 .chart-card h3 {
   color: #20253a;
   font-size: 15px;
   font-weight: 500;
-}
-
-.chart-card--activity {
-  padding-top: 12px;
-}
-
-.chart-card__header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-
-.chart-card--sessions {
-  background: #f00;
-  color: #fff;
-  overflow: hidden;
-}
-
-.chart-card--sessions h3 {
-  color: rgb(255 255 255 / 50%);
-  line-height: 24px;
-  max-width: 150px;
-}
-
-.chart-card--performance {
-  background: #282d30;
-}
-
-.chart-card--score {
-  position: relative;
-}
-
-.chart-card--score::before {
-  background: #fff;
-  border-radius: 50%;
-  content: '';
-  height: 66%;
-  left: 17%;
-  position: absolute;
-  top: 20%;
-  width: 66%;
-  z-index: 0;
-}
-
-.score-radial-chart__center {
-  left: 50%;
-  position: absolute;
-  text-align: center;
-  top: 52%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.score-radial-chart__value {
-  color: #282d30;
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.score-radial-chart__subtitle {
-  color: #74798c;
-  font-size: 16px;
-  line-height: 24px;
-  width: 90px;
 }

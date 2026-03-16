@@ -3,6 +3,7 @@ import {
   BarChart,
   CartesianGrid,
   Legend,
+  Rectangle,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -17,6 +18,47 @@ type Props = {
   sessions: ActivitySession[];
 };
 
+function CustomTooltip({
+  active,
+  payload,
+}: {
+  active?: boolean;
+  payload?: { value: number }[];
+}) {
+  if (active && payload && payload.length >= 2) {
+    return (
+      <div className="activity-tooltip">
+        <p>{payload[0]?.value}kg</p>
+        <p>{payload[1]?.value}Kcal</p>
+      </div>
+    );
+  }
+  return null;
+}
+
+function CustomCursor({
+  x,
+  y,
+  width,
+  height,
+}: {
+  x?: number;
+  y?: number;
+  width?: number;
+  height?: number;
+}) {
+  const w = width ?? 0;
+  return (
+    <Rectangle
+      fill="rgba(196, 196, 196, 0.5)"
+      x={(x ?? 0) - w * 0.1}
+      y={y ?? 0}
+      width={w * 1.2}
+      height={height ?? 0}
+    />
+  );
+}
+
 export default function ActivityBarChart({ sessions }: Props) {
   const data = sessions.map((session, index) => ({
     day: index + 1,
@@ -26,74 +68,62 @@ export default function ActivityBarChart({ sessions }: Props) {
 
   return (
     <div className="chart-card chart-card--activity">
-      <div className="chart-card__header">
-        <h3>Activite quotidienne</h3>
-      </div>
-      <ResponsiveContainer width="100%" height={240}>
+      <h3 className="activity-chart__title">Activité quotidienne</h3>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
           barGap={8}
-          margin={{ top: 16, right: 24, left: 24, bottom: 20 }}
+          barSize={7}
+          margin={{ top: 24, right: 30, left: 32, bottom: 20 }}
         >
           <CartesianGrid
-            strokeDasharray="2 2"
+            strokeDasharray="3"
             vertical={false}
             stroke="#dedede"
           />
           <XAxis
             dataKey="day"
             tickLine={false}
-            axisLine={false}
-            tick={{ fill: '#9b9eac' }}
+            stroke="#dedede"
+            strokeWidth={2}
+            tick={{ fill: '#9b9eac', fontSize: 14 }}
+            tickMargin={16}
           />
           <YAxis
             yAxisId="kg"
             orientation="right"
             domain={['dataMin - 2', 'dataMax + 1']}
+            tickCount={3}
             tickLine={false}
             axisLine={false}
-            tick={{ fill: '#9b9eac' }}
+            tick={{ fill: '#9b9eac', fontSize: 14 }}
+            tickMargin={30}
           />
           <YAxis yAxisId="kcal" hide />
           <Tooltip
-            cursor={{ fill: 'rgba(196, 196, 196, 0.5)' }}
-            contentStyle={{
-              background: '#e60000',
-              border: 'none',
-              borderRadius: '8px',
-              padding: '8px 12px',
-            }}
-            labelStyle={{ display: 'none' }}
-            formatter={(value, name) => {
-              if (name === 'kg') return [`${value}kg`, 'Poids (kg)'];
-              if (name === 'kcal')
-                return [`${value}kCal`, 'Calories brûlées (kCal)'];
-              return [value, ''];
-            }}
-            separator=" / "
+            content={<CustomTooltip />}
+            cursor={<CustomCursor />}
           />
           <Legend
             verticalAlign="top"
             align="right"
             iconType="circle"
-            iconSize={8}
-            formatter={(value) =>
-              value === 'kg' ? 'Poids (kg)' : 'Calories brûlées (kCal)'
-            }
+            iconSize={10}
+            height={80}
           />
           <Bar
+            name="Poids (kg)"
             yAxisId="kg"
             dataKey="kg"
             fill="#282d30"
-            radius={[4, 4, 0, 0]}
-            barSize={7}
+            radius={[3, 3, 0, 0]}
           />
           <Bar
+            name="Calories brûlées (kCal)"
             yAxisId="kcal"
             dataKey="kcal"
-            fill="#ff0101"
-            radius={[4, 4, 0, 0]}
-            barSize={7}
+            fill="#e60000"
+            radius={[3, 3, 0, 0]}
           />
         </BarChart>
       </ResponsiveContainer>

@@ -1,31 +1,8 @@
 .chart-card--performance {
   background: #282d30;
   border-radius: 5px;
-  padding: 20px;
-}
-
-.chart-card--performance .recharts-wrapper {
-  margin: 0;
-}
-
-.chart-card--performance .recharts-surface {
-  background: transparent;
-}
-
-.chart-card--performance .recharts-polar-angle-axis-tick {
-  fill: #fff;
-  font-size: 12px;
 }
 
 .chart-card--performance .recharts-polar-grid-concentric-polygon {
-  stroke: rgb(255 255 255 / 30%);
-}
-
-.chart-card--performance .recharts-polar-grid-radial-line {
-  stroke: rgb(255 255 255 / 30%);
-}
-
-.chart-card--performance .recharts-radar {
-  fill: #ff0101;
-  fill-opacity: 0.6;
+  stroke: #fff;
 }
