@@ -196,7 +196,21 @@
 
 @media (width <= 768px) {
   .sidebar {
-    display: none;
+    padding: 10px 14px;
+  }
+
+  .sidebar__icons {
+    gap: 10px;
+  }
+
+  .sidebar__icon-btn {
+    height: 44px;
+    width: 44px;
+  }
+
+  .sidebar__icon-btn img {
+    height: 24px;
+    width: 24px;
   }
 
   .navbar__links {
@@ -228,26 +242,20 @@
   }
 
   .sidebar {
-    gap: 6px;
-    justify-content: center;
-    padding: 10px;
+    padding: 8px 10px;
   }
 
   .sidebar__icons {
-    gap: 10px;
+    gap: 8px;
   }
 
   .sidebar__icon-btn {
-    height: 44px;
-    width: 44px;
+    height: 40px;
+    width: 40px;
   }
 
   .sidebar__icon-btn img {
-    height: 24px;
-    width: 24px;
-  }
-
-  .sidebar__copyright {
-    display: none;
+    height: 22px;
+    width: 22px;
   }
 }

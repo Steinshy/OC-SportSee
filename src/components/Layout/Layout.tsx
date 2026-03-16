@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Link, Outlet } from 'react-router';
 
 import Sidebar from './Sidebar';
 
@@ -12,10 +12,10 @@ export default function Layout() {
           <img className="navbar__logo" src="/logo.svg" alt="SportSee" />
         </div>
         <nav className="navbar__links" aria-label="Navigation principale">
-          <a href="/">Accueil</a>
-          <a href="/">Profil</a>
-          <a href="/">Reglage</a>
-          <a href="/">Communaute</a>
+          <Link to="/">Accueil</Link>
+          <Link to="/profile/12">Profil</Link>
+          <Link to="/">Reglage</Link>
+          <Link to="/">Communaute</Link>
         </nav>
       </div>
       <div className="app-body">

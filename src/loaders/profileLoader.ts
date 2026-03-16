@@ -13,16 +13,16 @@ import type {
   UserPerformance,
 } from '@/types/user';
 
-export type DashboardLoaderData = {
+export type ProfileLoaderData = {
   user: UserMainData;
   activity: UserActivity;
   avgSessions: UserAverageSessions;
   performance: UserPerformance;
 };
 
-export async function dashboardLoader({
+export async function profileLoader({
   params,
-}: LoaderFunctionArgs): Promise<DashboardLoaderData> {
+}: LoaderFunctionArgs): Promise<ProfileLoaderData> {
   const userId = params.id ?? '18';
 
   const [user, activity, avgSessions, performance] = await Promise.all([
