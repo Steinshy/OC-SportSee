@@ -50,7 +50,9 @@ export default function ScoreRadialChart({ score }: Props) {
           data={[{ score: percentage }]}
           cx="50%"
           cy="50%"
-          innerRadius={isExtraSmallScreen ? '64%' : isMobileScreen ? '68%' : '70%'}
+          innerRadius={
+            isExtraSmallScreen ? '64%' : isMobileScreen ? '68%' : '70%'
+          }
           outerRadius={isExtraSmallScreen ? '76%' : '80%'}
           startAngle={90}
           endAngle={450}

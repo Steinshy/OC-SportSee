@@ -23,7 +23,7 @@ export type DashboardLoaderData = {
 export async function dashboardLoader({
   params,
 }: LoaderFunctionArgs): Promise<DashboardLoaderData> {
-  const userId = params.id ?? '12';
+  const userId = params.id ?? '18';
 
   const [user, activity, avgSessions, performance] = await Promise.all([
     getUser(userId),

@@ -73,17 +73,14 @@ export default function SessionLineChart({ sessions }: Props) {
     length: session.sessionLength,
   }));
 
-  const handleMouseMove = useCallback(
-    (state: Record<string, unknown>) => {
-      if (
-        state?.activeTooltipIndex !== undefined &&
-        typeof state.activeTooltipIndex === 'number'
-      ) {
-        setActiveIndex(state.activeTooltipIndex);
-      }
-    },
-    [],
-  );
+  const handleMouseMove = useCallback((state: Record<string, unknown>) => {
+    if (
+      state?.activeTooltipIndex !== undefined &&
+      typeof state.activeTooltipIndex === 'number'
+    ) {
+      setActiveIndex(state.activeTooltipIndex);
+    }
+  }, []);
 
   const handleMouseLeave = useCallback(() => {
     setActiveIndex(null);
@@ -130,7 +127,7 @@ export default function SessionLineChart({ sessions }: Props) {
             axisLine={false}
             tickLine={false}
             tick={{
-              fill: 'rgba(255,255,255,0.6)',
+              fill: '#fff',
               fontSize: isMobileScreen ? 11 : 12,
             }}
             tickMargin={isMobileScreen ? 6 : 10}
@@ -140,10 +137,7 @@ export default function SessionLineChart({ sessions }: Props) {
             }}
           />
           <YAxis hide domain={['dataMin-10', 'dataMax+10']} />
-          <Tooltip
-            content={<CustomTooltip />}
-            cursor={false}
-          />
+          <Tooltip content={<CustomTooltip />} cursor={false} />
           <Line
             type="natural"
             dataKey="length"

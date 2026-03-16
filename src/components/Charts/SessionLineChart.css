@@ -8,7 +8,7 @@
 }
 
 .chart-card--sessions h3 {
-  color: rgb(255 255 255 / 50%);
+  color: #fff;
   font-size: 15px;
   font-weight: 500;
   left: 34px;
@@ -35,14 +35,20 @@
 .session-tooltip {
   background: #fff;
   color: #000;
-  font-size: 10px;
-  font-weight: 500;
-  padding: 1px 7px;
+  padding: 13px 7px;
   text-align: center;
   white-space: nowrap;
 }
 
+.session-tooltip p {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+}
+
 .chart-card--sessions .recharts-text {
+  fill: #fff;
   font-weight: 500;
 }
 

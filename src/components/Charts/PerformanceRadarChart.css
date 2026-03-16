@@ -7,6 +7,12 @@
   stroke: #fff;
 }
 
+.chart-card--performance .recharts-polar-angle-axis text,
+.chart-card--performance .recharts-polar-angle-axis tspan {
+  fill: #fff !important;
+  fill-opacity: 1;
+}
+
 @media (width <= 768px) {
   .chart-card--performance .recharts-polar-angle-axis text {
     font-size: 11px;

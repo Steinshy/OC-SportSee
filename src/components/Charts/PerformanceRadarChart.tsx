@@ -27,20 +27,23 @@ type Props = {
   performance: UserPerformance;
 };
 
-function renderPolarAngleAxis({
-  payload,
-  x,
-  y,
-  cx,
-  cy,
-  ...rest
-}: {
-  payload: { value: string };
-  x: number;
-  y: number;
-  cx: number;
-  cy: number;
-}, fontSize: number) {
+function renderPolarAngleAxis(
+  {
+    payload,
+    x,
+    y,
+    cx,
+    cy,
+    ...rest
+  }: {
+    payload: { value: string };
+    x: number;
+    y: number;
+    cx: number;
+    cy: number;
+  },
+  fontSize: number
+) {
   return (
     <Text
       {...rest}
@@ -48,7 +51,9 @@ function renderPolarAngleAxis({
       y={y + (y - cy) / 10}
       x={x + (x - cx) / 100}
       fill="#FFFFFF"
+      fillOpacity={1}
       fontSize={fontSize}
+      fontWeight={500}
     >
       {payload.value}
     </Text>
@@ -103,7 +108,7 @@ export default function PerformanceRadarChart({ performance }: Props) {
             tick={(props: Record<string, unknown>) =>
               renderPolarAngleAxis(
                 props as Parameters<typeof renderPolarAngleAxis>[0],
-                axisFontSize,
+                axisFontSize
               )
             }
           />
