@@ -27,8 +27,12 @@ export default function ScoreRadialChart({ score }: Props) {
             <RadialBar dataKey="value" cornerRadius={10} />
           </RadialBarChart>
         </ResponsiveContainer>
-        <div className="score-value">{Math.round(score * 100)}%</div>
-        <div className="score-label">de votre objectif</div>
+        <div className="score-radial-chart__center">
+          <div className="score-radial-chart__value">
+            {Math.round(score * 100)}%
+          </div>
+          <div className="score-radial-chart__subtitle">de votre objectif</div>
+        </div>
       </div>
     </div>
   );

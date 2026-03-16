@@ -16,6 +16,7 @@ const router = createBrowserRouter(
       children: [
         {
           index: true,
+          loader: dashboardLoader,
           element: <Dashboard />,
         },
         {

@@ -1,39 +1,31 @@
 .chart-card--performance {
-  background-color: #282d30;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+  background: #282d30;
+  border-radius: 5px;
   padding: 20px;
 }
 
-.chart-card--performance .chart-card__header h3 {
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0 0 16px;
+.chart-card--performance .recharts-wrapper {
+  margin: 0;
 }
 
 .chart-card--performance .recharts-surface {
-  background-color: #282d30 !important;
+  background: transparent;
 }
 
-.chart-card--performance .recharts-polar-angle-axis-tick text {
+.chart-card--performance .recharts-polar-angle-axis-tick {
   fill: #fff;
   font-size: 12px;
-  font-weight: 400;
 }
 
-.chart-card--performance .recharts-polar-grid-concentric circle {
-  fill: none;
-  stroke: #404854;
+.chart-card--performance .recharts-polar-grid-concentric-polygon {
+  stroke: rgb(255 255 255 / 30%);
 }
 
-.chart-card--performance .recharts-polar-grid-angle line {
-  stroke: #404854;
+.chart-card--performance .recharts-polar-grid-radial-line {
+  stroke: rgb(255 255 255 / 30%);
 }
 
-.chart-card--performance .recharts-radar-polygon {
-  fill: #e60000;
+.chart-card--performance .recharts-radar {
+  fill: #ff0101;
   fill-opacity: 0.6;
-  stroke: #e60000;
-  stroke-width: 2;
 }

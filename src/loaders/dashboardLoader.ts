@@ -20,9 +20,9 @@ export type DashboardLoaderData = {
   performance: UserPerformance;
 };
 
-export async function dashboardLoader(
-  { params }: LoaderFunctionArgs
-): Promise<DashboardLoaderData> {
+export async function dashboardLoader({
+  params,
+}: LoaderFunctionArgs): Promise<DashboardLoaderData> {
   const userId = params.id ?? '12';
 
   const [user, activity, avgSessions, performance] = await Promise.all([

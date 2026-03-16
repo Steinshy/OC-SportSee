@@ -1,39 +1,22 @@
 .chart-card--activity {
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
-  padding: 20px;
+  background: #fbfbfb;
+  border-radius: 5px;
+  padding: 12px 20px 20px;
 }
 
-.chart-card--activity .chart-card__header h3 {
-  color: #000;
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0 0 16px;
+.chart-card--activity .recharts-wrapper {
+  margin-top: 8px;
 }
 
-.chart-card--activity .recharts-surface {
-  background-color: #fff !important;
-}
-
-.chart-card--activity .recharts-legend-wrapper {
-  padding-top: 16px !important;
-}
-
-.chart-card--activity .recharts-legend-item-text {
-  color: #000 !important;
-  font-size: 12px;
-}
-
-.chart-card--activity .recharts-cartesian-axis-tick text {
-  fill: #9b9eac;
-  font-size: 12px;
-}
-
-.chart-card--activity .recharts-tooltip-wrapper {
-  outline: none;
+.chart-card--activity .recharts-default-tooltip {
+  background: #e60000 !important;
+  border: none !important;
+  border-radius: 8px;
+  color: #fff;
+  padding: 8px 12px;
 }
 
 .chart-card--activity .recharts-tooltip-label {
-  display: none !important;
+  color: #fff;
+  font-weight: 600;
 }

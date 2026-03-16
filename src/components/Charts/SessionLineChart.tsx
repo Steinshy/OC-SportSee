@@ -39,9 +39,15 @@ export default function SessionLineChart({ sessions }: Props) {
             tick={{ fill: 'rgba(255,255,255,0.6)' }}
           />
           <Tooltip
-            contentStyle={{ background: '#fff', border: 'none', color: '#000' }}
+            contentStyle={{
+              background: 'rgba(255, 255, 255, 0.9)',
+              border: 'none',
+              borderRadius: '6px',
+              color: '#282d30',
+            }}
             labelStyle={{ display: 'none' }}
             formatter={(value) => [`${value} min`, '']}
+            cursor={{ stroke: 'rgba(0, 0, 0, 0.1)', strokeWidth: 1 }}
           />
           <Line
             type="natural"

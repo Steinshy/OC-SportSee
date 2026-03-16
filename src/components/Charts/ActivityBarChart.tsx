@@ -57,11 +57,20 @@ export default function ActivityBarChart({ sessions }: Props) {
           <YAxis yAxisId="kcal" hide />
           <Tooltip
             cursor={{ fill: 'rgba(196, 196, 196, 0.5)' }}
-            contentStyle={{ background: '#e60000', border: 'none' }}
+            contentStyle={{
+              background: '#e60000',
+              border: 'none',
+              borderRadius: '8px',
+              padding: '8px 12px',
+            }}
             labelStyle={{ display: 'none' }}
-            formatter={(value, name) =>
-              name === 'kg' ? [`${value}kg`, ''] : [`${value}kCal`, '']
-            }
+            formatter={(value, name) => {
+              if (name === 'kg') return [`${value}kg`, 'Poids (kg)'];
+              if (name === 'kcal')
+                return [`${value}kCal`, 'Calories brûlées (kCal)'];
+              return [value, ''];
+            }}
+            separator=" / "
           />
           <Legend
             verticalAlign="top"
@@ -69,7 +78,7 @@ export default function ActivityBarChart({ sessions }: Props) {
             iconType="circle"
             iconSize={8}
             formatter={(value) =>
-              value === 'kg' ? 'Poids (kg)' : 'Calories brulees (kCal)'
+              value === 'kg' ? 'Poids (kg)' : 'Calories brûlées (kCal)'
             }
           />
           <Bar
@@ -82,7 +91,7 @@ export default function ActivityBarChart({ sessions }: Props) {
           <Bar
             yAxisId="kcal"
             dataKey="kcal"
-            fill="#e60000"
+            fill="#ff0101"
             radius={[4, 4, 0, 0]}
             barSize={7}
           />
