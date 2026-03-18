@@ -46,7 +46,7 @@ function CustomTooltip({
 }
 
 export default function SessionLineChart({ sessions }: Props) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeX, setActiveX] = useState<number | null>(null);
 
   const data = sessions.map((session) => ({
     day: DAY_LABELS[session.day],
@@ -54,16 +54,14 @@ export default function SessionLineChart({ sessions }: Props) {
   }));
 
   const handleMouseMove = useCallback((state: Record<string, unknown>) => {
-    if (
-      state?.activeTooltipIndex !== undefined &&
-      typeof state.activeTooltipIndex === 'number'
-    ) {
-      setActiveIndex(state.activeTooltipIndex);
+    const coord = state?.activeCoordinate as { x?: number } | undefined;
+    if (coord?.x !== undefined) {
+      setActiveX(coord.x);
     }
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setActiveIndex(null);
+    setActiveX(null);
   }, []);
 
   return (
@@ -73,18 +71,16 @@ export default function SessionLineChart({ sessions }: Props) {
         <br />
         sessions
       </h3>
-      {activeIndex !== null && (
+      {activeX !== null && (
         <div
           className="session-overlay"
-          style={{
-            width: `${100 - (activeIndex / (data.length - 1)) * 100}%`,
-          }}
+          style={{ left: `${activeX}px`, width: `calc(100% - ${activeX}px)` }}
         />
       )}
       <ResponsiveContainer width="100%" height="100%" className="session-chart">
         <LineChart
           data={data}
-          margin={{ top: 58, right: 10, left: 6, bottom: 14 }}
+          margin={{ top: 80, right: 0, left: 0, bottom: 20 }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
@@ -105,11 +101,8 @@ export default function SessionLineChart({ sessions }: Props) {
               fill: '#fff',
               fontSize: 12,
             }}
-            tickMargin={10}
-            padding={{
-              left: 10,
-              right: 10,
-            }}
+            tickMargin={5}
+            padding={{ left: 12, right: 12 }}
           />
           <YAxis hide domain={['dataMin-10', 'dataMax+10']} />
           <Tooltip content={<CustomTooltip />} cursor={false} />

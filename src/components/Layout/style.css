@@ -11,12 +11,21 @@
 }
 
 .navbar__brand {
+  align-items: center;
   display: flex;
   flex-shrink: 0;
+  gap: 12px;
   left: 28px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.navbar__brand-name {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .navbar__brand img {
@@ -39,7 +48,6 @@
 }
 
 .navbar__logo {
-  background-color: red;
   height: 60px;
 }
 
@@ -175,9 +183,11 @@
 
   .navbar__brand img,
   .navbar__logo {
-    display: block;
-    height: 42px;
-    margin: 0 auto;
+    display: none;
+  }
+
+  .navbar__brand-name {
+    font-size: 20px;
   }
 
   .navbar__links {

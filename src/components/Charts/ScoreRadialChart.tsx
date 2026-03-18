@@ -23,10 +23,10 @@ export default function ScoreRadialChart({ score }: Props) {
           data={[{ score: percentage }]}
           cx="50%"
           cy="50%"
-          innerRadius="70%"
-          outerRadius="80%"
-          startAngle={210}
-          endAngle={-50}
+          innerRadius="65%"
+          outerRadius="85%"
+          startAngle={90}
+          endAngle={90 + 360}
           barSize={10}
         >
           <PolarAngleAxis
@@ -40,7 +40,6 @@ export default function ScoreRadialChart({ score }: Props) {
             cornerRadius={100}
             fill="#e60000"
             angleAxisId={0}
-            background
           />
         </RadialBarChart>
       </ResponsiveContainer>

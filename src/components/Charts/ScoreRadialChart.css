@@ -21,13 +21,21 @@
 
 /* Center text overlay */
 .score-radial-chart__center {
-  position: absolute;
-  top: 50%;
+  align-items: center;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 55%;
+  justify-content: center;
   left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 1;
   pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  z-index: 1;
 }
 
 .score-radial-chart__value {

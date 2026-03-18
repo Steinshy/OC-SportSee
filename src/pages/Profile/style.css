@@ -1,4 +1,6 @@
 .dashboard {
+  margin: 0 auto;
+  max-width: 1350px;
   padding: 44px 90px 24px;
 }
 

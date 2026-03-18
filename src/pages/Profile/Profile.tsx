@@ -56,7 +56,7 @@ export default function Profile() {
         <h1>
           Bonjour <span>{user.userInfos.firstName}</span>
         </h1>
-        <p>Felicitations ! Vous avez explose vos objectifs hier 👏</p>
+        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </header>
 
       <section className="dashboard-grid">

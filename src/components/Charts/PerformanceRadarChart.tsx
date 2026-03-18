@@ -61,7 +61,7 @@ function renderPolarAngleAxis(
 
 export default function PerformanceRadarChart({ performance }: Props) {
   const axisFontSize = 12;
-  const outerRadius = 90;
+  const outerRadius = '65%';
 
   const data = [...performance.data].reverse().map((entry) => {
     const categoryKey = entry.type as keyof typeof performance.categories;
@@ -77,7 +77,6 @@ export default function PerformanceRadarChart({ performance }: Props) {
 
   return (
     <div className="chart-card chart-card--performance">
-      <h3 className="performance-radar-chart__title">Performance</h3>
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={data} outerRadius={outerRadius}>
           <PolarGrid radialLines={false} />

@@ -130,7 +130,7 @@ export default function ActivityBarChart({ sessions }: Props) {
               return;
             }
           }}
-          margin={{ top: 18, right: 20, left: 20, bottom: 12 }}
+          margin={{ top: 18, right: 20, left: 20, bottom: 30 }}
         >
           <CartesianGrid
             strokeDasharray="3"
@@ -167,6 +167,27 @@ export default function ActivityBarChart({ sessions }: Props) {
             iconType="circle"
             iconSize={10}
             height={44}
+            content={() => (
+              <ul className="activity-legend">
+                <li>
+                  <svg width="10" height="10">
+                    <circle cx="5" cy="5" r="5" fill={CHART_COLORS.barWeight} />
+                  </svg>
+                  Poids (kg)
+                </li>
+                <li>
+                  <svg width="10" height="10">
+                    <circle
+                      cx="5"
+                      cy="5"
+                      r="5"
+                      fill={CHART_COLORS.barCalories}
+                    />
+                  </svg>
+                  Calories brûlées (kCal)
+                </li>
+              </ul>
+            )}
           />
           <Bar
             name="Poids (kg)"
@@ -182,6 +203,7 @@ export default function ActivityBarChart({ sessions }: Props) {
             fill={CHART_COLORS.barCalories}
             radius={[3, 3, 0, 0]}
           />
+
         </BarChart>
       </ResponsiveContainer>
     </div>
