@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import {
   Line,
@@ -11,6 +11,7 @@ import {
 
 import type { AverageSession } from '@/types/user';
 
+import './charts.css';
 import './SessionLineChart.css';
 
 const DAY_LABELS: Record<number, string> = {
@@ -46,27 +47,6 @@ function CustomTooltip({
 
 export default function SessionLineChart({ sessions }: Props) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [screenWidth, setScreenWidth] = useState(() => {
-    if (typeof window === 'undefined') {
-      return 1024;
-    }
-    return window.innerWidth;
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const isMobileScreen = screenWidth <= 768;
 
   const data = sessions.map((session) => ({
     day: DAY_LABELS[session.day],
@@ -87,8 +67,8 @@ export default function SessionLineChart({ sessions }: Props) {
   }, []);
 
   return (
-    <div className="chart-card chart-card--sessions">
-      <h3>
+    <div className="chart-card chart-card--session">
+      <h3 className="session-line-chart__title">
         Durée moyenne des
         <br />
         sessions
@@ -104,12 +84,7 @@ export default function SessionLineChart({ sessions }: Props) {
       <ResponsiveContainer width="100%" height="100%" className="session-chart">
         <LineChart
           data={data}
-          margin={{
-            top: isMobileScreen ? 44 : 58,
-            right: isMobileScreen ? 6 : 10,
-            left: isMobileScreen ? 2 : 6,
-            bottom: isMobileScreen ? 10 : 14,
-          }}
+          margin={{ top: 58, right: 10, left: 6, bottom: 14 }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
@@ -128,12 +103,12 @@ export default function SessionLineChart({ sessions }: Props) {
             tickLine={false}
             tick={{
               fill: '#fff',
-              fontSize: isMobileScreen ? 11 : 12,
+              fontSize: 12,
             }}
-            tickMargin={isMobileScreen ? 6 : 10}
+            tickMargin={10}
             padding={{
-              left: isMobileScreen ? 6 : 10,
-              right: isMobileScreen ? 6 : 10,
+              left: 10,
+              right: 10,
             }}
           />
           <YAxis hide domain={['dataMin-10', 'dataMax+10']} />
@@ -146,7 +121,7 @@ export default function SessionLineChart({ sessions }: Props) {
             dot={false}
             activeDot={{
               r: 4,
-              strokeWidth: isMobileScreen ? 6 : 8,
+              strokeWidth: 8,
               stroke: 'rgba(255,255,255,0.2)',
               fill: '#fff',
             }}

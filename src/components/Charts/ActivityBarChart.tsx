@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 import {
   Bar,
@@ -12,11 +12,13 @@ import {
   YAxis,
 } from './index';
 
+import { CHART_COLORS, CHART_VALUES } from '@/constants/chartConstants';
 import type { ActivitySession } from '@/types/user';
 
+import './charts.css';
 import './ActivityBarChart.css';
 
-const MIN_DISPLAY_POINTS = 7;
+const MIN_DISPLAY_POINTS = CHART_VALUES.minDisplayPoints;
 
 type Props = {
   sessions: ActivitySession[];
@@ -59,7 +61,7 @@ function HoverCursor({
   y,
   width,
   height,
-  scale = 0.72,
+  scale = CHART_VALUES.cursorScale,
 }: {
   x?: number;
   y?: number;
@@ -73,7 +75,7 @@ function HoverCursor({
 
   return (
     <Rectangle
-      fill="#c4c4c4"
+      fill={CHART_COLORS.cursor}
       fillOpacity={0.5}
       height={height ?? 0}
       width={cursorWidth}
@@ -84,31 +86,6 @@ function HoverCursor({
 }
 
 export default function ActivityBarChart({ sessions }: Props) {
-  const [screenWidth, setScreenWidth] = useState(() => {
-    if (typeof window === 'undefined') {
-      return 1024;
-    }
-    return window.innerWidth;
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const isMobileScreen = screenWidth <= 768;
-  const isExtraSmallScreen = screenWidth <= 420;
-  const [tooltipPosition, setTooltipPosition] = useState<
-    { x: number; y: number } | undefined
-  >(undefined);
-
   const chartData = useMemo<ChartDataPoint[]>(() => {
     const points: ChartDataPoint[] = sessions.map((s) => ({
       day: s.day,
@@ -146,41 +123,27 @@ export default function ActivityBarChart({ sessions }: Props) {
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={chartData}
-          barGap={8}
-          barSize={isExtraSmallScreen ? 5 : isMobileScreen ? 6 : 7}
+          barGap={CHART_VALUES.barGapDefault}
+          barSize={7}
           onMouseMove={(state) => {
             if (!state.isTooltipActive || !state.activeCoordinate) {
               return;
             }
-
-            setTooltipPosition({
-              x: state.activeCoordinate.x + (isMobileScreen ? 10 : 50),
-              y: isMobileScreen ? 18 : 24,
-            });
           }}
-          onMouseLeave={() => {
-            setTooltipPosition(undefined);
-          }}
-          margin={
-            isExtraSmallScreen
-              ? { top: 18, right: 0, left: 0, bottom: 4 }
-              : isMobileScreen
-                ? { top: 18, right: 8, left: 8, bottom: 8 }
-                : { top: 18, right: 20, left: 20, bottom: 12 }
-          }
+          margin={{ top: 18, right: 20, left: 20, bottom: 12 }}
         >
           <CartesianGrid
             strokeDasharray="3"
             vertical={false}
-            stroke="#dedede"
+            stroke={CHART_COLORS.strokeGrid}
           />
           <XAxis
             dataKey="day"
             tickLine={false}
-            stroke="#dedede"
+            stroke={CHART_COLORS.strokeGrid}
             strokeWidth={2}
-            tick={{ fill: '#9b9eac', fontSize: isMobileScreen ? 12 : 14 }}
-            tickMargin={isMobileScreen ? 6 : 16}
+            tick={{ fill: CHART_COLORS.tickText, fontSize: 14 }}
+            tickMargin={16}
             tickFormatter={(_day: string, index: number) => String(index + 1)}
           />
           <YAxis
@@ -190,36 +153,33 @@ export default function ActivityBarChart({ sessions }: Props) {
             ticks={kgAxis.ticks}
             tickLine={false}
             axisLine={false}
-            tick={{ fill: '#9b9eac', fontSize: isMobileScreen ? 12 : 14 }}
-            tickMargin={isExtraSmallScreen ? 0 : isMobileScreen ? 6 : 30}
+            tick={{ fill: CHART_COLORS.tickText, fontSize: 14 }}
+            tickMargin={30}
           />
           <YAxis yAxisId="calories" hide />
           <Tooltip
             content={<CustomTooltip />}
-            cursor={<HoverCursor scale={isMobileScreen ? 0.64 : 0.72} />}
-            position={tooltipPosition}
+            cursor={<HoverCursor />}
           />
-          {!isMobileScreen && (
-            <Legend
-              verticalAlign="top"
-              align="right"
-              iconType="circle"
-              iconSize={10}
-              height={44}
-            />
-          )}
+          <Legend
+            verticalAlign="top"
+            align="right"
+            iconType="circle"
+            iconSize={10}
+            height={44}
+          />
           <Bar
             name="Poids (kg)"
             yAxisId="kilogram"
             dataKey="kilogram"
-            fill="#282d30"
+            fill={CHART_COLORS.barWeight}
             radius={[3, 3, 0, 0]}
           />
           <Bar
             name="Calories brûlées (kCal)"
             yAxisId="calories"
             dataKey="calories"
-            fill="#e60000"
+            fill={CHART_COLORS.barCalories}
             radius={[3, 3, 0, 0]}
           />
         </BarChart>

@@ -1,6 +1,14 @@
+/* Performance Radar Chart Styles */
+
 .chart-card--performance {
   background: #282d30;
-  border-radius: 5px;
+}
+
+.performance-radar-chart__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .chart-card--performance .recharts-polar-grid-concentric-polygon {
@@ -13,13 +21,23 @@
   fill-opacity: 1;
 }
 
-@media (width <= 768px) {
+/* Mobile: 768px and below */
+@media (max-width: 768px) {
+  .chart-card--performance {
+    padding: 15px;
+  }
+
   .chart-card--performance .recharts-polar-angle-axis text {
     font-size: 11px;
   }
 }
 
-@media (width <= 420px) {
+/* Extra small: 420px and below */
+@media (max-width: 420px) {
+  .chart-card--performance {
+    padding: 10px;
+  }
+
   .chart-card--performance .recharts-polar-angle-axis text {
     font-size: 10px;
   }

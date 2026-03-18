@@ -1,77 +1,68 @@
-.chart-card--sessions {
+/* Session Line Chart Styles */
+
+.session-line-chart__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* Desktop: default styling */
+.chart-card--session {
   background: #f00;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
   position: relative;
 }
 
-.chart-card--sessions h3 {
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  left: 34px;
-  line-height: 24px;
-  max-width: 150px;
-  position: absolute;
-  top: 29px;
-  z-index: 2;
+/* Mobile: 768px and below */
+@media (max-width: 768px) {
+  .chart-card--session {
+    padding: 15px;
+  }
+
+  .session-line-chart__title {
+    font-size: 14px;
+  }
 }
 
-.session-chart {
-  margin: 0;
+/* Extra small: 420px and below */
+@media (max-width: 420px) {
+  .chart-card--session {
+    padding: 10px;
+  }
+
+  .session-line-chart__title {
+    font-size: 12px;
+  }
 }
 
-.session-overlay {
-  background: rgb(0 0 0 / 10%);
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-}
-
+/* Custom tooltip */
 .session-tooltip {
-  background: #fff;
-  color: #000;
-  padding: 13px 7px;
-  text-align: center;
-  white-space: nowrap;
+  background: white;
+  border-radius: 5px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .session-tooltip p {
-  font-size: 10px;
-  font-weight: 500;
-  line-height: 1;
   margin: 0;
+  font-size: 12px;
+  color: #9b9eac;
+  line-height: 1.4;
 }
 
-.chart-card--sessions .recharts-text {
-  fill: #fff;
-  font-weight: 500;
+/* Session overlay for interactivity */
+.session-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  transition: width 0.2s ease;
+  pointer-events: none;
 }
 
-@media (width <= 900px) {
-  .chart-card--sessions h3 {
-    font-size: 14px;
-    left: 20px;
-    top: 20px;
-  }
-}
-
-@media (width <= 768px) {
-  .chart-card--sessions h3 {
-    font-size: 13px;
-    left: 14px;
-    line-height: 20px;
-    top: 14px;
-  }
-}
-
-@media (width <= 420px) {
-  .chart-card--sessions h3 {
-    left: 10px;
-    top: 10px;
-  }
+.session-chart {
+  position: relative;
 }

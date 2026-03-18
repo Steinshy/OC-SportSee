@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -12,6 +10,7 @@ import {
 
 import type { UserPerformance } from '@/types/user';
 
+import './charts.css';
 import './PerformanceRadarChart.css';
 
 const LABELS: Record<string, string> = {
@@ -61,30 +60,8 @@ function renderPolarAngleAxis(
 }
 
 export default function PerformanceRadarChart({ performance }: Props) {
-  const [screenWidth, setScreenWidth] = useState(() => {
-    if (typeof window === 'undefined') {
-      return 1024;
-    }
-    return window.innerWidth;
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const isMobileScreen = screenWidth <= 768;
-  const isExtraSmallScreen = screenWidth <= 420;
-  const axisFontSize = isExtraSmallScreen ? 10 : isMobileScreen ? 11 : 12;
-  const outerRadius = isExtraSmallScreen ? 62 : isMobileScreen ? 78 : 90;
+  const axisFontSize = 12;
+  const outerRadius = 90;
 
   const data = [...performance.data].reverse().map((entry) => {
     const categoryKey = entry.type as keyof typeof performance.categories;
@@ -100,6 +77,7 @@ export default function PerformanceRadarChart({ performance }: Props) {
 
   return (
     <div className="chart-card chart-card--performance">
+      <h3 className="performance-radar-chart__title">Performance</h3>
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={data} outerRadius={outerRadius}>
           <PolarGrid radialLines={false} />
