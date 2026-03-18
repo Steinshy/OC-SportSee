@@ -47,7 +47,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .activity-chart__title,
   .score-radial-chart__title,
   .performance-radar-chart__title,
@@ -56,7 +56,7 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (width <= 420px) {
   .activity-chart__title,
   .score-radial-chart__title,
   .performance-radar-chart__title,

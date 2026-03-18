@@ -22,13 +22,18 @@
   z-index: 1;
 }
 
-@media (max-width: 768px) {
+/* Mobile: 768px and below */
+@media (width <= 768px) {
+  .chart-card--session {
+    padding: 15px;
+  }
+
   .session-line-chart__title {
     font-size: 14px;
   }
 }
 
-@media (max-width: 420px) {
+@media (width <= 420px) {
   .session-line-chart__title {
     font-size: 12px;
   }

@@ -56,6 +56,7 @@ function CustomTooltip({
   );
 }
 
+
 function HoverCursor({
   x,
   y,
@@ -164,8 +165,6 @@ export default function ActivityBarChart({ sessions }: Props) {
           <Legend
             verticalAlign="top"
             align="right"
-            iconType="circle"
-            iconSize={10}
             height={44}
             content={() => (
               <ul className="activity-legend">

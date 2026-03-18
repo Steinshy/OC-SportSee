@@ -7,19 +7,15 @@
   margin-bottom: 20px;
 }
 
-
-.chart-card--activity {
-}
-
 /* Mobile: 768px and below */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .chart-card--activity {
     padding: 15px;
   }
 }
 
 /* Extra small: 420px and below */
-@media (max-width: 420px) {
+@media (width <= 420px) {
   .chart-card--activity {
     padding: 10px;
     min-height: 250px;

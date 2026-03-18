@@ -20,10 +20,12 @@ export type ProfileLoaderData = {
   performance: UserPerformance;
 };
 
+const DEFAULT_USER_ID = '18';
+
 export async function profileLoader({
   params,
 }: LoaderFunctionArgs): Promise<ProfileLoaderData> {
-  const userId = params.id ?? '18';
+  const userId = params.id ?? DEFAULT_USER_ID;
 
   const [user, activity, avgSessions, performance] = await Promise.all([
     getUser(userId),

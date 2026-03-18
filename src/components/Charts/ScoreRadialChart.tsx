@@ -4,6 +4,7 @@ import {
   RadialBarChart,
   ResponsiveContainer,
 } from './index';
+import { CHART_COLORS } from '@/constants/chartConstants';
 
 import './charts.css';
 import './ScoreRadialChart.css';
@@ -38,7 +39,7 @@ export default function ScoreRadialChart({ score }: Props) {
           <RadialBar
             dataKey="score"
             cornerRadius={100}
-            fill="#e60000"
+            fill={CHART_COLORS.barCalories}
             angleAxisId={0}
           />
         </RadialBarChart>

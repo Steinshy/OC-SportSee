@@ -4,10 +4,6 @@
   padding: 44px 90px 24px;
 }
 
-.dashboard--error {
-  color: #e60000;
-}
-
 .dashboard-header h1 {
   color: #282d30;
   font-size: 48px;

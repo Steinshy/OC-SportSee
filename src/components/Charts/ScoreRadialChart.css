@@ -55,13 +55,13 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .score-radial-chart__value {
     font-size: 24px;
   }
 }
 
-@media (max-width: 420px) {
+@media (width <= 420px) {
   .score-radial-chart__value {
     font-size: 20px;
   }
