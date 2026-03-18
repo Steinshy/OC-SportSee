@@ -1,0 +1,66 @@
+/* ============================================
+   SHARED CHART STYLES & DESIGN TOKENS
+   ============================================ */
+
+:root {
+  /* Chart colors */
+  --chart-color-bar-weight: #282d30;
+  --chart-color-bar-calories: #e60000;
+  --chart-stroke-grid: #dedede;
+  --chart-tick-text: #9b9eac;
+  --chart-cursor: #c4c4c4;
+  --breakpoint-mobile: 768px;
+  --breakpoint-extra-small: 420px;
+}
+
+/* Base chart card styles */
+.chart-card {
+  background: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+}
+
+/* Chart-specific card variants */
+.chart-card--activity {
+  grid-column: 1 / -1;
+  min-height: 300px;
+}
+
+.chart-card--score,
+.chart-card--performance,
+.chart-card--session {
+  min-height: 250px;
+}
+
+
+.activity-chart__title,
+.score-radial-chart__title,
+.performance-radar-chart__title,
+.session-line-chart__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #20293a;
+  margin-bottom: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .activity-chart__title,
+  .score-radial-chart__title,
+  .performance-radar-chart__title,
+  .session-line-chart__title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .activity-chart__title,
+  .score-radial-chart__title,
+  .performance-radar-chart__title,
+  .session-line-chart__title {
+    font-size: 12px;
+  }
+}

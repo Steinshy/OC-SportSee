@@ -1,22 +1,61 @@
+/* Activity Bar Chart Styles */
+
+.activity-chart__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #20293a;
+  margin-bottom: 20px;
+}
+
+
 .chart-card--activity {
-  background: #fbfbfb;
-  border-radius: 5px;
-  padding: 12px 20px 20px;
 }
 
-.chart-card--activity .recharts-wrapper {
-  margin-top: 8px;
+/* Mobile: 768px and below */
+@media (max-width: 768px) {
+  .chart-card--activity {
+    padding: 15px;
+  }
 }
 
-.chart-card--activity .recharts-default-tooltip {
-  background: #e60000 !important;
-  border: none !important;
-  border-radius: 8px;
+/* Extra small: 420px and below */
+@media (max-width: 420px) {
+  .chart-card--activity {
+    padding: 10px;
+    min-height: 250px;
+  }
+}
+
+/* Custom legend */
+.activity-legend {
+  display: flex;
+  gap: 32px;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.activity-legend li {
+  align-items: center;
+  color: #74798c;
+  display: flex;
+  font-size: 14px;
+  gap: 10px;
+}
+
+/* Custom tooltip styles */
+.activity-tooltip {
+  background: #e60000;
   color: #fff;
-  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 4px 7px;
+  text-align: center;
 }
 
-.chart-card--activity .recharts-tooltip-label {
-  color: #fff;
-  font-weight: 600;
+.activity-tooltip p {
+  margin: 0;
+  line-height: 24px;
 }

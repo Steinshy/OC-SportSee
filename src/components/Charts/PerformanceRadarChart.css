@@ -1,31 +1,49 @@
+/* Performance Radar Chart Styles */
+
 .chart-card--performance {
   background: #282d30;
-  border-radius: 5px;
-  padding: 20px;
+  position: relative;
 }
 
-.chart-card--performance .recharts-wrapper {
-  margin: 0;
-}
-
-.chart-card--performance .recharts-surface {
-  background: transparent;
-}
-
-.chart-card--performance .recharts-polar-angle-axis-tick {
-  fill: #fff;
-  font-size: 12px;
+.chart-card--performance .performance-radar-chart__title {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  left: 20px;
+  margin-bottom: 0;
+  position: absolute;
+  top: 20px;
+  z-index: 1;
 }
 
 .chart-card--performance .recharts-polar-grid-concentric-polygon {
-  stroke: rgb(255 255 255 / 30%);
+  stroke: #fff;
 }
 
-.chart-card--performance .recharts-polar-grid-radial-line {
-  stroke: rgb(255 255 255 / 30%);
+.chart-card--performance .recharts-polar-angle-axis text,
+.chart-card--performance .recharts-polar-angle-axis tspan {
+  fill: #fff !important;
+  fill-opacity: 1;
 }
 
-.chart-card--performance .recharts-radar {
-  fill: #ff0101;
-  fill-opacity: 0.6;
+/* Mobile: 768px and below */
+@media (max-width: 768px) {
+  .chart-card--performance {
+    padding: 15px;
+  }
+
+  .chart-card--performance .recharts-polar-angle-axis text {
+    font-size: 11px;
+  }
+}
+
+/* Extra small: 420px and below */
+@media (max-width: 420px) {
+  .chart-card--performance {
+    padding: 10px;
+  }
+
+  .chart-card--performance .recharts-polar-angle-axis text {
+    font-size: 10px;
+  }
 }
