@@ -1,16 +1,17 @@
 # SportSee — User Profile Dashboard
-
-A modern React-based dashboard for displaying user fitness and activity data with interactive charts built with Recharts.
+**Languages:** [English](README.md) | [Français](README.fr.md) 
 
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![Node.js](https://img.shields.io/badge/Node.js-16+-339933?style=flat-square&logo=node.js)](https://nodejs.org)
 [![Vite](https://img.shields.io/badge/Vite-5.0+-646CFF?style=flat-square&logo=vite)](https://vitejs.dev)
 [![Recharts](https://img.shields.io/badge/Recharts-2.0+-8884D8?style=flat-square)](https://recharts.org)
+[![Mockup](https://img.shields.io/badge/Mockup-public%2Fmockup-FF6B6B?style=flat-square&logo=figma&logoColor=white)](./public/mockup)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)](https://github.com)
+![Sportsee responsive mockup](public/mockup/mockup.png)
 
-🇬🇧 **English** | 🇫🇷 [**Français**](./README.md)
+A modern React-based dashboard for displaying user fitness and activity data with interactive charts built with Recharts.
 
 ## 📋 Overview
 

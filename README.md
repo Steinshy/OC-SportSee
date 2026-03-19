@@ -1,6 +1,6 @@
 # SportSee — Tableau de Bord du Profil Utilisateur
 
-Un tableau de bord moderne basé sur React pour afficher les données de fitness et d'activité des utilisateurs avec des graphiques interactifs construits avec Recharts.
+**Languages:** [Français](README.fr.md) | [English](README.md)
 
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
@@ -9,8 +9,9 @@ Un tableau de bord moderne basé sur React pour afficher les données de fitness
 [![Recharts](https://img.shields.io/badge/Recharts-2.0+-8884D8?style=flat-square)](https://recharts.org)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)](https://github.com)
+![Sportsee responsive mockup](public/mockup/mockup.png)
 
-🇬🇧 [**English**](./README.en.md) | 🇫🇷 **Français**
+Un tableau de bord moderne basé sur React pour afficher les données de fitness et d'activité des utilisateurs avec des graphiques interactifs construits avec Recharts.
 
 ## 📋 Présentation
 
