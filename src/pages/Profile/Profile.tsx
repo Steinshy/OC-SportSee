@@ -1,14 +1,21 @@
-import { useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { useLoaderData } from 'react-router';
 
-import {
-  ActivityBarChart,
-  PerformanceRadarChart,
-  ScoreRadialChart,
-  SessionLineChart,
-} from '@/components/Charts';
 import MetricCard from '@/components/MetricCard';
 import type { ProfileLoaderData } from '@/loaders/profileLoader';
+
+const ActivityBarChart = lazy(
+  () => import('@/components/Charts/ActivityBarChart')
+);
+const PerformanceRadarChart = lazy(
+  () => import('@/components/Charts/PerformanceRadarChart')
+);
+const ScoreRadialChart = lazy(
+  () => import('@/components/Charts/ScoreRadialChart')
+);
+const SessionLineChart = lazy(
+  () => import('@/components/Charts/SessionLineChart')
+);
 
 import './style.css';
 
@@ -62,11 +69,21 @@ export default function Profile() {
 
       <section className="dashboard-grid">
         <div className="dashboard-grid__charts">
-          <ActivityBarChart sessions={activity.sessions} />
+          <Suspense
+            fallback={<div className="chart-skeleton chart-card--activity" />}
+          >
+            <ActivityBarChart sessions={activity.sessions} />
+          </Suspense>
           <div className="dashboard-grid__bottom">
-            <SessionLineChart sessions={avgSessions.sessions} />
-            <PerformanceRadarChart performance={performance} />
-            <ScoreRadialChart score={user.score} />
+            <Suspense fallback={<div className="chart-skeleton chart-card" />}>
+              <SessionLineChart sessions={avgSessions.sessions} />
+            </Suspense>
+            <Suspense fallback={<div className="chart-skeleton chart-card" />}>
+              <PerformanceRadarChart performance={performance} />
+            </Suspense>
+            <Suspense fallback={<div className="chart-skeleton chart-card" />}>
+              <ScoreRadialChart score={user.score} />
+            </Suspense>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 /* Session Line Chart Styles */
 
 .chart-card--session {
-  background: linear-gradient(to right, #e60000, #ff0000);
+  background: linear-gradient(to right, #e60000, #f00);
   background-color: #e60000;
   overflow: hidden;
   padding: 0;
@@ -9,10 +9,10 @@
 }
 
 .session-line-chart__title {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: white;
   font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-weight: 500;
   left: 20px;
   line-height: 1.5;
@@ -43,7 +43,7 @@
 .session-tooltip {
   background: white;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
   padding: 8px 12px;
 }
 
@@ -56,7 +56,7 @@
 
 /* Session overlay for interactivity */
 .session-overlay {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgb(0 0 0 / 10%);
   height: 100%;
   pointer-events: none;
   position: absolute;

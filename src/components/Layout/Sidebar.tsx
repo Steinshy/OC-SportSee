@@ -8,7 +8,12 @@ export default function Sidebar() {
     <aside className="sidebar" aria-label="Sport navigation">
       <div className="sidebar__icons">
         {icons.map((icon) => (
-          <button key={icon} type="button" className="sidebar__icon-btn" aria-label={icon}>
+          <button
+            key={icon}
+            type="button"
+            className="sidebar__icon-btn"
+            aria-label={icon}
+          >
             <img src={`${baseUrl}assets/${icon}.svg`} alt="" />
           </button>
         ))}

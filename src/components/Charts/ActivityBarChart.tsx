@@ -56,7 +56,6 @@ function CustomTooltip({
   );
 }
 
-
 function HoverCursor({
   x,
   y,
@@ -121,7 +120,12 @@ export default function ActivityBarChart({ sessions }: Props) {
   return (
     <div className="chart-card chart-card--activity">
       <h3 className="activity-chart__title">Activité quotidienne</h3>
-      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+      <ResponsiveContainer
+        width="100%"
+        height="100%"
+        minWidth={0}
+        minHeight={0}
+      >
         <BarChart
           data={chartData}
           barGap={CHART_VALUES.barGapDefault}
@@ -158,10 +162,7 @@ export default function ActivityBarChart({ sessions }: Props) {
             tickMargin={30}
           />
           <YAxis yAxisId="calories" hide />
-          <Tooltip
-            content={<CustomTooltip />}
-            cursor={<HoverCursor />}
-          />
+          <Tooltip content={<CustomTooltip />} cursor={<HoverCursor />} />
           <Legend
             verticalAlign="top"
             align="right"
@@ -202,7 +203,6 @@ export default function ActivityBarChart({ sessions }: Props) {
             fill={CHART_COLORS.barCalories}
             radius={[3, 3, 0, 0]}
           />
-
         </BarChart>
       </ResponsiveContainer>
     </div>

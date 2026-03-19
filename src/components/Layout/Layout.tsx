@@ -9,7 +9,11 @@ export default function Layout() {
     <div className="app">
       <div className="navbar">
         <div className="navbar__brand">
-          <img className="navbar__logo" src="/logo.svg" alt="SportSee" />
+          <img
+            className="navbar__logo"
+            src={`${import.meta.env.BASE_URL}logo.svg`}
+            alt="SportSee"
+          />
           <span className="navbar__brand-name">SportSee</span>
         </div>
         <nav className="navbar__links" aria-label="Navigation principale">

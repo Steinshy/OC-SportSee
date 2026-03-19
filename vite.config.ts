@@ -3,28 +3,54 @@ import react from '@vitejs/plugin-react';
 import checker from 'vite-plugin-checker';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { VitePWA } from 'vite-plugin-pwa';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 export default defineConfig(({ mode }) => {
   const basePath = process.env.VITE_BASE_PATH || '/';
   const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`;
   const vitePWA = VitePWA({
     registerType: 'autoUpdate',
-    includeAssets: ['logo.svg'],
+    includeAssets: ['logo.svg', 'assets/**/*'],
     manifest: {
       name: 'SportSee — Fitness Dashboard',
       short_name: 'SportSee',
       description: 'Modern fitness tracking dashboard with interactive charts and performance analytics',
-      theme_color: '#ffffff',
+      categories: ['health', 'productivity'],
+      theme_color: '#282d30',
       background_color: '#ffffff',
       display: 'standalone',
+      orientation: 'portrait-primary',
       scope: normalizedBasePath,
       start_url: normalizedBasePath,
+      screenshots: [
+        {
+          src: `${normalizedBasePath}logo.svg`,
+          sizes: '192x192',
+          type: 'image/svg+xml',
+          form_factor: 'narrow',
+        },
+      ],
       icons: [
         {
           src: `${normalizedBasePath}logo.svg`,
           sizes: 'any',
           type: 'image/svg+xml',
-          purpose: 'any',
+          purpose: 'any maskable',
+        },
+      ],
+      shortcuts: [
+        {
+          name: 'View Profile',
+          short_name: 'Profile',
+          description: 'View your fitness profile and stats',
+          url: `${normalizedBasePath}profile/12`,
+          icons: [
+            {
+              src: `${normalizedBasePath}logo.svg`,
+              sizes: '192x192',
+              type: 'image/svg+xml',
+            },
+          ],
         },
       ],
     },
@@ -85,7 +111,7 @@ export default defineConfig(({ mode }) => {
           },
         },
         {
-          urlPattern: /^https:\/\/.*\.json$/,
+          urlPattern: /^https:\/\/.*\/api\/.*/i,
           handler: 'NetworkFirst',
           options: {
             cacheName: 'api-cache',
@@ -103,7 +129,7 @@ export default defineConfig(({ mode }) => {
 
   // Common Build Options
   const buildOptions = {
-    target: 'es2020',
+    target: 'esnext',
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: mode === 'production' ? false : true,
@@ -119,10 +145,11 @@ export default defineConfig(({ mode }) => {
     rollupOptions: {
       output: {
         manualChunks: {
-          // Split vendors
+          // Split vendors - optimize chunk strategy
           'vendor-react': ['react', 'react-dom', 'react-router'],
           'vendor-charts': ['recharts'],
           'vendor-utils': ['axios'],
+          'vendor-ui': ['lucide-react'],
         },
       },
     },
@@ -150,7 +177,13 @@ export default defineConfig(({ mode }) => {
       tsconfigPaths(),
       react(),
       vitePWA,
-    ],
+      mode === 'production' && visualizer({
+        open: true,
+        gzipSize: true,
+        brotliSize: true,
+        filename: 'dist/stats.html',
+      }),
+    ].filter(Boolean),
     base: basePath,
     publicDir: './public',
     build: buildOptions,

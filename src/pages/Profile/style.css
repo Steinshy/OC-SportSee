@@ -82,6 +82,18 @@
   background: rgb(253 81 129 / 10%);
 }
 
+.chart-skeleton {
+  animation: shimmer 1.5s infinite;
+  background: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 5%) 0%,
+    rgb(0 0 0 / 10%) 50%,
+    rgb(0 0 0 / 5%) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: 8px;
+}
+
 @media (width <= 1440px) {
   .dashboard {
     padding: 32px 40px 24px;
@@ -229,5 +241,15 @@
 
   .dashboard-grid__bottom > .chart-card {
     height: 210px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
   }
 }
