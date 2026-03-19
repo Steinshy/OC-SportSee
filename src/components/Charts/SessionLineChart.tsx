@@ -77,7 +77,13 @@ export default function SessionLineChart({ sessions }: Props) {
           style={{ left: `${activeX}px`, width: `calc(100% - ${activeX}px)` }}
         />
       )}
-      <ResponsiveContainer width="100%" height="100%" className="session-chart">
+      <ResponsiveContainer
+        width="100%"
+        height="100%"
+        minWidth={0}
+        minHeight={0}
+        className="session-chart"
+      >
         <LineChart
           data={data}
           margin={{ top: 80, right: 0, left: 0, bottom: 20 }}

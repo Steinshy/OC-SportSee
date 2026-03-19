@@ -77,7 +77,7 @@ export default function PerformanceRadarChart({ performance }: Props) {
 
   return (
     <div className="chart-card chart-card--performance">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
         <RadarChart data={data} outerRadius={outerRadius}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis

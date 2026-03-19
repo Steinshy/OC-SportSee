@@ -4,6 +4,7 @@ import {
   RadialBarChart,
   ResponsiveContainer,
 } from './index';
+
 import { CHART_COLORS } from '@/constants/chartConstants';
 
 import './charts.css';
@@ -19,7 +20,13 @@ export default function ScoreRadialChart({ score }: Props) {
   return (
     <div className="chart-card chart-card--score">
       <h3 className="score-radial-chart__title">Score</h3>
-      <ResponsiveContainer width="100%" height="100%" className="score-chart-container">
+      <ResponsiveContainer
+        width="100%"
+        height="100%"
+        minWidth={0}
+        minHeight={0}
+        className="score-chart-container"
+      >
         <RadialBarChart
           data={[{ score: percentage }]}
           cx="50%"

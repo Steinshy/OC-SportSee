@@ -15,6 +15,7 @@ import './style.css';
 export default function Profile() {
   const { user, activity, avgSessions, performance } =
     useLoaderData<ProfileLoaderData>();
+  const baseUrl = import.meta.env.BASE_URL;
 
   const metricCards = useMemo(() => {
     if (!user) return [];
@@ -23,32 +24,32 @@ export default function Profile() {
         label: 'Calories',
         value: user.nutritionData.calorieCount.toLocaleString('en-US'),
         unit: 'kCal',
-        icon: '/assets/energy.svg',
+        icon: `${baseUrl}assets/energy.svg`,
         className: 'metric-card__icon--red',
       },
       {
         label: 'Proteines',
         value: user.nutritionData.proteinCount,
         unit: 'g',
-        icon: '/assets/proteines.svg',
+        icon: `${baseUrl}assets/proteines.svg`,
         className: 'metric-card__icon--blue',
       },
       {
         label: 'Glucides',
         value: user.nutritionData.carbohydrateCount,
         unit: 'g',
-        icon: '/assets/apple.svg',
+        icon: `${baseUrl}assets/apple.svg`,
         className: 'metric-card__icon--yellow',
       },
       {
         label: 'Lipides',
         value: user.nutritionData.lipidCount,
         unit: 'g',
-        icon: '/assets/lipides.svg',
+        icon: `${baseUrl}assets/lipides.svg`,
         className: 'metric-card__icon--pink',
       },
     ];
-  }, [user]);
+  }, [baseUrl, user]);
 
   return (
     <div className="dashboard">
