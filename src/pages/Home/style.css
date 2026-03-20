@@ -42,52 +42,22 @@
 
 @media (width <= 768px) {
   .home {
-    padding: 32px 20px 24px;
+    padding: 32px 20px;
   }
 
   .home__title {
     font-size: 32px;
   }
 
-  .home__subtitle {
-    font-size: 16px;
-  }
-
   .home__users {
     flex-direction: column;
     gap: 16px;
     margin-top: 32px;
-    width: 100%;
   }
 
   .home__user-link {
     font-size: 16px;
     padding: 16px 32px;
     text-align: center;
-  }
-}
-
-@media (width <= 420px) {
-  .home {
-    min-height: 50vh;
-    padding: 24px 16px 20px;
-  }
-
-  .home__title {
-    font-size: 28px;
-  }
-
-  .home__subtitle {
-    font-size: 14px;
-  }
-
-  .home__users {
-    gap: 12px;
-    margin-top: 24px;
-  }
-
-  .home__user-link {
-    font-size: 14px;
-    padding: 14px 24px;
   }
 }

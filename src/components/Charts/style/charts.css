@@ -9,8 +9,6 @@
   --chart-stroke-grid: #dedede;
   --chart-tick-text: #9b9eac;
   --chart-cursor: #c4c4c4;
-  --breakpoint-mobile: 768px;
-  --breakpoint-extra-small: 420px;
 }
 
 /* Base chart card styles */
@@ -43,22 +41,4 @@
   font-size: 15px;
   font-weight: 500;
   margin-bottom: 20px;
-}
-
-@media (width <= 768px) {
-  .activity-chart__title,
-  .score-radial-chart__title,
-  .performance-radar-chart__title,
-  .session-line-chart__title {
-    font-size: 14px;
-  }
-}
-
-@media (width <= 420px) {
-  .activity-chart__title,
-  .score-radial-chart__title,
-  .performance-radar-chart__title,
-  .session-line-chart__title {
-    font-size: 12px;
-  }
 }

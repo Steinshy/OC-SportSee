@@ -20,7 +20,7 @@ body {
 
 .app-body {
   display: flex;
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 80px);
 }
 
 .main-content {
@@ -28,13 +28,7 @@ body {
   min-width: 0;
 }
 
-@media (width <= 1200px) {
-  .app-body {
-    min-height: calc(100vh - 80px);
-  }
-}
-
-@media (width <= 1024px) {
+@media (width <= 768px) {
   .app-body {
     flex-direction: column;
     min-height: auto;

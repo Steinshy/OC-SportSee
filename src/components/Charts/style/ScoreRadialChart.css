@@ -22,11 +22,11 @@
 /* Center text overlay */
 .score-radial-chart__center {
   align-items: center;
+  aspect-ratio: 1;
   background: #fff;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
-  height: 55%;
   justify-content: center;
   left: 50%;
   pointer-events: none;
@@ -34,14 +34,14 @@
   text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 55%;
+  width: 45%;
   z-index: 1;
 }
 
 .score-radial-chart__value {
   color: #20293a;
   display: block;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -49,24 +49,7 @@
 .score-radial-chart__subtitle {
   color: #9b9eac;
   display: block;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.4;
-  margin-top: 4px;
-}
-
-/* Responsive adjustments */
-@media (width <= 768px) {
-  .score-radial-chart__value {
-    font-size: 24px;
-  }
-}
-
-@media (width <= 420px) {
-  .score-radial-chart__value {
-    font-size: 20px;
-  }
-
-  .score-radial-chart__subtitle {
-    font-size: 11px;
-  }
+  margin-top: 2px;
 }

@@ -7,8 +7,8 @@ import {
 
 import { CHART_COLORS } from '@/constants/chartConstants';
 
-import './charts.css';
-import './ScoreRadialChart.css';
+import './style/charts.css';
+import './style/ScoreRadialChart.css';
 
 type Props = {
   score: number;

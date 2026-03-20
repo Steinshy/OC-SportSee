@@ -10,8 +10,8 @@ import {
 
 import type { UserPerformance } from '@/types/user';
 
-import './charts.css';
-import './PerformanceRadarChart.css';
+import './style/charts.css';
+import './style/PerformanceRadarChart.css';
 
 const LABELS: Record<string, string> = {
   cardio: 'Cardio',
@@ -47,8 +47,8 @@ function renderPolarAngleAxis(
     <Text
       {...rest}
       verticalAnchor="middle"
-      y={y + (y - cy) / 10}
-      x={x + (x - cx) / 100}
+      y={y + (y - cy) / 15}
+      x={x + (x - cx) / 150}
       fill="#FFFFFF"
       fillOpacity={1}
       fontSize={fontSize}
@@ -60,7 +60,7 @@ function renderPolarAngleAxis(
 }
 
 export default function PerformanceRadarChart({ performance }: Props) {
-  const axisFontSize = 12;
+  const axisFontSize = 11;
   const outerRadius = '65%';
 
   const data = [...performance.data].reverse().map((entry) => {

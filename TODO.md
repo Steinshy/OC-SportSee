@@ -126,3 +126,6 @@
   - Breakpoints for mobile (<768px)
   - Responsive navigation
   - Adapted chart layouts for smaller screens
+
+
+Jdoc

@@ -15,8 +15,8 @@ import {
 import { CHART_COLORS, CHART_VALUES } from '@/constants/chartConstants';
 import type { ActivitySession } from '@/types/user';
 
-import './charts.css';
-import './ActivityBarChart.css';
+import './style/charts.css';
+import './style/ActivityBarChart.css';
 
 const MIN_DISPLAY_POINTS = CHART_VALUES.minDisplayPoints;
 

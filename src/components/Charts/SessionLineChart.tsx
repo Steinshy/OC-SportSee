@@ -11,8 +11,8 @@ import {
 
 import type { AverageSession } from '@/types/user';
 
-import './charts.css';
-import './SessionLineChart.css';
+import './style/charts.css';
+import './style/SessionLineChart.css';
 
 const DAY_LABELS: Record<number, string> = {
   1: 'L',

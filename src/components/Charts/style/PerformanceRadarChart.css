@@ -2,6 +2,7 @@
 
 .chart-card--performance {
   background: #282d30;
+  padding: 0;
   position: relative;
 }
 
@@ -24,26 +25,4 @@
 .chart-card--performance .recharts-polar-angle-axis tspan {
   fill: #fff !important;
   fill-opacity: 1;
-}
-
-/* Mobile: 768px and below */
-@media (width <= 768px) {
-  .chart-card--performance {
-    padding: 15px;
-  }
-
-  .chart-card--performance .recharts-polar-angle-axis text {
-    font-size: 11px;
-  }
-}
-
-/* Extra small: 420px and below */
-@media (width <= 420px) {
-  .chart-card--performance {
-    padding: 10px;
-  }
-
-  .chart-card--performance .recharts-polar-angle-axis text {
-    font-size: 10px;
-  }
 }

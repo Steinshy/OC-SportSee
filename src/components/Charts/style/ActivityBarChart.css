@@ -1,27 +1,5 @@
 /* Activity Bar Chart Styles */
 
-.activity-chart__title {
-  color: #20293a;
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-/* Mobile: 768px and below */
-@media (width <= 768px) {
-  .chart-card--activity {
-    padding: 15px;
-  }
-}
-
-/* Extra small: 420px and below */
-@media (width <= 420px) {
-  .chart-card--activity {
-    min-height: 250px;
-    padding: 10px;
-  }
-}
-
 /* Custom legend */
 .activity-legend {
   display: flex;
