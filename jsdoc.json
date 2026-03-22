@@ -6,7 +6,7 @@
   "source": {
     "include": ["src"],
     "includePattern": ".+\\.tsx?$",
-    "excludePattern": "(^|\\/|\\\\)node_modules(\\$|\\/|\\\\)"
+    "excludePattern": "(^|\\/|\\\\)node_modules(\\$|\\/|\\\\)|(^|\\/|\\\\)types(\\$|\\/|\\\\)"
   },
   "opts": {
     "destination": "./docs",
@@ -17,5 +17,9 @@
     "cleverLinks": false,
     "monospaceLinks": false
   },
-  "plugins": ["plugins/markdown"]
+  "plugins": ["plugins/markdown"],
+  "parserOptions": {
+    "allowReturnOutsideFunction": true,
+    "ecmaVersion": 2020
+  }
 }

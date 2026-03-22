@@ -16,6 +16,13 @@ import type {
   UserPerformance,
 } from '@/types/user';
 
+/**
+ * Extracts the payload from API response, handling both nested and direct data structures
+ * @param {unknown} value - The raw API response or payload object
+ * @returns {Record<string, unknown>} Extracted payload data
+ * @throws {Error} If value is not a valid object
+ * @private
+ */
 const unwrapPayload = (value: unknown): Record<string, unknown> => {
   if (!isRecord(value)) {
     throw new Error('Invalid user data: expected an object');
@@ -26,6 +33,13 @@ const unwrapPayload = (value: unknown): Record<string, unknown> => {
   return value;
 };
 
+/**
+ * Normalizes userId to string, converting numeric IDs if needed
+ * @param {unknown} value - The user ID value (string, number, or unknown)
+ * @returns {string} The user ID as a string
+ * @throws {Error} If value cannot be converted to a valid string
+ * @private
+ */
 const ensureUserId = (value: unknown): string => {
   if (typeof value === 'number') {
     return String(value);
@@ -33,6 +47,23 @@ const ensureUserId = (value: unknown): string => {
   return ensureString(value);
 };
 
+/**
+ * Transforms raw API user data into a normalized UserMainData structure
+ *
+ * Validates and extracts:
+ * - User ID (converted to string if numeric)
+ * - Daily score (from 'score' or 'todayScore' field)
+ * - User information (firstName, lastName, age)
+ * - Nutrition data (calories, protein, carbs, lipids)
+ *
+ * @param {unknown} apiData - Raw user data from API or mock data
+ * @param {DataType} dataType - Source of data ('api' or 'mock')
+ * @returns {UserMainData} Validated user profile and nutrition information
+ * @throws {Error} If any required field is missing or has invalid type
+ * @example
+ * const userData = buildUserMainData(rawApiData, 'api');
+ * // Returns: { id: '12', score: 50, userInfos: {...}, nutritionData: {...}, dataType: 'api' }
+ */
 export const buildUserMainData = (
   apiData: unknown,
   dataType: DataType
@@ -76,6 +107,22 @@ export const buildUserMainData = (
   };
 };
 
+/**
+ * Transforms raw API activity data into a normalized UserActivity structure
+ *
+ * Validates and normalizes daily activity sessions with:
+ * - Date (formatted as string)
+ * - Weight in kilograms
+ * - Calories burned
+ *
+ * @param {unknown} apiData - Raw activity data from API or mock data
+ * @param {DataType} dataType - Source of data ('api' or 'mock')
+ * @returns {UserActivity} User activity data with validated sessions
+ * @throws {Error} If sessions array is missing or contains invalid entries
+ * @example
+ * const activity = buildUserActivity(rawActivityData, 'api');
+ * // Returns: { userId: '12', sessions: [{day: '2024-01-01', kilogram: 80, calories: 300}, ...], dataType: 'api' }
+ */
 export const buildUserActivity = (
   apiData: unknown,
   dataType: DataType
@@ -97,6 +144,21 @@ export const buildUserActivity = (
   };
 };
 
+/**
+ * Transforms raw API average session data into a normalized UserAverageSessions structure
+ *
+ * Normalizes weekly average session duration with:
+ * - Day of week (0-6, where 0 is Monday for chart display)
+ * - Average session length in minutes
+ *
+ * @param {unknown} apiData - Raw average sessions data from API or mock data
+ * @param {DataType} dataType - Source of data ('api' or 'mock')
+ * @returns {UserAverageSessions} User's average weekly session durations
+ * @throws {Error} If sessions array is missing or contains invalid entries
+ * @example
+ * const avgSessions = buildUserAverageSessions(rawSessionData, 'api');
+ * // Returns: { userId: '12', sessions: [{day: 1, sessionLength: 45}, ...], dataType: 'api' }
+ */
 export const buildUserAverageSessions = (
   apiData: unknown,
   dataType: DataType
@@ -116,6 +178,21 @@ export const buildUserAverageSessions = (
   };
 };
 
+/**
+ * Transforms raw API performance data into a normalized UserPerformance structure
+ *
+ * Validates and normalizes sport-specific performance metrics with:
+ * - Performance categories (cardio, energy, endurance, etc.)
+ * - Metric values and their corresponding type indicators
+ *
+ * @param {unknown} apiData - Raw performance data from API or mock data
+ * @param {DataType} dataType - Source of data ('api' or 'mock')
+ * @returns {UserPerformance} User's sport-specific performance metrics
+ * @throws {Error} If categories or data array is missing or contains invalid entries
+ * @example
+ * const performance = buildUserPerformance(rawPerfData, 'api');
+ * // Returns: { userId: '12', categories: {0: 'Cardio', ...}, data: [{type: 1, value: 90}, ...], dataType: 'api' }
+ */
 export const buildUserPerformance = (
   apiData: unknown,
   dataType: DataType

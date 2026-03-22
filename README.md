@@ -1,23 +1,27 @@
-# SportSee — Tableau de Bord du Profil Utilisateur
+<h1 align="center">SportSee — Tableau de Bord du Profil Utilisateur</h1>
 
-**Languages:** [Français](README.fr.md) | [English](README.md)
+<p align="center"><strong>Languages:</strong> <a href="README.fr.md">Français</a> | <a href="README.md">English</a></p>
 
-[![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![Node.js](https://img.shields.io/badge/Node.js-16+-339933?style=flat-square&logo=node.js)](https://nodejs.org)
-[![Vite](https://img.shields.io/badge/Vite-5.0+-646CFF?style=flat-square&logo=vite)](https://vitejs.dev)
-[![Recharts](https://img.shields.io/badge/Recharts-2.0+-8884D8?style=flat-square)](https://recharts.org)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)](https://github.com)
-![Sportsee responsive mockup](public/mockup/mockup.png)
+<p align="center">
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react" alt="React" /></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript" alt="TypeScript" /></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-16+-339933?style=flat-square&logo=node.js" alt="Node.js" /></a>
+  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-5.0+-646CFF?style=flat-square&logo=vite" alt="Vite" /></a>
+  <a href="https://recharts.org"><img src="https://img.shields.io/badge/Recharts-2.0+-8884D8?style=flat-square" alt="Recharts" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" /></a>
+  <a href="https://github.com"><img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square" alt="Status" /></a>
+</p>
 
-Un tableau de bord moderne basé sur React pour afficher les données de fitness et d'activité des utilisateurs avec des graphiques interactifs construits avec Recharts.
+<p align="center">
+  <img src="public/mockup/mockup.png" alt="Sportsee responsive mockup" width="1024" />
+</p>
 
 ## 📋 Présentation
 
 SportSee est un tableau de bord de suivi des performances sportives qui affiche l'activité de l'utilisateur, les métriques de performance et les indicateurs de santé clés. Construit avec **React + TypeScript**, il offre la récupération de données en temps réel à partir d'une API backend Node.js.
 
 ### Périmètre Actuel
+
 - ✅ Mise en page desktop (1024x780px minimum)
 - ✅ 15 user stories implémentées
 - ⏳ Versions mobiles et tablettes prévues pour le prochain sprint
@@ -25,6 +29,7 @@ SportSee est un tableau de bord de suivi des performances sportives qui affiche 
 ## 🚀 Démarrage
 
 ### Prérequis
+
 - Node.js 16+ et npm
 - API backend en cours d'exécution (voir dossier `/Backend`)
 
@@ -72,27 +77,36 @@ src/
 ## 🎯 Fonctionnalités Clés (15 User Stories)
 
 ### Mise en Page et Navigation
+
 - **US#1** : Barre de navigation horizontale avec liens (Accueil, Profil, Réglage, Communauté)
 - **US#2** : Barre latérale verticale avec boutons de type d'activité
 - **US#3** : Mise en page optimisée desktop (1024x780px minimum)
 
 ### Tableau de Bord Utilisateur
+
 - **US#4** : Salutation personnalisée avec le prénom de l'utilisateur
 - **US#5** : Informations utilisateur du endpoint `/user/:id`
 - **US#10** : Cartes de métriques clés (Calories, Protéines, Glucides, Lipides)
 
 ### Récupération de Données
+
 - **US#6** : Données d'activité quotidienne de `/user/:id/activity`
 - **US#7** : Durée moyenne des sessions de `/user/:id/average-sessions`
 - **US#8** : Score quotidien de `/user/:id`
 - **US#9** : Métriques de performance de `/user/:id/performance`
 
 ### Graphiques et Visualisations
+
 - **US#11** : BarChart — Activité quotidienne (poids et calories)
 - **US#12** : LineChart — Tendance de la durée moyenne des sessions
 - **US#13** : RadarChart — Performance par type d'activité
 - **US#14** : RadialBarChart — Score de réalisation de l'objectif quotidien
 - **US#15** : Cartes de métriques — Chiffres clés de santé avec icônes
+
+## 📚 Documentation
+
+**[Voir la Documentation Complète de l'API →](https://steinshy.github.io/SportSee/jdocs/)**
+Généré avec [TypeDoc](https://typedoc.org/) | Signatures de fonction complètes, types de paramètres et exemples
 
 ## 🔌 Intégration API
 
@@ -121,6 +135,7 @@ GET /user/:id/performance
 ### API Mockée vs Réelle
 
 **Développement** — Utilise les données de test (`src/data/mockData.ts`) :
+
 ```bash
 npm run dev
 ```
@@ -130,6 +145,7 @@ npm run dev
 ### Normalisation des Données
 
 Le client standardise les données avant leur consommation par les composants :
+
 - Normalise le champ `score`/`todayScore` en un seul champ
 - Formate les nombres (ex. 1930 → "1,930 kCal")
 - Mappe les catégories de performance (cardio, énergie, endurance, force, vitesse, intensité)
@@ -137,25 +153,33 @@ Le client standardise les données avant leur consommation par les composants :
 ## 📊 Composants Graphiques
 
 ### ActivityBarChart
+
 Affiche le poids quotidien et la consommation de calories avec des barres à double axe.
+
 - Axe Y gauche : Calories
 - Axe Y droit : Poids (kg)
 - Tooltip au survol avec les valeurs
 
 ### SessionLineChart
+
 Affiche la tendance de la durée moyenne des sessions sur la semaine.
+
 - Arrière-plan dégradé animé
 - Ligne courbe avec effets au survol
 - Indicateur de point de données blanc
 
 ### PerformanceRadarChart
+
 Graphique radar à 6 axes affichant les performances par catégorie.
+
 - Arrière-plan sombre
 - Polygone rempli de rouge
 - Étiquettes blanches pour chaque axe
 
 ### ScoreRadialChart
+
 Indicateur de progression circulaire pour la réalisation de l'objectif quotidien.
+
 - Arc rouge sur fond clair
 - Pourcentage au centre
 - Extrémités arrondies
@@ -163,16 +187,19 @@ Indicateur de progression circulaire pour la réalisation de l'objectif quotidie
 ## 🛠️ Directives de Développement
 
 ### Flux de Données
+
 1. Le loader de route récupère les données à partir du client API/mock
 2. Les composants reçoivent les données via `useLoaderData()`
 3. Les données sont formatées et affichées dans les graphiques/cartes
 
 ### Ajouter de Nouvelles Fonctionnalités
+
 - Créer des composants dans `src/components/`
 - Utiliser `src/client/` pour les appels API (jamais directement depuis les composants)
 - Définir les types dans `src/types/`
 
 ### Normes de Code
+
 - Utiliser TypeScript pour la sécurité des types
 - Les composants sont fonctionnels avec hooks
 - Les styles organisés par composant
@@ -209,31 +236,35 @@ PerformanceData {
 ## 📝 Dépendances
 
 ### Core
+
 - **React 18+** : Framework UI
 - **React Router** : Routage côté client
 - **TypeScript** : Typage statique
 
 ### Données & HTTP
+
 - **Axios** : Client HTTP
 - **Recharts** : Bibliothèque de visualisation de graphiques
 
 ### Build & Dev
+
 - **Vite** : Outil de build et serveur de développement
 - **ESLint** : Linting de code
 
 ## 📚 Scripts Disponibles
 
-| Commande | Objectif |
-|----------|----------|
-| `npm run dev` | Démarrer le serveur de développement |
-| `npm run build` | Construire pour la production |
-| `npm run preview` | Aperçu de la build production |
-| `npm run lint` | Exécuter ESLint |
-| `npm run lint:fix` | Corriger les problèmes de linting |
+| Commande           | Objectif                             |
+| ------------------ | ------------------------------------ |
+| `npm run dev`      | Démarrer le serveur de développement |
+| `npm run build`    | Construire pour la production        |
+| `npm run preview`  | Aperçu de la build production        |
+| `npm run lint`     | Exécuter ESLint                      |
+| `npm run lint:fix` | Corriger les problèmes de linting    |
 
 ## 🚀 Déploiement
 
 Construire le bundle production :
+
 ```bash
 npm run build
 ```
