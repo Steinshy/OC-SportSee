@@ -1,23 +1,28 @@
-# SportSee — User Profile Dashboard
-**Languages:** [English](README.md) | [Français](README.fr.md) 
+<h1 align="center">SportSee — User Profile Dashboard</h1>
 
-[![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![Node.js](https://img.shields.io/badge/Node.js-16+-339933?style=flat-square&logo=node.js)](https://nodejs.org)
-[![Vite](https://img.shields.io/badge/Vite-5.0+-646CFF?style=flat-square&logo=vite)](https://vitejs.dev)
-[![Recharts](https://img.shields.io/badge/Recharts-2.0+-8884D8?style=flat-square)](https://recharts.org)
-[![Mockup](https://img.shields.io/badge/Mockup-public%2Fmockup-FF6B6B?style=flat-square&logo=figma&logoColor=white)](./public/mockup)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)](https://github.com)
-![Sportsee responsive mockup](public/mockup/mockup.png)
+<p align="center"><strong>Languages:</strong> <a href="README.md">English</a> | <a href="README.fr.md">Français</a></p>
 
-A modern React-based dashboard for displaying user fitness and activity data with interactive charts built with Recharts.
+<p align="center">
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react" alt="React" /></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript" alt="TypeScript" /></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-16+-339933?style=flat-square&logo=node.js" alt="Node.js" /></a>
+  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-5.0+-646CFF?style=flat-square&logo=vite" alt="Vite" /></a>
+  <a href="https://recharts.org"><img src="https://img.shields.io/badge/Recharts-2.0+-8884D8?style=flat-square" alt="Recharts" /></a>
+  <a href="./public/mockup"><img src="https://img.shields.io/badge/Mockup-public%2Fmockup-FF6B6B?style=flat-square&logo=figma&logoColor=white" alt="Mockup" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" /></a>
+  <a href="https://github.com"><img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square" alt="Status" /></a>
+</p>
+
+<p align="center">
+  <img src="public/mockup/mockup.png" alt="Sportsee responsive mockup" width="1024" />
+</p>
 
 ## 📋 Overview
 
 SportSee is a responsive fitness tracking dashboard that displays user activity, performance metrics, and key health indicators. Built with **React + TypeScript**, it features real-time data fetching from a Node.js backend API.
 
 ### Current Scope
+
 - ✅ Desktop layout (1024x780px minimum)
 - ✅ 15 implemented user stories
 - ⏳ Mobile/tablet versions planned for next sprint
@@ -25,6 +30,7 @@ SportSee is a responsive fitness tracking dashboard that displays user activity,
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 16+ and npm
 - Backend API running (see `/Backend` folder)
 
@@ -72,27 +78,36 @@ src/
 ## 🎯 Key Features (15 User Stories)
 
 ### Layout & Navigation
+
 - **US#1**: Horizontal navigation bar with links (Accueil, Profil, Réglage, Communauté)
 - **US#2**: Vertical icon sidebar with activity type buttons
 - **US#3**: Desktop-optimized layout (1024x780px minimum)
 
 ### User Dashboard
+
 - **US#4**: Personalized greeting with user's first name
 - **US#5**: User information from `/user/:id` endpoint
 - **US#10**: Key metrics cards (Calories, Proteins, Carbs, Fats)
 
 ### Data Fetching
+
 - **US#6**: Daily activity data from `/user/:id/activity`
 - **US#7**: Average session duration from `/user/:id/average-sessions`
 - **US#8**: Daily score completion from `/user/:id`
 - **US#9**: Performance metrics from `/user/:id/performance`
 
 ### Charts & Visualizations
+
 - **US#11**: BarChart — Daily activity (weight & calories)
 - **US#12**: LineChart — Average session duration trend
 - **US#13**: RadarChart — Performance by activity type
 - **US#14**: RadialBarChart — Daily objective completion score
 - **US#15**: Metric cards — Key health figures with icons
+
+## 📚 Documentation
+
+**[View Complete API Documentation →](https://steinshy.github.io/SportSee/jdocs/)**
+Generated with [TypeDoc](https://typedoc.org/) | Full function signatures, parameter types, and examples
 
 ## 🔌 API Integration
 
@@ -121,6 +136,7 @@ GET /user/:id/performance
 ### Mock vs Real API
 
 **Development** — Uses mock data (`src/data/mockData.ts`):
+
 ```bash
 npm run dev
 ```
@@ -130,6 +146,7 @@ npm run dev
 ### Data Normalization
 
 The client standardizes data before component consumption:
+
 - Normalizes `score`/`todayScore` field to single field
 - Formats numbers (e.g., 1930 → "1,930 kCal")
 - Maps performance categories (cardio, energy, endurance, strength, speed, intensity)
@@ -137,25 +154,33 @@ The client standardizes data before component consumption:
 ## 📊 Chart Components
 
 ### ActivityBarChart
+
 Displays daily weight and calorie burn with dual-axis bars.
+
 - Left Y-axis: Calories
 - Right Y-axis: Weight (kg)
 - Hover tooltip with values
 
 ### SessionLineChart
+
 Shows average session duration trend across the week.
+
 - Animated gradient background
 - Curved line with hover effects
 - White data point indicator
 
 ### PerformanceRadarChart
+
 6-axis radar chart displaying performance across categories.
+
 - Dark background
 - Red filled polygon
 - White labels for each axis
 
 ### ScoreRadialChart
+
 Circular progress indicator for daily objective completion.
+
 - Red arc on light background
 - Center percentage text
 - Rounded end caps
@@ -163,16 +188,19 @@ Circular progress indicator for daily objective completion.
 ## 🛠️ Development Guidelines
 
 ### Data Flow
+
 1. Route loader fetches data from API/mock client
 2. Components receive data via `useLoaderData()`
 3. Data is formatted and displayed in charts/cards
 
 ### Adding New Features
+
 - Create components in `src/components/`
 - Use `src/client/` for API calls (never call API directly from components)
 - Define types in `src/types/`
 
 ### Code Standards
+
 - Use TypeScript for type safety
 - Components are functional with hooks
 - Styles organized by component
@@ -209,31 +237,35 @@ PerformanceData {
 ## 📝 Dependencies
 
 ### Core
+
 - **React 18+**: UI framework
 - **React Router**: Client-side routing
 - **TypeScript**: Static typing
 
 ### Data & HTTP
+
 - **Axios**: HTTP client
 - **Recharts**: Chart visualization library
 
 ### Build & Dev
+
 - **Vite**: Build tool and dev server
 - **ESLint**: Code linting
 
 ## 📚 Available Scripts
 
-| Command | Purpose |
-|---------|---------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Fix linting issues |
+| Command            | Purpose                  |
+| ------------------ | ------------------------ |
+| `npm run dev`      | Start development server |
+| `npm run build`    | Build for production     |
+| `npm run preview`  | Preview production build |
+| `npm run lint`     | Run ESLint               |
+| `npm run lint:fix` | Fix linting issues       |
 
 ## 🚀 Deployment
 
 Build the production bundle:
+
 ```bash
 npm run build
 ```

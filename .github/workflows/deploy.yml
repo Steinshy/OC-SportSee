@@ -27,7 +27,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: '24'
           cache: npm
           cache-dependency-path: package-lock.json
 
@@ -38,6 +38,12 @@ jobs:
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
         run: npm run build
+
+      - name: Generate TypeDoc documentation
+        run: npm run docs
+
+      - name: Copy docs to build output
+        run: cp -r docs dist/jdocs
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
