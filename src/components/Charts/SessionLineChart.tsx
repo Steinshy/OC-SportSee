@@ -24,7 +24,7 @@ const DAY_LABELS: Record<number, string> = {
   7: 'D',
 };
 
-type Props = {
+export type Props = {
   sessions: AverageSession[];
 };
 

@@ -20,7 +20,7 @@ import './style/ActivityBarChart.css';
 
 const MIN_DISPLAY_POINTS = CHART_VALUES.minDisplayPoints;
 
-type Props = {
+export type Props = {
   sessions: ActivitySession[];
 };
 

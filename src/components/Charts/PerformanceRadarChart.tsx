@@ -22,7 +22,7 @@ const LABELS: Record<string, string> = {
   intensity: 'Intensité',
 };
 
-type Props = {
+export type Props = {
   performance: UserPerformance;
 };
 

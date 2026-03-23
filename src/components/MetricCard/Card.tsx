@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import './style.css';
 
-interface Props {
+export interface Props {
   icon?: ReactNode;
   label: string;
   value: string | number;

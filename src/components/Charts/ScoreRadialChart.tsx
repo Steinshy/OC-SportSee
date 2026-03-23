@@ -10,7 +10,7 @@ import { CHART_COLORS } from '@/constants/chartConstants';
 import './style/charts.css';
 import './style/ScoreRadialChart.css';
 
-type Props = {
+export type Props = {
   score: number;
 };
 
