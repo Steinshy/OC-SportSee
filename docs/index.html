@@ -1,0 +1,209 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>sportsee</title><meta name="description" content="Documentation for sportsee"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">sportsee</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>sportsee</h1></div><div class="tsd-panel tsd-typography"><h1 align="center">SportSee — Tableau de Bord du Profil Utilisateur</h1>
+<p align="center"><strong>Languages:</strong> <a href="./">Français</a> | <a href="media/README.en.md">English</a></p>
+<p align="center">
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react" alt="React" /></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript" alt="TypeScript" /></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-16+-339933?style=flat-square&logo=node.js" alt="Node.js" /></a>
+  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-5.0+-646CFF?style=flat-square&logo=vite" alt="Vite" /></a>
+  <a href="https://recharts.org"><img src="https://img.shields.io/badge/Recharts-2.0+-8884D8?style=flat-square" alt="Recharts" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" /></a>
+  <a href="https://github.com"><img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square" alt="Status" /></a>
+</p>
+<p align="center">
+  <img src="media/mockup.png" alt="Sportsee responsive mockup" width="1024" />
+</p>
+<h2 id="📋-présentation" class="tsd-anchor-link">📋 Présentation<a href="#📋-présentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>SportSee est un tableau de bord de suivi des performances sportives qui affiche l'activité de l'utilisateur, les métriques de performance et les indicateurs de santé clés. Construit avec <strong>React + TypeScript</strong>, il offre la récupération de données en temps réel à partir d'une API backend Node.js.</p>
+<h3 id="périmètre-actuel" class="tsd-anchor-link">Périmètre Actuel<a href="#périmètre-actuel" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li>✅ Mise en page desktop (1024x780px minimum)</li>
+<li>✅ 15 user stories implémentées</li>
+<li>⏳ Versions mobiles et tablettes prévues pour le prochain sprint</li>
+</ul>
+<h2 id="🚀-démarrage" class="tsd-anchor-link">🚀 Démarrage<a href="#🚀-démarrage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="prérequis" class="tsd-anchor-link">Prérequis<a href="#prérequis" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li>Node.js 16+ et npm</li>
+<li>API backend en cours d'exécution (voir dossier <code>/Backend</code>)</li>
+</ul>
+<h3 id="installation" class="tsd-anchor-link">Installation<a href="#installation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<pre><code class="bash"><span class="hl-0"># Installer les dépendances</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">install</span><br/><br/><span class="hl-0"># Démarrer le serveur de développement</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">dev</span><br/><br/><span class="hl-0"># Construire pour la production</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">build</span><br/><br/><span class="hl-0"># Aperçu de la build production</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">preview</span><br/><br/><span class="hl-0"># Lancer le linting</span><br/><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">lint</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="📁-structure-du-projet" class="tsd-anchor-link">📁 Structure du Projet<a href="#📁-structure-du-projet" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code><span class="hl-4">src</span><span class="hl-2">/</span><br/><span class="hl-2">├── </span><span class="hl-4">components</span><span class="hl-2">/          # </span><span class="hl-4">Composants</span><span class="hl-2"> </span><span class="hl-4">React</span><span class="hl-2"> </span><span class="hl-4">réutilisables</span><br/><span class="hl-2">│   ├── </span><span class="hl-4">Charts</span><span class="hl-2">/         # </span><span class="hl-4">Composants</span><span class="hl-2"> </span><span class="hl-1">graphiques</span><span class="hl-2"> (</span><span class="hl-4">BarChart</span><span class="hl-2">, </span><span class="hl-4">LineChart</span><span class="hl-2">, </span><span class="hl-4">RadarChart</span><span class="hl-2">, </span><span class="hl-4">RadialChart</span><span class="hl-2">)</span><br/><span class="hl-2">│   ├── </span><span class="hl-4">Layout</span><span class="hl-2">/         # </span><span class="hl-4">Navigation</span><span class="hl-2"> </span><span class="hl-4">et</span><span class="hl-2"> </span><span class="hl-4">mise</span><span class="hl-2"> </span><span class="hl-4">en</span><span class="hl-2"> </span><span class="hl-4">page</span><br/><span class="hl-2">│   └── </span><span class="hl-4">MetricCard</span><span class="hl-2">/     # </span><span class="hl-4">Cartes</span><span class="hl-2"> </span><span class="hl-4">de</span><span class="hl-2"> </span><span class="hl-4">métriques</span><span class="hl-2"> </span><span class="hl-4">clés</span><br/><span class="hl-2">├── </span><span class="hl-4">pages</span><span class="hl-2">/              # </span><span class="hl-4">Composants</span><span class="hl-2"> </span><span class="hl-4">au</span><span class="hl-2"> </span><span class="hl-4">niveau</span><span class="hl-2"> </span><span class="hl-4">des</span><span class="hl-2"> </span><span class="hl-4">pages</span><br/><span class="hl-2">│   ├── </span><span class="hl-4">Home</span><span class="hl-2">/</span><br/><span class="hl-2">│   └── </span><span class="hl-4">Profile</span><span class="hl-2">/        # </span><span class="hl-4">Page</span><span class="hl-2"> </span><span class="hl-4">du</span><span class="hl-2"> </span><span class="hl-4">tableau</span><span class="hl-2"> </span><span class="hl-4">de</span><span class="hl-2"> </span><span class="hl-4">bord</span><span class="hl-2"> </span><span class="hl-4">principal</span><br/><span class="hl-2">├── </span><span class="hl-4">client</span><span class="hl-2">/             # </span><span class="hl-4">Services</span><span class="hl-2"> </span><span class="hl-4">clients</span><span class="hl-2"> </span><span class="hl-5">API</span><br/><span class="hl-2">│   ├── </span><span class="hl-4">apiClient</span><span class="hl-2">.</span><span class="hl-4">ts</span><span class="hl-2">    # </span><span class="hl-4">Client</span><span class="hl-2"> </span><span class="hl-5">HTTP</span><span class="hl-2"> </span><span class="hl-4">utilisant</span><span class="hl-2"> </span><span class="hl-4">Axios</span><br/><span class="hl-2">│   ├── </span><span class="hl-4">mockClient</span><span class="hl-2">.</span><span class="hl-4">ts</span><span class="hl-2">   # </span><span class="hl-4">Données</span><span class="hl-2"> </span><span class="hl-4">de</span><span class="hl-2"> </span><span class="hl-4">test</span><span class="hl-2"> </span><span class="hl-4">pour</span><span class="hl-2"> </span><span class="hl-4">le</span><span class="hl-2"> </span><span class="hl-4">développement</span><br/><span class="hl-2">│   └── </span><span class="hl-4">builders</span><span class="hl-2">.</span><span class="hl-4">ts</span><span class="hl-2">     # </span><span class="hl-4">Transformateurs</span><span class="hl-2"> </span><span class="hl-4">de</span><span class="hl-2"> </span><span class="hl-4">données</span><br/><span class="hl-2">├── </span><span class="hl-4">data</span><span class="hl-2">/               # </span><span class="hl-4">Données</span><span class="hl-2"> </span><span class="hl-4">de</span><span class="hl-2"> </span><span class="hl-4">test</span><br/><span class="hl-2">├── </span><span class="hl-4">loaders</span><span class="hl-2">/            # </span><span class="hl-4">React</span><span class="hl-2"> </span><span class="hl-4">Router</span><span class="hl-2"> </span><span class="hl-4">loaders</span><span class="hl-2"> </span><span class="hl-4">pour</span><span class="hl-2"> </span><span class="hl-4">la</span><span class="hl-2"> </span><span class="hl-4">récupération</span><span class="hl-2"> </span><span class="hl-4">de</span><span class="hl-2"> </span><span class="hl-4">données</span><br/><span class="hl-2">├── </span><span class="hl-4">types</span><span class="hl-2">/              # </span><span class="hl-4">Définitions</span><span class="hl-2"> </span><span class="hl-4">de</span><span class="hl-2"> </span><span class="hl-4">types</span><span class="hl-2"> </span><span class="hl-4">TypeScript</span><br/><span class="hl-2">├── </span><span class="hl-4">constants</span><span class="hl-2">/          # </span><span class="hl-4">Constantes</span><span class="hl-2"> </span><span class="hl-4">de</span><span class="hl-2"> </span><span class="hl-4">l</span><span class="hl-3">&#39;applicatio</span><span class="hl-6">n</span><br/><span class="hl-2">└── </span><span class="hl-4">helpers</span><span class="hl-2">/            # </span><span class="hl-4">Fonctions</span><span class="hl-2"> </span><span class="hl-4">utilitaires</span>
+</code><button>Copy</button></pre>
+
+<h2 id="🎯-fonctionnalités-clés-15-user-stories" class="tsd-anchor-link">🎯 Fonctionnalités Clés (15 User Stories)<a href="#🎯-fonctionnalités-clés-15-user-stories" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="mise-en-page-et-navigation" class="tsd-anchor-link">Mise en Page et Navigation<a href="#mise-en-page-et-navigation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>US#1</strong> : Barre de navigation horizontale avec liens (Accueil, Profil, Réglage, Communauté)</li>
+<li><strong>US#2</strong> : Barre latérale verticale avec boutons de type d'activité</li>
+<li><strong>US#3</strong> : Mise en page optimisée desktop (1024x780px minimum)</li>
+</ul>
+<h3 id="tableau-de-bord-utilisateur" class="tsd-anchor-link">Tableau de Bord Utilisateur<a href="#tableau-de-bord-utilisateur" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>US#4</strong> : Salutation personnalisée avec le prénom de l'utilisateur</li>
+<li><strong>US#5</strong> : Informations utilisateur du endpoint <code>/user/:id</code></li>
+<li><strong>US#10</strong> : Cartes de métriques clés (Calories, Protéines, Glucides, Lipides)</li>
+</ul>
+<h3 id="récupération-de-données" class="tsd-anchor-link">Récupération de Données<a href="#récupération-de-données" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>US#6</strong> : Données d'activité quotidienne de <code>/user/:id/activity</code></li>
+<li><strong>US#7</strong> : Durée moyenne des sessions de <code>/user/:id/average-sessions</code></li>
+<li><strong>US#8</strong> : Score quotidien de <code>/user/:id</code></li>
+<li><strong>US#9</strong> : Métriques de performance de <code>/user/:id/performance</code></li>
+</ul>
+<h3 id="graphiques-et-visualisations" class="tsd-anchor-link">Graphiques et Visualisations<a href="#graphiques-et-visualisations" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>US#11</strong> : BarChart — Activité quotidienne (poids et calories)</li>
+<li><strong>US#12</strong> : LineChart — Tendance de la durée moyenne des sessions</li>
+<li><strong>US#13</strong> : RadarChart — Performance par type d'activité</li>
+<li><strong>US#14</strong> : RadialBarChart — Score de réalisation de l'objectif quotidien</li>
+<li><strong>US#15</strong> : Cartes de métriques — Chiffres clés de santé avec icônes</li>
+</ul>
+<h2 id="📚-documentation" class="tsd-anchor-link">📚 Documentation<a href="#📚-documentation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p><strong><a href="https://steinshy.github.io/SportSee/jdocs/">Voir la Documentation Complète de l'API →</a></strong>
+Généré avec <a href="https://typedoc.org/">TypeDoc</a> | Signatures de fonction complètes, types de paramètres et exemples</p>
+<h2 id="🔌-intégration-api" class="tsd-anchor-link">🔌 Intégration API<a href="#🔌-intégration-api" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="sources-de-données" class="tsd-anchor-link">Sources de Données<a href="#sources-de-données" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>L'application récupère les données à partir de 4 endpoints principaux :</p>
+<pre><code class="typescript"><span class="hl-0">// Informations utilisateur</span><br/><span class="hl-5">GET</span><span class="hl-2"> /</span><span class="hl-4">user</span><span class="hl-2">/:</span><span class="hl-4">id</span><br/><span class="hl-2">→ </span><span class="hl-7">Retourne</span><span class="hl-2"> : </span><span class="hl-4">userInfos</span><span class="hl-2">, </span><span class="hl-4">score</span><span class="hl-2">/</span><span class="hl-4">todayScore</span><span class="hl-2">, </span><span class="hl-4">keyData</span><br/><br/><span class="hl-0">// Activité quotidienne</span><br/><span class="hl-5">GET</span><span class="hl-2"> /</span><span class="hl-4">user</span><span class="hl-2">/:</span><span class="hl-4">id</span><span class="hl-2">/</span><span class="hl-4">activity</span><br/><span class="hl-2">→ </span><span class="hl-7">Retourne</span><span class="hl-2"> : </span><span class="hl-4">sessions</span><span class="hl-2">[] </span><span class="hl-4">avec</span><span class="hl-2"> </span><span class="hl-4">day</span><span class="hl-2">, </span><span class="hl-4">kilogram</span><span class="hl-2">, </span><span class="hl-4">calories</span><br/><br/><span class="hl-0">// Durée moyenne des sessions</span><br/><span class="hl-5">GET</span><span class="hl-2"> /</span><span class="hl-4">user</span><span class="hl-2">/:</span><span class="hl-4">id</span><span class="hl-2">/</span><span class="hl-4">average</span><span class="hl-2">-</span><span class="hl-4">sessions</span><br/><span class="hl-2">→ </span><span class="hl-7">Retourne</span><span class="hl-2"> : </span><span class="hl-4">sessions</span><span class="hl-2">[] </span><span class="hl-4">avec</span><span class="hl-2"> </span><span class="hl-1">day</span><span class="hl-2"> (</span><span class="hl-8">1</span><span class="hl-2">-</span><span class="hl-8">7</span><span class="hl-2">), </span><span class="hl-4">sessionLength</span><br/><br/><span class="hl-0">// Données de performance</span><br/><span class="hl-5">GET</span><span class="hl-2"> /</span><span class="hl-4">user</span><span class="hl-2">/:</span><span class="hl-4">id</span><span class="hl-2">/</span><span class="hl-4">performance</span><br/><span class="hl-2">→ </span><span class="hl-7">Retourne</span><span class="hl-2"> : </span><span class="hl-1">kind</span><span class="hl-2"> (</span><span class="hl-8">1</span><span class="hl-2">-</span><span class="hl-8">6</span><span class="hl-2"> </span><span class="hl-4">mapping</span><span class="hl-2">), </span><span class="hl-4">data</span><span class="hl-2">[] </span><span class="hl-4">avec</span><span class="hl-2"> </span><span class="hl-4">value</span><span class="hl-2"> </span><span class="hl-4">et</span><span class="hl-2"> </span><span class="hl-4">kind</span>
+</code><button type="button">Copy</button></pre>
+
+<h3 id="api-mockée-vs-réelle" class="tsd-anchor-link">API Mockée vs Réelle<a href="#api-mockée-vs-réelle" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p><strong>Développement</strong> — Utilise les données de test (<code>src/data/mockData.ts</code>) :</p>
+<pre><code class="bash"><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">dev</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Production</strong> — Passe à l'API réelle via la configuration d'environnement dans <code>apiClient.ts</code></p>
+<h3 id="normalisation-des-données" class="tsd-anchor-link">Normalisation des Données<a href="#normalisation-des-données" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Le client standardise les données avant leur consommation par les composants :</p>
+<ul>
+<li>Normalise le champ <code>score</code>/<code>todayScore</code> en un seul champ</li>
+<li>Formate les nombres (ex. 1930 → &quot;1,930 kCal&quot;)</li>
+<li>Mappe les catégories de performance (cardio, énergie, endurance, force, vitesse, intensité)</li>
+</ul>
+<h2 id="📊-composants-graphiques" class="tsd-anchor-link">📊 Composants Graphiques<a href="#📊-composants-graphiques" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="activitybarchart" class="tsd-anchor-link">ActivityBarChart<a href="#activitybarchart" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Affiche le poids quotidien et la consommation de calories avec des barres à double axe.</p>
+<ul>
+<li>Axe Y gauche : Calories</li>
+<li>Axe Y droit : Poids (kg)</li>
+<li>Tooltip au survol avec les valeurs</li>
+</ul>
+<h3 id="sessionlinechart" class="tsd-anchor-link">SessionLineChart<a href="#sessionlinechart" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Affiche la tendance de la durée moyenne des sessions sur la semaine.</p>
+<ul>
+<li>Arrière-plan dégradé animé</li>
+<li>Ligne courbe avec effets au survol</li>
+<li>Indicateur de point de données blanc</li>
+</ul>
+<h3 id="performanceradarchart" class="tsd-anchor-link">PerformanceRadarChart<a href="#performanceradarchart" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Graphique radar à 6 axes affichant les performances par catégorie.</p>
+<ul>
+<li>Arrière-plan sombre</li>
+<li>Polygone rempli de rouge</li>
+<li>Étiquettes blanches pour chaque axe</li>
+</ul>
+<h3 id="scoreradialchart" class="tsd-anchor-link">ScoreRadialChart<a href="#scoreradialchart" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<p>Indicateur de progression circulaire pour la réalisation de l'objectif quotidien.</p>
+<ul>
+<li>Arc rouge sur fond clair</li>
+<li>Pourcentage au centre</li>
+<li>Extrémités arrondies</li>
+</ul>
+<h2 id="🛠️-directives-de-développement" class="tsd-anchor-link">🛠️ Directives de Développement<a href="#🛠️-directives-de-développement" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="flux-de-données" class="tsd-anchor-link">Flux de Données<a href="#flux-de-données" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ol>
+<li>Le loader de route récupère les données à partir du client API/mock</li>
+<li>Les composants reçoivent les données via <code>useLoaderData()</code></li>
+<li>Les données sont formatées et affichées dans les graphiques/cartes</li>
+</ol>
+<h3 id="ajouter-de-nouvelles-fonctionnalités" class="tsd-anchor-link">Ajouter de Nouvelles Fonctionnalités<a href="#ajouter-de-nouvelles-fonctionnalités" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li>Créer des composants dans <code>src/components/</code></li>
+<li>Utiliser <code>src/client/</code> pour les appels API (jamais directement depuis les composants)</li>
+<li>Définir les types dans <code>src/types/</code></li>
+</ul>
+<h3 id="normes-de-code" class="tsd-anchor-link">Normes de Code<a href="#normes-de-code" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li>Utiliser TypeScript pour la sécurité des types</li>
+<li>Les composants sont fonctionnels avec hooks</li>
+<li>Les styles organisés par composant</li>
+</ul>
+<h2 id="🔄-modèles-de-données" class="tsd-anchor-link">🔄 Modèles de Données<a href="#🔄-modèles-de-données" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<pre><code class="typescript"><span class="hl-0">// Données principales de l&#39;utilisateur</span><br/><span class="hl-4">UserMainData</span><span class="hl-2"> {</span><br/><span class="hl-2">  </span><span class="hl-7">userInfos</span><span class="hl-2">: { </span><span class="hl-4">firstName</span><span class="hl-2">, </span><span class="hl-4">lastName</span><span class="hl-2">, </span><span class="hl-4">age</span><span class="hl-2"> }</span><br/><span class="hl-2">  </span><span class="hl-4">score</span><span class="hl-2"> | </span><span class="hl-7">todayScore</span><span class="hl-2">: </span><span class="hl-1">number</span><span class="hl-2"> (</span><span class="hl-8">0</span><span class="hl-2">-</span><span class="hl-8">1</span><span class="hl-2">)</span><br/><span class="hl-2">  </span><span class="hl-7">nutritionData</span><span class="hl-2">: { </span><span class="hl-4">calorieCount</span><span class="hl-2">, </span><span class="hl-4">proteinCount</span><span class="hl-2">, </span><span class="hl-4">carbohydrateCount</span><span class="hl-2">, </span><span class="hl-4">lipidCount</span><span class="hl-2"> }</span><br/><span class="hl-2">}</span><br/><br/><span class="hl-0">// Sessions d&#39;activité</span><br/><span class="hl-4">ActivitySession</span><span class="hl-2"> {</span><br/><span class="hl-2">  </span><span class="hl-7">day</span><span class="hl-2">: </span><span class="hl-4">number</span><span class="hl-2"> | </span><span class="hl-4">string</span><br/><span class="hl-2">  </span><span class="hl-7">kilogram</span><span class="hl-2">: </span><span class="hl-4">number</span><br/><span class="hl-2">  </span><span class="hl-7">calories</span><span class="hl-2">: </span><span class="hl-4">number</span><br/><span class="hl-2">}</span><br/><br/><span class="hl-0">// Performance</span><br/><span class="hl-4">PerformanceData</span><span class="hl-2"> {</span><br/><span class="hl-2">  </span><span class="hl-7">kind</span><span class="hl-2">: </span><span class="hl-4">Record</span><span class="hl-2">&lt;</span><span class="hl-4">number</span><span class="hl-2">, </span><span class="hl-4">string</span><span class="hl-2">&gt;</span><br/><span class="hl-2">  </span><span class="hl-7">data</span><span class="hl-2">: </span><span class="hl-4">Array</span><span class="hl-2">&lt;{ </span><span class="hl-7">value</span><span class="hl-2">: </span><span class="hl-4">number</span><span class="hl-2">, </span><span class="hl-7">kind</span><span class="hl-2">: </span><span class="hl-4">number</span><span class="hl-2"> }&gt;</span><br/><span class="hl-2">}</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="🌍-support-des-navigateurs" class="tsd-anchor-link">🌍 Support des Navigateurs<a href="#🌍-support-des-navigateurs" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li>Navigateurs modernes (ES2020+)</li>
+<li>Navigateurs desktop (Chrome, Firefox, Safari, Edge)</li>
+</ul>
+<h2 id="📝-dépendances" class="tsd-anchor-link">📝 Dépendances<a href="#📝-dépendances" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<h3 id="core" class="tsd-anchor-link">Core<a href="#core" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>React 18+</strong> : Framework UI</li>
+<li><strong>React Router</strong> : Routage côté client</li>
+<li><strong>TypeScript</strong> : Typage statique</li>
+</ul>
+<h3 id="données-http" class="tsd-anchor-link">Données &amp; HTTP<a href="#données-http" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Axios</strong> : Client HTTP</li>
+<li><strong>Recharts</strong> : Bibliothèque de visualisation de graphiques</li>
+</ul>
+<h3 id="build-dev" class="tsd-anchor-link">Build &amp; Dev<a href="#build-dev" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul>
+<li><strong>Vite</strong> : Outil de build et serveur de développement</li>
+<li><strong>ESLint</strong> : Linting de code</li>
+</ul>
+<h2 id="📚-scripts-disponibles" class="tsd-anchor-link">📚 Scripts Disponibles<a href="#📚-scripts-disponibles" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<table>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Objectif</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm run dev</code></td>
+<td>Démarrer le serveur de développement</td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>Construire pour la production</td>
+</tr>
+<tr>
+<td><code>npm run preview</code></td>
+<td>Aperçu de la build production</td>
+</tr>
+<tr>
+<td><code>npm run lint</code></td>
+<td>Exécuter ESLint</td>
+</tr>
+<tr>
+<td><code>npm run lint:fix</code></td>
+<td>Corriger les problèmes de linting</td>
+</tr>
+</tbody>
+</table>
+<h2 id="🚀-déploiement" class="tsd-anchor-link">🚀 Déploiement<a href="#🚀-déploiement" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Construire le bundle production :</p>
+<pre><code class="bash"><span class="hl-1">npm</span><span class="hl-2"> </span><span class="hl-3">run</span><span class="hl-2"> </span><span class="hl-3">build</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Le dossier <code>dist/</code> contient la build optimisée prête pour le déploiement.</p>
+<h2 id="📖-prochaines-étapes" class="tsd-anchor-link">📖 Prochaines Étapes<a href="#📖-prochaines-étapes" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<ul>
+<li>Design responsive mobile et tablette (prochain sprint)</li>
+<li>Implémentations supplémentaires de user stories</li>
+<li>Optimisation des performances</li>
+<li>Tests E2E avec Playwright</li>
+</ul>
+<h2 id="📞-support-et-contribution" class="tsd-anchor-link">📞 Support et Contribution<a href="#📞-support-et-contribution" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
+<p>Pour des questions ou des problèmes, consultez les exigences du projet dans <code>.oc/Kanban.md</code> et les maquettes de conception dans <code>.oc/</code>.</p>
+<hr>
+<p><strong>Construit avec ❤️ en utilisant React, TypeScript et Recharts</strong></p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#📋-présentation"><span>📋 <wbr/>Présentation</span></a><ul><li><a href="#périmètre-actuel"><span>Périmètre <wbr/>Actuel</span></a></li></ul><a href="#🚀-démarrage"><span>🚀 <wbr/>Démarrage</span></a><ul><li><a href="#prérequis"><span>Prérequis</span></a></li><li><a href="#installation"><span>Installation</span></a></li></ul><a href="#📁-structure-du-projet"><span>📁 <wbr/>Structure du <wbr/>Projet</span></a><a href="#🎯-fonctionnalités-clés-15-user-stories"><span>🎯 <wbr/>Fonctionnalités <wbr/>Clés (15 <wbr/>User <wbr/>Stories)</span></a><ul><li><a href="#mise-en-page-et-navigation"><span>Mise en <wbr/>Page et <wbr/>Navigation</span></a></li><li><a href="#tableau-de-bord-utilisateur"><span>Tableau de <wbr/>Bord <wbr/>Utilisateur</span></a></li><li><a href="#récupération-de-données"><span>Récupération de <wbr/>Données</span></a></li><li><a href="#graphiques-et-visualisations"><span>Graphiques et <wbr/>Visualisations</span></a></li></ul><a href="#📚-documentation"><span>📚 <wbr/>Documentation</span></a><a href="#🔌-intégration-api"><span>🔌 <wbr/>Intégration <wbr/>API</span></a><ul><li><a href="#sources-de-données"><span>Sources de <wbr/>Données</span></a></li><li><a href="#api-mockée-vs-réelle"><span>API <wbr/>Mockée vs <wbr/>Réelle</span></a></li><li><a href="#normalisation-des-données"><span>Normalisation des <wbr/>Données</span></a></li></ul><a href="#📊-composants-graphiques"><span>📊 <wbr/>Composants <wbr/>Graphiques</span></a><ul><li><a href="#activitybarchart"><span>Activity<wbr/>Bar<wbr/>Chart</span></a></li><li><a href="#sessionlinechart"><span>Session<wbr/>Line<wbr/>Chart</span></a></li><li><a href="#performanceradarchart"><span>Performance<wbr/>Radar<wbr/>Chart</span></a></li><li><a href="#scoreradialchart"><span>Score<wbr/>Radial<wbr/>Chart</span></a></li></ul><a href="#🛠️-directives-de-développement"><span>🛠️ <wbr/>Directives de <wbr/>Développement</span></a><ul><li><a href="#flux-de-données"><span>Flux de <wbr/>Données</span></a></li><li><a href="#ajouter-de-nouvelles-fonctionnalités"><span>Ajouter de <wbr/>Nouvelles <wbr/>Fonctionnalités</span></a></li><li><a href="#normes-de-code"><span>Normes de <wbr/>Code</span></a></li></ul><a href="#🔄-modèles-de-données"><span>🔄 <wbr/>Modèles de <wbr/>Données</span></a><a href="#🌍-support-des-navigateurs"><span>🌍 <wbr/>Support des <wbr/>Navigateurs</span></a><a href="#📝-dépendances"><span>📝 <wbr/>Dépendances</span></a><ul><li><a href="#core"><span>Core</span></a></li><li><a href="#données-http"><span>Données &amp; <wbr/>HTTP</span></a></li><li><a href="#build-dev"><span>Build &amp; <wbr/>Dev</span></a></li></ul><a href="#📚-scripts-disponibles"><span>📚 <wbr/>Scripts <wbr/>Disponibles</span></a><a href="#🚀-déploiement"><span>🚀 <wbr/>Déploiement</span></a><a href="#📖-prochaines-étapes"><span>📖 <wbr/>Prochaines Étapes</span></a><a href="#📞-support-et-contribution"><span>📞 <wbr/>Support et <wbr/>Contribution</span></a></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">sportsee</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

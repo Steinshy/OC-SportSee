@@ -4,8 +4,6 @@ node_modules/
 # Build output
 dist/
 dist-ssr/
-docs/
-jdocs/
 
 # Logs
 *.log
@@ -27,11 +25,9 @@ jdocs/
 # OS
 .DS_Store
 
-# AI tooling
-CLAUDE.md
-.claude/
-
 # Project-specific
 public/api/
 Exemple
 memory
+CLAUDE.md
+.claude/

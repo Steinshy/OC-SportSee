@@ -105,7 +105,7 @@ src/
 
 ## 📚 Documentation
 
-**[Voir la Documentation Complète de l'API →](https://steinshy.github.io/SportSee/jdocs/)**
+**[Voir la Documentation Complète de l'API →](./docs/index.html)**
 Généré avec [TypeDoc](https://typedoc.org/) | Signatures de fonction complètes, types de paramètres et exemples
 
 ## 🔌 Intégration API
