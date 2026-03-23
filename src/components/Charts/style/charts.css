@@ -1,0 +1,44 @@
+/* ============================================
+   SHARED CHART STYLES & DESIGN TOKENS
+   ============================================ */
+
+:root {
+  /* Chart colors */
+  --chart-color-bar-weight: #282d30;
+  --chart-color-bar-calories: #e60000;
+  --chart-stroke-grid: #dedede;
+  --chart-tick-text: #9b9eac;
+  --chart-cursor: #c4c4c4;
+}
+
+/* Base chart card styles */
+.chart-card {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  height: 100%;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Chart-specific card variants */
+.chart-card--activity {
+  grid-column: 1 / -1;
+  min-height: 300px;
+}
+
+.chart-card--score,
+.chart-card--performance,
+.chart-card--session {
+  min-height: 250px;
+}
+
+.activity-chart__title,
+.score-radial-chart__title,
+.performance-radar-chart__title,
+.session-line-chart__title {
+  color: #20293a;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}

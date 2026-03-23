@@ -8,9 +8,9 @@ const {
   getUserActivityById,
   getUserAverageSession,
   getUserPerformance,
-} = require('./models');
+} = require('./app/models');
 
-const { handleNoUserData } = require('./middleware');
+const { handleNoUserData } = require('./app/middleware');
 
 router.get('/user/:id', (req, res) => {
   const userId = idx(req, (_) => _.params.id);

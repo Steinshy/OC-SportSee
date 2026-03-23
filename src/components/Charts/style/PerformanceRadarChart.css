@@ -1,0 +1,28 @@
+/* Performance Radar Chart Styles */
+
+.chart-card--performance {
+  background: #282d30;
+  padding: 0;
+  position: relative;
+}
+
+.chart-card--performance .performance-radar-chart__title {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  left: 20px;
+  margin-bottom: 0;
+  position: absolute;
+  top: 20px;
+  z-index: 1;
+}
+
+.chart-card--performance .recharts-polar-grid-concentric-polygon {
+  stroke: #fff;
+}
+
+.chart-card--performance .recharts-polar-angle-axis text,
+.chart-card--performance .recharts-polar-angle-axis tspan {
+  fill: #fff !important;
+  fill-opacity: 1;
+}

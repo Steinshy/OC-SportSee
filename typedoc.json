@@ -1,0 +1,16 @@
+{
+  "entryPoints": ["src"],
+  "entryPointStrategy": "expand",
+  "out": "docs",
+  "readme": "README.md",
+  "validation": {
+    "invalidLink": true,
+    "notDocumented": false,
+    "notExported": true
+  },
+  "treatWarningsAsErrors": true,
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "sort": ["source-order", "alphabetical"],
+  "hideGenerator": false
+}

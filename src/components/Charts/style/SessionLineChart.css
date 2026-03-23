@@ -1,0 +1,51 @@
+/* Session Line Chart Styles */
+
+.chart-card--session {
+  background: linear-gradient(to right, #e60000, #f00);
+  background-color: #e60000;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.session-line-chart__title {
+  color: white;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  left: 20px;
+  line-height: 1.5;
+  margin-bottom: 0;
+  position: absolute;
+  top: 20px;
+  z-index: 1;
+}
+
+/* Custom tooltip */
+.session-tooltip {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  padding: 8px 12px;
+}
+
+.session-tooltip p {
+  color: #9b9eac;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Session overlay for interactivity */
+.session-overlay {
+  background: rgb(0 0 0 / 10%);
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+}
+
+.session-chart {
+  position: relative;
+}

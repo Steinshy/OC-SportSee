@@ -1,42 +1,87 @@
-# SportSee
+# SportSee — Backend Micro API
 
-This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.
+Express.js micro API serving mocked sports analytics data for the SportSee dashboard.
 
-## 1. General information
+## Prerequisites
 
-To start this project, you are free to use Docker or not. In this documentation, we will see several methods to launch the project easily.
+- [Node.js](https://nodejs.org/) v12.18+ (tested up to v20)
+- npm or [Yarn](https://yarnpkg.com/)
 
-## 2. Project (**without Docker**)
+> Using multiple Node versions? Consider [nvm](https://github.com/nvm-sh/nvm).
 
-### 2.1 Prerequisites
+## Getting Started
 
-- [NodeJS (**version 12.18**)](https://nodejs.org/en/) or higher (tested up to Node 20.0) 
-- [Yarn](https://yarnpkg.com/)
+```bash
+# Install dependencies
+npm install   # or: yarn
 
-If you are working with several versions of NodeJS, we recommend you install [nvm](https://github.com/nvm-sh/nvm). This tool will allow you to easily manage your NodeJS versions.
+# Start the server (port 3000)
+npm run start # or: yarn dev
+```
 
-### 2.2 Launching the project
+The API will be available at **http://localhost:3000**.
 
-- Fork the repository
-- Clone it on your computer.
-- The `yarn` command will allow you to install the dependencies.
-- The `yarn dev` command will allow you to run the micro API.
+## Available Endpoints
 
-## 4. Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/user/:id` | User info, daily score, and key nutritional data |
+| GET | `/user/:id/activity` | Daily activity (weight in kg, calories burned) |
+| GET | `/user/:id/average-sessions` | Average session duration per weekday (Mon–Sun) |
+| GET | `/user/:id/performance` | Performance metrics (energy, endurance, etc.) |
 
-### 4.1 Possible endpoints
+> **Only two users are mocked:** IDs **12** and **18**.
 
-This project includes four endpoints that you will be able to use: 
+### Example Requests
 
-- `http://localhost:3000/user/${userId}` - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
-- `http://localhost:3000/user/${userId}/activity` - retrieves a user's activity day by day with kilograms and calories.
-- `http://localhost:3000/user/${userId}/average-sessions` - retrieves the average sessions of a user per day. The week starts on Monday.
-- `http://localhost:3000/user/${userId}/performance` - retrieves a user's performance (energy, endurance, etc.).
+```
+GET http://localhost:3000/user/12
+GET http://localhost:3000/user/12/activity
+GET http://localhost:3000/user/18/performance
+GET http://localhost:3000/user/18/average-sessions
+```
 
+---
 
-**Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.**
+# SportSee — Micro API Backend
 
-### 4.2 Examples of queries
+Micro API Express.js fournissant des données sportives mockées pour le tableau de bord SportSee.
 
-- `http://localhost:3000/user/12/performance` - Retrieves the performance of the user with id 12
-- `http://localhost:3000/user/18` - Retrieves user 18's main information.
+## Prérequis
+
+- [Node.js](https://nodejs.org/) v12.18+ (testé jusqu'à v20)
+- npm ou [Yarn](https://yarnpkg.com/)
+
+> Vous utilisez plusieurs versions de Node ? Pensez à [nvm](https://github.com/nvm-sh/nvm).
+
+## Démarrage
+
+```bash
+# Installer les dépendances
+npm install   # ou : yarn
+
+# Lancer le serveur (port 3000)
+npm run start # ou : yarn dev
+```
+
+L'API sera accessible à l'adresse **http://localhost:3000**.
+
+## Endpoints disponibles
+
+| Méthode | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/user/:id` | Infos utilisateur, score du jour et données nutritionnelles |
+| GET | `/user/:id/activity` | Activité quotidienne (poids en kg, calories brûlées) |
+| GET | `/user/:id/average-sessions` | Durée moyenne des sessions par jour de la semaine (lun.–dim.) |
+| GET | `/user/:id/performance` | Indicateurs de performance (énergie, endurance, etc.) |
+
+> **Seuls deux utilisateurs sont mockés :** IDs **12** et **18**.
+
+### Exemples de requêtes
+
+```
+GET http://localhost:3000/user/12
+GET http://localhost:3000/user/12/activity
+GET http://localhost:3000/user/18/performance
+GET http://localhost:3000/user/18/average-sessions
+```
