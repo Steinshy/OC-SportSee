@@ -13,7 +13,6 @@ dist-ssr/
 .eslintcache
 
 # Environment
-.env
 *.local
 
 # Editor & IDE

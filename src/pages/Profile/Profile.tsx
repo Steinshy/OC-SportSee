@@ -14,7 +14,7 @@ import './style.css';
 export default function Profile() {
   const { user, activity, avgSessions, performance } = useLoaderData<ProfileLoaderData>();
   const baseUrl = import.meta.env.BASE_URL;
-
+  
   const metricCards = useMemo(() => {
     if (!user) return [];
     return [
