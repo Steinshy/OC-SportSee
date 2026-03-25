@@ -59,7 +59,7 @@ export default function SessionLineChart({ sessions }: Props) {
         sessions
       </h3>
       {activeX !== null && <div className="session-overlay" style={{ left: `${activeX}px`, width: `calc(100% - ${activeX}px)` }} />}
-      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} className="session-chart">
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 100, height: 50 }} className="session-chart">
         <LineChart data={data} margin={{ top: 80, right: 0, left: 0, bottom: 20 }} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <defs>
             <linearGradient id="sessionLine" x1="0%" y1="0" x2="100%" y2="0">

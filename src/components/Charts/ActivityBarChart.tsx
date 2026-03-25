@@ -83,7 +83,7 @@ export default function ActivityBarChart({ sessions }: Props) {
   return (
     <div className="chart-card chart-card--activity">
       <h3 className="activity-chart__title">Activité quotidienne</h3>
-      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 100, height: 50 }}>
         <BarChart
           data={chartData}
           barGap={CHART_VALUES.barGapDefault}

@@ -60,7 +60,7 @@ export default function PerformanceRadarChart({ performance }: Props) {
 
   return (
     <div className="chart-card chart-card--performance">
-      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 100, height: 50 }}>
         <RadarChart data={data} outerRadius={outerRadius}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis dataKey="subject" tick={(props: Record<string, unknown>) => renderPolarAngleAxis(props as Parameters<typeof renderPolarAngleAxis>[0], axisFontSize)} />
