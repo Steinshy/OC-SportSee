@@ -1,9 +1,4 @@
-import {
-  MOCK_USER_ACTIVITY,
-  MOCK_USER_AVERAGE_SESSIONS,
-  MOCK_USER_MAIN_DATA,
-  MOCK_USER_PERFORMANCE,
-} from '@/data/mockData';
+import { MOCK_USER_ACTIVITY, MOCK_USER_AVERAGE_SESSIONS, MOCK_USER_MAIN_DATA, MOCK_USER_PERFORMANCE } from '@/data/mockData';
 import type { UserId } from '@/types/user';
 
 /**
@@ -38,12 +33,8 @@ export const fetchUserFromMock = async (userId: UserId): Promise<unknown> => {
  * @example
  * const mockActivity = await fetchUserActivityFromMock(12);
  */
-export const fetchUserActivityFromMock = async (
-  userId: UserId
-): Promise<unknown> => {
-  const data = MOCK_USER_ACTIVITY.find(
-    (activity) => activity.userId === userId
-  );
+export const fetchUserActivityFromMock = async (userId: UserId): Promise<unknown> => {
+  const data = MOCK_USER_ACTIVITY.find((activity) => activity.userId === userId);
   if (!data) {
     throw new Error(`Activity not found for user: ${userId}`);
   }
@@ -62,12 +53,8 @@ export const fetchUserActivityFromMock = async (
  * @example
  * const mockAvgSessions = await fetchUserAverageSessionsFromMock(12);
  */
-export const fetchUserAverageSessionsFromMock = async (
-  userId: UserId
-): Promise<unknown> => {
-  const data = MOCK_USER_AVERAGE_SESSIONS.find(
-    (sessions) => sessions.userId === userId
-  );
+export const fetchUserAverageSessionsFromMock = async (userId: UserId): Promise<unknown> => {
+  const data = MOCK_USER_AVERAGE_SESSIONS.find((sessions) => sessions.userId === userId);
   if (!data) {
     throw new Error(`Average sessions not found for user: ${userId}`);
   }
@@ -86,12 +73,8 @@ export const fetchUserAverageSessionsFromMock = async (
  * @example
  * const mockPerformance = await fetchUserPerformanceFromMock(12);
  */
-export const fetchUserPerformanceFromMock = async (
-  userId: UserId
-): Promise<unknown> => {
-  const data = MOCK_USER_PERFORMANCE.find(
-    (performance) => performance.userId === userId
-  );
+export const fetchUserPerformanceFromMock = async (userId: UserId): Promise<unknown> => {
+  const data = MOCK_USER_PERFORMANCE.find((performance) => performance.userId === userId);
   if (!data) {
     throw new Error(`Performance not found for user: ${userId}`);
   }

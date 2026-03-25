@@ -1,13 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import {
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from './index';
+import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from './index';
 
 import type { AverageSession } from '@/types/user';
 
@@ -28,13 +21,7 @@ export type Props = {
   sessions: AverageSession[];
 };
 
-function CustomTooltip({
-  active,
-  payload,
-}: {
-  active?: boolean;
-  payload?: { value: number }[];
-}) {
+function CustomTooltip({ active, payload }: { active?: boolean; payload?: { value: number }[] }) {
   if (active && payload && payload.length > 0) {
     return (
       <div className="session-tooltip">
@@ -71,25 +58,9 @@ export default function SessionLineChart({ sessions }: Props) {
         <br />
         sessions
       </h3>
-      {activeX !== null && (
-        <div
-          className="session-overlay"
-          style={{ left: `${activeX}px`, width: `calc(100% - ${activeX}px)` }}
-        />
-      )}
-      <ResponsiveContainer
-        width="100%"
-        height="100%"
-        minWidth={0}
-        minHeight={0}
-        className="session-chart"
-      >
-        <LineChart
-          data={data}
-          margin={{ top: 80, right: 0, left: 0, bottom: 20 }}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
+      {activeX !== null && <div className="session-overlay" style={{ left: `${activeX}px`, width: `calc(100% - ${activeX}px)` }} />}
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} className="session-chart">
+        <LineChart data={data} margin={{ top: 80, right: 0, left: 0, bottom: 20 }} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
           <defs>
             <linearGradient id="sessionLine" x1="0%" y1="0" x2="100%" y2="0">
               <stop offset="0%" stopColor="rgba(255, 255, 255, 0.3)" />

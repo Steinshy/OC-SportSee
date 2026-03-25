@@ -1,31 +1,8 @@
-import {
-  fetchUserActivityFromApi,
-  fetchUserAverageSessionsFromApi,
-  fetchUserFromApi,
-  fetchUserPerformanceFromApi,
-} from '@/client/apiClient';
-import {
-  buildUserActivity,
-  buildUserAverageSessions,
-  buildUserMainData,
-  buildUserPerformance,
-} from '@/client/builders';
-import {
-  fetchUserActivityFromMock,
-  fetchUserAverageSessionsFromMock,
-  fetchUserFromMock,
-  fetchUserPerformanceFromMock,
-} from '@/client/mockClient';
-import type {
-  DataType,
-  UserActivity,
-  UserAverageSessions,
-  UserMainData,
-  UserPerformance,
-  UserId,
-} from '@/types/user';
-
-const USE_API = import.meta.env.VITE_USE_API === 'true';
+import { fetchUserActivityFromApi, fetchUserAverageSessionsFromApi, fetchUserFromApi, fetchUserPerformanceFromApi } from '@/client/apiClient';
+import { buildUserActivity, buildUserAverageSessions, buildUserMainData, buildUserPerformance } from '@/client/builders';
+import { fetchUserActivityFromMock, fetchUserAverageSessionsFromMock, fetchUserFromMock, fetchUserPerformanceFromMock } from '@/client/mockClient';
+import { USE_API } from '@/config/env';
+import type { DataType, UserActivity, UserAverageSessions, UserMainData, UserPerformance, UserId } from '@/types/user';
 
 /**
  * Internal result type for data fetching with source information
@@ -71,9 +48,7 @@ const fetchUserActivity = async (userId: UserId): Promise<SourceResult> => {
  * @returns {Promise<SourceResult>} Promise with average sessions data and source type
  * @private
  */
-const fetchUserAverageSessions = async (
-  userId: UserId
-): Promise<SourceResult> => {
+const fetchUserAverageSessions = async (userId: UserId): Promise<SourceResult> => {
   if (USE_API) {
     return {
       dataType: 'api',
@@ -140,9 +115,7 @@ export const getUser = async (userId: UserId): Promise<UserMainData> => {
  *   console.log(`${session.day}: ${session.kilogram}kg, ${session.calories} cal`);
  * });
  */
-export const getUserActivity = async (
-  userId: UserId
-): Promise<UserActivity> => {
+export const getUserActivity = async (userId: UserId): Promise<UserActivity> => {
   const { data, dataType } = await fetchUserActivity(userId);
   return buildUserActivity(data, dataType);
 };
@@ -162,9 +135,7 @@ export const getUserActivity = async (
  *   console.log(`Day ${session.day}: ${session.sessionLength} min average`);
  * });
  */
-export const getUserAverageSessions = async (
-  userId: UserId
-): Promise<UserAverageSessions> => {
+export const getUserAverageSessions = async (userId: UserId): Promise<UserAverageSessions> => {
   const { data, dataType } = await fetchUserAverageSessions(userId);
   return buildUserAverageSessions(data, dataType);
 };
@@ -185,9 +156,7 @@ export const getUserAverageSessions = async (
  *   console.log(`Type ${metric.type}: ${metric.value}`);
  * });
  */
-export const getUserPerformance = async (
-  userId: UserId
-): Promise<UserPerformance> => {
+export const getUserPerformance = async (userId: UserId): Promise<UserPerformance> => {
   const { data, dataType } = await fetchUserPerformance(userId);
   return buildUserPerformance(data, dataType);
 };

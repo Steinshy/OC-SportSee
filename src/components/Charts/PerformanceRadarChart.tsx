@@ -1,12 +1,4 @@
-import {
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
-  Radar,
-  RadarChart,
-  ResponsiveContainer,
-  Text,
-} from './index';
+import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, Text } from './index';
 
 import type { UserPerformance } from '@/types/user';
 
@@ -44,16 +36,7 @@ function renderPolarAngleAxis(
   fontSize: number
 ) {
   return (
-    <Text
-      {...rest}
-      verticalAnchor="middle"
-      y={y + (y - cy) / 15}
-      x={x + (x - cx) / 150}
-      fill="#FFFFFF"
-      fillOpacity={1}
-      fontSize={fontSize}
-      fontWeight={500}
-    >
+    <Text {...rest} verticalAnchor="middle" y={y + (y - cy) / 15} x={x + (x - cx) / 150} fill="#FFFFFF" fillOpacity={1} fontSize={fontSize} fontWeight={500}>
       {payload.value}
     </Text>
   );
@@ -77,32 +60,12 @@ export default function PerformanceRadarChart({ performance }: Props) {
 
   return (
     <div className="chart-card chart-card--performance">
-      <ResponsiveContainer
-        width="100%"
-        height="100%"
-        minWidth={0}
-        minHeight={0}
-      >
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
         <RadarChart data={data} outerRadius={outerRadius}>
           <PolarGrid radialLines={false} />
-          <PolarAngleAxis
-            dataKey="subject"
-            tick={(props: Record<string, unknown>) =>
-              renderPolarAngleAxis(
-                props as Parameters<typeof renderPolarAngleAxis>[0],
-                axisFontSize
-              )
-            }
-          />
+          <PolarAngleAxis dataKey="subject" tick={(props: Record<string, unknown>) => renderPolarAngleAxis(props as Parameters<typeof renderPolarAngleAxis>[0], axisFontSize)} />
           <PolarRadiusAxis tickCount={6} tick={false} axisLine={false} />
-          <Radar
-            dataKey="value"
-            fill="#ff0101"
-            fillOpacity={0.6}
-            stroke="#ff0101"
-            dot={false}
-            activeDot={false}
-          />
+          <Radar dataKey="value" fill="#ff0101" fillOpacity={0.6} stroke="#ff0101" dot={false} activeDot={false} />
         </RadarChart>
       </ResponsiveContainer>
     </div>

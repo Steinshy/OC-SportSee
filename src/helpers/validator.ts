@@ -23,8 +23,7 @@ export const ensureString = (value: unknown): string => {
  *   const id = data.id; // TypeScript knows data is Record<string, unknown>
  * }
  */
-export const isRecord = (value: unknown): value is Record<string, unknown> =>
-  typeof value === 'object' && value !== null && !Array.isArray(value);
+export const isRecord = (value: unknown): value is Record<string, unknown> => typeof value === 'object' && value !== null && !Array.isArray(value);
 
 /**
  * Validates that a value is a number

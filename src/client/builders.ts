@@ -1,20 +1,5 @@
-import {
-  ensureArray,
-  ensureCategories,
-  ensureExists,
-  ensureNumber,
-  ensureString,
-  isRecord,
-} from '@/helpers/validator';
-import type {
-  ActivitySession,
-  AverageSession,
-  DataType,
-  UserActivity,
-  UserAverageSessions,
-  UserMainData,
-  UserPerformance,
-} from '@/types/user';
+import { ensureArray, ensureCategories, ensureExists, ensureNumber, ensureString, isRecord } from '@/helpers/validator';
+import type { ActivitySession, AverageSession, DataType, UserActivity, UserAverageSessions, UserMainData, UserPerformance } from '@/types/user';
 
 /**
  * Extracts the payload from API response, handling both nested and direct data structures
@@ -64,10 +49,7 @@ const ensureUserId = (value: unknown): string => {
  * const userData = buildUserMainData(rawApiData, 'api');
  * // Returns: { id: '12', score: 50, userInfos: {...}, nutritionData: {...}, dataType: 'api' }
  */
-export const buildUserMainData = (
-  apiData: unknown,
-  dataType: DataType
-): UserMainData => {
+export const buildUserMainData = (apiData: unknown, dataType: DataType): UserMainData => {
   const payload = unwrapPayload(apiData);
 
   const id = ensureUserId(ensureExists(payload.id));
@@ -89,9 +71,7 @@ export const buildUserMainData = (
     }
     const calorieCount = ensureNumber(ensureExists(nutritionData.calorieCount));
     const proteinCount = ensureNumber(ensureExists(nutritionData.proteinCount));
-    const carbohydrateCount = ensureNumber(
-      ensureExists(nutritionData.carbohydrateCount)
-    );
+    const carbohydrateCount = ensureNumber(ensureExists(nutritionData.carbohydrateCount));
     const lipidCount = ensureNumber(ensureExists(nutritionData.lipidCount));
     return { calorieCount, proteinCount, carbohydrateCount, lipidCount };
   };
@@ -101,9 +81,7 @@ export const buildUserMainData = (
     dataType,
     score,
     userInfos: validateUserInfos(payload.userInfos),
-    nutritionData: validateNutritionData(
-      payload.nutritionData ?? payload.keyData
-    ),
+    nutritionData: validateNutritionData(payload.nutritionData ?? payload.keyData),
   };
 };
 
@@ -123,15 +101,10 @@ export const buildUserMainData = (
  * const activity = buildUserActivity(rawActivityData, 'api');
  * // Returns: { userId: '12', sessions: [{day: '2024-01-01', kilogram: 80, calories: 300}, ...], dataType: 'api' }
  */
-export const buildUserActivity = (
-  apiData: unknown,
-  dataType: DataType
-): UserActivity => {
+export const buildUserActivity = (apiData: unknown, dataType: DataType): UserActivity => {
   const payload = unwrapPayload(apiData);
   const userId = ensureUserId(ensureExists(payload.userId ?? payload.id));
-  const validatedSessions = ensureArray<ActivitySession>(
-    ensureExists(payload.sessions)
-  ).map((session) => ({
+  const validatedSessions = ensureArray<ActivitySession>(ensureExists(payload.sessions)).map((session) => ({
     day: ensureString(ensureExists(session.day)),
     kilogram: ensureNumber(ensureExists(session.kilogram)),
     calories: ensureNumber(ensureExists(session.calories)),
@@ -159,15 +132,10 @@ export const buildUserActivity = (
  * const avgSessions = buildUserAverageSessions(rawSessionData, 'api');
  * // Returns: { userId: '12', sessions: [{day: 1, sessionLength: 45}, ...], dataType: 'api' }
  */
-export const buildUserAverageSessions = (
-  apiData: unknown,
-  dataType: DataType
-): UserAverageSessions => {
+export const buildUserAverageSessions = (apiData: unknown, dataType: DataType): UserAverageSessions => {
   const payload = unwrapPayload(apiData);
   const userId = ensureUserId(ensureExists(payload.userId ?? payload.id));
-  const validatedSessions = ensureArray<AverageSession>(
-    ensureExists(payload.sessions)
-  ).map((session) => ({
+  const validatedSessions = ensureArray<AverageSession>(ensureExists(payload.sessions)).map((session) => ({
     day: ensureNumber(ensureExists(session.day)),
     sessionLength: ensureNumber(ensureExists(session.sessionLength)),
   }));
@@ -193,15 +161,10 @@ export const buildUserAverageSessions = (
  * const performance = buildUserPerformance(rawPerfData, 'api');
  * // Returns: { userId: '12', categories: {0: 'Cardio', ...}, data: [{type: 1, value: 90}, ...], dataType: 'api' }
  */
-export const buildUserPerformance = (
-  apiData: unknown,
-  dataType: DataType
-): UserPerformance => {
+export const buildUserPerformance = (apiData: unknown, dataType: DataType): UserPerformance => {
   const payload = unwrapPayload(apiData);
   const userId = ensureUserId(ensureExists(payload.userId ?? payload.id));
-  const categories = ensureCategories(
-    ensureExists(payload.categories ?? payload.kind)
-  );
+  const categories = ensureCategories(ensureExists(payload.categories ?? payload.kind));
 
   const validatedData = ensureArray(ensureExists(payload.data)).map((item) => {
     if (!isRecord(item)) {
