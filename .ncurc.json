@@ -1,6 +1,7 @@
 {
   "upgrade": true,
   "target": "minor",
-  "doctorTest": "npm run build",
+  "packageManager": "pnpm",
+  "doctorTest": "pnpm run build",
   "reject": []
 }
