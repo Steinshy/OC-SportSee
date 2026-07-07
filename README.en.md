@@ -1,13 +1,14 @@
 <h1 align="center">SportSee — User Profile Dashboard</h1>
 
-<p align="center"><strong>Languages:</strong> <a href="README.md">English</a> | <a href="README.fr.md">Français</a></p>
+<p align="center"><strong>Languages:</strong> <a href="README.md">Français</a> | <a href="README.en.md">English</a></p>
 
 <p align="center">
-  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react" alt="React" /></a>
-  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript" alt="TypeScript" /></a>
-  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-16+-339933?style=flat-square&logo=node.js" alt="Node.js" /></a>
-  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-5.0+-646CFF?style=flat-square&logo=vite" alt="Vite" /></a>
-  <a href="https://recharts.org"><img src="https://img.shields.io/badge/Recharts-2.0+-8884D8?style=flat-square" alt="Recharts" /></a>
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react" alt="React" /></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript" alt="TypeScript" /></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-20+-339933?style=flat-square&logo=node.js" alt="Node.js" /></a>
+  <a href="https://pnpm.io"><img src="https://img.shields.io/badge/pnpm-10-F69220?style=flat-square&logo=pnpm&logoColor=white" alt="pnpm" /></a>
+  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite" alt="Vite" /></a>
+  <a href="https://recharts.org"><img src="https://img.shields.io/badge/Recharts-3-8884D8?style=flat-square" alt="Recharts" /></a>
   <a href="./public/mockup"><img src="https://img.shields.io/badge/Mockup-public%2Fmockup-FF6B6B?style=flat-square&logo=figma&logoColor=white" alt="Mockup" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" /></a>
   <a href="https://github.com"><img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square" alt="Status" /></a>
@@ -25,32 +26,35 @@ SportSee is a responsive fitness tracking dashboard that displays user activity,
 
 - ✅ Desktop layout (1024x780px minimum)
 - ✅ 15 implemented user stories
-- ⏳ Mobile/tablet versions planned for next sprint
+- ✅ Mobile & tablet adaptations (768px / 420px breakpoints)
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 16+ and npm
-- Backend API running (see `/Backend` folder)
+- Node.js 20+ and [pnpm](https://pnpm.io) 10 (`corepack enable`)
+- Backend API running (see `/Backend` folder) when `VITE_USE_API=true`
 
 ### Installation
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm run dev
+pnpm dev
+
+# Start frontend + backend together
+pnpm dev:all
 
 # Build for production
-npm run build
+pnpm build
 
 # Preview production build
-npm run preview
+pnpm preview
 
 # Run linting
-npm run lint
+pnpm lint
 ```
 
 ## 📁 Project Structure
@@ -106,8 +110,8 @@ src/
 
 ## 📚 Documentation
 
-**[View Complete API Documentation →](./docs/index.html)**
-Generated with [TypeDoc](https://typedoc.org/) | Full function signatures, parameter types, and examples
+**[View Complete API Documentation →](https://steinshy.github.io/OC-SportSee/jdocs/)**
+Generated with [TypeDoc](https://typedoc.org/) via `pnpm docs` (the `docs/` folder is not versioned; CI publishes it under `/jdocs`)
 
 ## 🔌 API Integration
 
@@ -135,13 +139,10 @@ GET /user/:id/performance
 
 ### Mock vs Real API
 
-**Development** — Uses mock data (`src/data/mockData.ts`):
+The data source is selected at build time through the `VITE_USE_API` environment variable:
 
-```bash
-npm run dev
-```
-
-**Production** — Switches to real API via environment configuration in `apiClient.ts`
+- `.env` (development): `VITE_USE_API=true` → HTTP calls to `VITE_API_URL` (local backend, port 3000). Set it to `false` to use mock data (`src/data/mockData.ts`, users 12 and 18).
+- `.env.production`: `VITE_USE_API=false` → the GitHub Pages build uses mock data (no backend available).
 
 ### Data Normalization
 
@@ -217,15 +218,15 @@ UserMainData {
 
 // Activity sessions
 ActivitySession {
-  day: number | string
+  day: string
   kilogram: number
   calories: number
 }
 
 // Performance
-PerformanceData {
-  kind: Record<number, string>
-  data: Array<{ value: number, kind: number }>
+UserPerformance {
+  categories: Record<number, string>
+  data: Array<{ value: number, type: number }>
 }
 ```
 
@@ -238,7 +239,7 @@ PerformanceData {
 
 ### Core
 
-- **React 18+**: UI framework
+- **React 19**: UI framework
 - **React Router**: Client-side routing
 - **TypeScript**: Static typing
 
@@ -254,30 +255,34 @@ PerformanceData {
 
 ## 📚 Available Scripts
 
-| Command            | Purpose                  |
-| ------------------ | ------------------------ |
-| `npm run dev`      | Start development server |
-| `npm run build`    | Build for production     |
-| `npm run preview`  | Preview production build |
-| `npm run lint`     | Run ESLint               |
-| `npm run lint:fix` | Fix linting issues       |
+| Command            | Purpose                      |
+| ------------------ | ---------------------------- |
+| `pnpm dev`         | Start development server     |
+| `pnpm dev:all`     | Start frontend + backend     |
+| `pnpm build`       | Build for production         |
+| `pnpm preview`     | Preview production build     |
+| `pnpm lint`        | Run ESLint                   |
+| `pnpm lint:fix`    | Fix linting issues           |
+| `pnpm lint:styles` | Lint stylesheets (Stylelint) |
+| `pnpm format`      | Format code with Prettier    |
+| `pnpm docs`        | Generate TypeDoc docs        |
 
 ## 🚀 Deployment
 
-Build the production bundle:
+Deployment is automated: every push to `main` builds and publishes the app to GitHub Pages (`.github/workflows/deploy.yml`), including the TypeDoc documentation under `/jdocs`.
+
+Manual build:
 
 ```bash
-npm run build
+pnpm build
 ```
 
-The `dist/` folder contains the optimized build ready for deployment.
+The `dist/` folder contains the optimized build ready for deployment (with a bundle report at `dist/stats.html`).
 
 ## 📖 Next Steps
 
-- Mobile & tablet responsive design (next sprint)
 - Additional user story implementations
-- Performance optimization
-- E2E testing with Playwright
+- Unit & E2E testing
 
 ## 📞 Support & Contribution
 

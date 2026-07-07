@@ -3,11 +3,12 @@
 <p align="center"><strong>Languages:</strong> <a href="README.md">Français</a> | <a href="README.en.md">English</a></p>
 
 <p align="center">
-  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react" alt="React" /></a>
-  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat-square&logo=typescript" alt="TypeScript" /></a>
-  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-16+-339933?style=flat-square&logo=node.js" alt="Node.js" /></a>
-  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-5.0+-646CFF?style=flat-square&logo=vite" alt="Vite" /></a>
-  <a href="https://recharts.org"><img src="https://img.shields.io/badge/Recharts-2.0+-8884D8?style=flat-square" alt="Recharts" /></a>
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react" alt="React" /></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript" alt="TypeScript" /></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/Node.js-20+-339933?style=flat-square&logo=node.js" alt="Node.js" /></a>
+  <a href="https://pnpm.io"><img src="https://img.shields.io/badge/pnpm-10-F69220?style=flat-square&logo=pnpm&logoColor=white" alt="pnpm" /></a>
+  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-7-646CFF?style=flat-square&logo=vite" alt="Vite" /></a>
+  <a href="https://recharts.org"><img src="https://img.shields.io/badge/Recharts-3-8884D8?style=flat-square" alt="Recharts" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" /></a>
   <a href="https://github.com"><img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square" alt="Status" /></a>
 </p>
@@ -24,32 +25,35 @@ SportSee est un tableau de bord de suivi des performances sportives qui affiche 
 
 - ✅ Mise en page desktop (1024x780px minimum)
 - ✅ 15 user stories implémentées
-- ⏳ Versions mobiles et tablettes prévues pour le prochain sprint
+- ✅ Adaptations mobile et tablette (points de rupture 768px / 420px)
 
 ## 🚀 Démarrage
 
 ### Prérequis
 
-- Node.js 16+ et npm
-- API backend en cours d'exécution (voir dossier `/Backend`)
+- Node.js 20+ et [pnpm](https://pnpm.io) 10 (`corepack enable`)
+- API backend en cours d'exécution (voir dossier `/Backend`) si `VITE_USE_API=true`
 
 ### Installation
 
 ```bash
 # Installer les dépendances
-npm install
+pnpm install
 
 # Démarrer le serveur de développement
-npm run dev
+pnpm dev
+
+# Démarrer le front + le backend ensemble
+pnpm dev:all
 
 # Construire pour la production
-npm run build
+pnpm build
 
 # Aperçu de la build production
-npm run preview
+pnpm preview
 
 # Lancer le linting
-npm run lint
+pnpm lint
 ```
 
 ## 📁 Structure du Projet
@@ -105,8 +109,8 @@ src/
 
 ## 📚 Documentation
 
-**[Voir la Documentation Complète de l'API →](./docs/index.html)**
-Généré avec [TypeDoc](https://typedoc.org/) | Signatures de fonction complètes, types de paramètres et exemples
+**[Voir la Documentation Complète de l'API →](https://steinshy.github.io/OC-SportSee/jdocs/)**
+Générée avec [TypeDoc](https://typedoc.org/) via `pnpm docs` (dossier `docs/` non versionné, publié par la CI sous `/jdocs`)
 
 ## 🔌 Intégration API
 
@@ -134,13 +138,10 @@ GET /user/:id/performance
 
 ### API Mockée vs Réelle
 
-**Développement** — Utilise les données de test (`src/data/mockData.ts`) :
+La source de données est choisie à la build via la variable d'environnement `VITE_USE_API` :
 
-```bash
-npm run dev
-```
-
-**Production** — Passe à l'API réelle via la configuration d'environnement dans `apiClient.ts`
+- `.env` (développement) : `VITE_USE_API=true` → appels HTTP vers `VITE_API_URL` (backend local, port 3000). Passez à `false` pour utiliser les données de test (`src/data/mockData.ts`, utilisateurs 12 et 18).
+- `.env.production` : `VITE_USE_API=false` → la build déployée sur GitHub Pages utilise les données mockées (aucun backend disponible).
 
 ### Normalisation des Données
 
@@ -216,15 +217,15 @@ UserMainData {
 
 // Sessions d'activité
 ActivitySession {
-  day: number | string
+  day: string
   kilogram: number
   calories: number
 }
 
 // Performance
-PerformanceData {
-  kind: Record<number, string>
-  data: Array<{ value: number, kind: number }>
+UserPerformance {
+  categories: Record<number, string>
+  data: Array<{ value: number, type: number }>
 }
 ```
 
@@ -237,7 +238,7 @@ PerformanceData {
 
 ### Core
 
-- **React 18+** : Framework UI
+- **React 19** : Framework UI
 - **React Router** : Routage côté client
 - **TypeScript** : Typage statique
 
@@ -253,30 +254,34 @@ PerformanceData {
 
 ## 📚 Scripts Disponibles
 
-| Commande           | Objectif                             |
-| ------------------ | ------------------------------------ |
-| `npm run dev`      | Démarrer le serveur de développement |
-| `npm run build`    | Construire pour la production        |
-| `npm run preview`  | Aperçu de la build production        |
-| `npm run lint`     | Exécuter ESLint                      |
-| `npm run lint:fix` | Corriger les problèmes de linting    |
+| Commande           | Objectif                                |
+| ------------------ | --------------------------------------- |
+| `pnpm dev`         | Démarrer le serveur de développement    |
+| `pnpm dev:all`     | Démarrer le front + le backend          |
+| `pnpm build`       | Construire pour la production           |
+| `pnpm preview`     | Aperçu de la build production           |
+| `pnpm lint`        | Exécuter ESLint                         |
+| `pnpm lint:fix`    | Corriger les problèmes de linting       |
+| `pnpm lint:styles` | Linter les feuilles de style (Stylelint) |
+| `pnpm format`      | Formater le code avec Prettier          |
+| `pnpm docs`        | Générer la documentation TypeDoc        |
 
 ## 🚀 Déploiement
 
-Construire le bundle production :
+Le déploiement est automatisé : chaque push sur `main` construit et publie l'application sur GitHub Pages (`.github/workflows/deploy.yml`), documentation TypeDoc incluse sous `/jdocs`.
+
+Build manuelle :
 
 ```bash
-npm run build
+pnpm build
 ```
 
-Le dossier `dist/` contient la build optimisée prête pour le déploiement.
+Le dossier `dist/` contient la build optimisée prête pour le déploiement (avec rapport de bundle `dist/stats.html`).
 
 ## 📖 Prochaines Étapes
 
-- Design responsive mobile et tablette (prochain sprint)
 - Implémentations supplémentaires de user stories
-- Optimisation des performances
-- Tests E2E avec Playwright
+- Tests unitaires et E2E
 
 ## 📞 Support et Contribution
 
