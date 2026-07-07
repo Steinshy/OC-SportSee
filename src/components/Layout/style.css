@@ -4,10 +4,8 @@
   box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
   display: flex;
   gap: 20px;
-  justify-content: center;
   min-height: 80px;
   padding: 0 20px;
-  position: relative;
 }
 
 .navbar__brand {
@@ -15,10 +13,6 @@
   display: flex;
   flex-shrink: 0;
   gap: 12px;
-  left: 20px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .navbar__brand-name {
@@ -28,17 +22,11 @@
   white-space: nowrap;
 }
 
-.navbar__brand img {
-  height: 48px;
-}
-
 .navbar__links {
   display: flex;
-  flex: none;
+  flex: 1;
   justify-content: space-evenly;
-  margin-left: 20px;
-  max-width: 900px;
-  width: min(900px, 100%);
+  min-width: 0;
 }
 
 .navbar__links a {
@@ -100,24 +88,15 @@
     padding: 12px 14px;
   }
 
-  .navbar__brand {
-    left: auto;
-    position: static;
-    top: auto;
-    transform: none;
-  }
-
-  .navbar__brand img,
   .navbar__logo {
     height: 36px;
   }
 
   .navbar__links {
+    flex: none;
     flex-wrap: wrap;
     gap: 12px;
     justify-content: center;
-    margin-left: 0;
-    max-width: none;
     width: 100%;
   }
 

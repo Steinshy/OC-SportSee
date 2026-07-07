@@ -1,17 +1,5 @@
-/* ============================================
-   SHARED CHART STYLES & DESIGN TOKENS
-   ============================================ */
+/* Shared chart card styles */
 
-:root {
-  /* Chart colors */
-  --chart-color-bar-weight: #282d30;
-  --chart-color-bar-calories: #e60000;
-  --chart-stroke-grid: #dedede;
-  --chart-tick-text: #9b9eac;
-  --chart-cursor: #c4c4c4;
-}
-
-/* Base chart card styles */
 .chart-card {
   background: white;
   border-radius: 5px;

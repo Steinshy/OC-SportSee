@@ -127,12 +127,12 @@ export default defineConfig(({ mode }) => {
     devOptions: { enabled: false, type: 'module' },
   });
 
-  // Common Build Options
   const buildOptions = {
     target: 'esnext',
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: mode === 'production' ? false : true,
+    sourcemap: mode !== 'production',
+    manifest: mode === 'production',
     cssCodeSplit: true,
     cssMinify: 'esbuild' as const,
     assetsInlineLimit: 4096,
@@ -145,31 +145,13 @@ export default defineConfig(({ mode }) => {
     rollupOptions: {
       output: {
         manualChunks: {
-          // Split vendors - optimize chunk strategy
           'vendor-react': ['react', 'react-dom', 'react-router'],
           'vendor-charts': ['recharts'],
           'vendor-utils': ['axios'],
-          'vendor-ui': ['lucide-react'],
         },
       },
     },
   };
-
-  // Development Mode
-  if (mode === 'development') {
-    Object.assign({
-      host: 'localhost',
-      port: 5173,
-    });
-  }
-
-  // Production Mode
-  if (mode === 'production') {
-    Object.assign(buildOptions, {
-      sourcemap: false,
-      manifest: true,
-    });
-  }
 
   return {
     plugins: [
@@ -177,18 +159,23 @@ export default defineConfig(({ mode }) => {
       tsconfigPaths(),
       react(),
       vitePWA,
-      mode === 'production' && visualizer({
-        open: true,
-        gzipSize: true,
-        brotliSize: true,
-        filename: 'dist/stats.html',
-      }),
+      mode === 'production' &&
+        visualizer({
+          open: false,
+          gzipSize: true,
+          brotliSize: true,
+          filename: 'dist/stats.html',
+        }),
     ].filter(Boolean),
     base: basePath,
     publicDir: './public',
     build: buildOptions,
     optimizeDeps: {
-      include: ['axios', 'lucide-react', 'react', 'react-dom', 'react-router', 'recharts'],
+      include: ['axios', 'react', 'react-dom', 'react-router', 'recharts'],
+    },
+    server: {
+      host: 'localhost',
+      port: 5173,
     },
     preview: {
       host: 'localhost',

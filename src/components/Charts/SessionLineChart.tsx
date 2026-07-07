@@ -1,6 +1,5 @@
 import { useCallback, useState } from 'react';
-
-import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from './index';
+import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 import type { AverageSession } from '@/types/user';
 
@@ -36,7 +35,7 @@ export default function SessionLineChart({ sessions }: Props) {
   const [activeX, setActiveX] = useState<number | null>(null);
 
   const data = sessions.map((session) => ({
-    day: DAY_LABELS[session.day],
+    day: DAY_LABELS[session.day] ?? '',
     length: session.sessionLength,
   }));
 

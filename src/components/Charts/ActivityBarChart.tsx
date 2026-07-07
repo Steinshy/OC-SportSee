@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
-
-import { Bar, BarChart, CartesianGrid, Legend, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from './index';
+import { Bar, BarChart, CartesianGrid, Legend, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 import { CHART_COLORS, CHART_VALUES } from '@/constants/chartConstants';
 import type { ActivitySession } from '@/types/user';
@@ -84,17 +83,7 @@ export default function ActivityBarChart({ sessions }: Props) {
     <div className="chart-card chart-card--activity">
       <h3 className="activity-chart__title">Activité quotidienne</h3>
       <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 100, height: 50 }}>
-        <BarChart
-          data={chartData}
-          barGap={CHART_VALUES.barGapDefault}
-          barSize={7}
-          onMouseMove={(state) => {
-            if (!state.isTooltipActive || !state.activeCoordinate) {
-              return;
-            }
-          }}
-          margin={{ top: 18, right: 20, left: 20, bottom: 30 }}
-        >
+        <BarChart data={chartData} barGap={CHART_VALUES.barGapDefault} barSize={7} margin={{ top: 18, right: 20, left: 20, bottom: 30 }}>
           <CartesianGrid strokeDasharray="3" vertical={false} stroke={CHART_COLORS.strokeGrid} />
           <XAxis
             dataKey="day"

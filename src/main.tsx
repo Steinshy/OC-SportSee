@@ -14,6 +14,7 @@ const router = createBrowserRouter(
     {
       path: '/',
       element: <Layout />,
+      errorElement: <div className="route-error">404 - Page introuvable</div>,
       children: [
         {
           index: true,

@@ -3,15 +3,8 @@ import type { UserId } from '@/types/user';
 
 /**
  * Fetches mock user profile data from the in-memory mock data store
- *
- * Used for development and testing when API is unavailable.
- * Returns pre-configured mock data for testing purposes.
- *
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Mock user profile data
- * @throws {Error} If user ID is not found in mock data
- * @example
- * const mockUser = await fetchUserFromMock(12);
+ * @param userId - The unique identifier of the user
+ * @throws {Error} If the user ID is not found in mock data
  */
 export const fetchUserFromMock = async (userId: UserId): Promise<unknown> => {
   const data = MOCK_USER_MAIN_DATA.find((user) => user.id === userId);
@@ -22,16 +15,9 @@ export const fetchUserFromMock = async (userId: UserId): Promise<unknown> => {
 };
 
 /**
- * Fetches mock user activity data from the in-memory mock data store
- *
- * Used for development and testing when API is unavailable.
- * Returns pre-configured daily activity metrics for testing.
- *
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Mock activity data with daily sessions
- * @throws {Error} If activity data is not found for the user ID
- * @example
- * const mockActivity = await fetchUserActivityFromMock(12);
+ * Fetches mock daily activity data from the in-memory mock data store
+ * @param userId - The unique identifier of the user
+ * @throws {Error} If no activity data exists for the user ID
  */
 export const fetchUserActivityFromMock = async (userId: UserId): Promise<unknown> => {
   const data = MOCK_USER_ACTIVITY.find((activity) => activity.userId === userId);
@@ -42,16 +28,9 @@ export const fetchUserActivityFromMock = async (userId: UserId): Promise<unknown
 };
 
 /**
- * Fetches mock user average sessions data from the in-memory mock data store
- *
- * Used for development and testing when API is unavailable.
- * Returns pre-configured weekly average session durations for testing.
- *
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Mock average sessions data
- * @throws {Error} If average sessions data is not found for the user ID
- * @example
- * const mockAvgSessions = await fetchUserAverageSessionsFromMock(12);
+ * Fetches mock average session durations from the in-memory mock data store
+ * @param userId - The unique identifier of the user
+ * @throws {Error} If no average sessions data exists for the user ID
  */
 export const fetchUserAverageSessionsFromMock = async (userId: UserId): Promise<unknown> => {
   const data = MOCK_USER_AVERAGE_SESSIONS.find((sessions) => sessions.userId === userId);
@@ -62,16 +41,9 @@ export const fetchUserAverageSessionsFromMock = async (userId: UserId): Promise<
 };
 
 /**
- * Fetches mock user performance data from the in-memory mock data store
- *
- * Used for development and testing when API is unavailable.
- * Returns pre-configured sport performance metrics for testing.
- *
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Mock performance data with sport metrics
- * @throws {Error} If performance data is not found for the user ID
- * @example
- * const mockPerformance = await fetchUserPerformanceFromMock(12);
+ * Fetches mock performance data from the in-memory mock data store
+ * @param userId - The unique identifier of the user
+ * @throws {Error} If no performance data exists for the user ID
  */
 export const fetchUserPerformanceFromMock = async (userId: UserId): Promise<unknown> => {
   const data = MOCK_USER_PERFORMANCE.find((performance) => performance.userId === userId);

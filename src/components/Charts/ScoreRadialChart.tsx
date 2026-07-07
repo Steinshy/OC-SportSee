@@ -1,4 +1,4 @@
-import { PolarAngleAxis, RadialBar, RadialBarChart, ResponsiveContainer } from './index';
+import { PolarAngleAxis, RadialBar, RadialBarChart, ResponsiveContainer } from 'recharts';
 
 import { CHART_COLORS } from '@/constants/chartConstants';
 
