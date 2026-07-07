@@ -5,7 +5,6 @@ import type { UserId } from '@/types/user';
 
 /**
  * Axios HTTP client configured for SportSee API communication
- * @type {import('axios').AxiosInstance}
  * @see {@link https://axios-http.com/}
  */
 const apiClient = axios.create({
@@ -15,11 +14,8 @@ const apiClient = axios.create({
 });
 
 /**
- * Fetches user profile data from the SportSee API
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Raw user profile data from API
- * @example
- * const userData = await fetchUserFromApi(12);
+ * Fetches raw user profile data from `GET /user/:id`
+ * @param userId - The unique identifier of the user
  */
 export const fetchUserFromApi = async (userId: UserId): Promise<unknown> => {
   const response = await apiClient.get(`/user/${userId}`);
@@ -27,11 +23,8 @@ export const fetchUserFromApi = async (userId: UserId): Promise<unknown> => {
 };
 
 /**
- * Fetches user activity data (daily calorie and exercise metrics) from the SportSee API
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Raw activity data from API
- * @example
- * const activityData = await fetchUserActivityFromApi(12);
+ * Fetches raw daily activity data from `GET /user/:id/activity`
+ * @param userId - The unique identifier of the user
  */
 export const fetchUserActivityFromApi = async (userId: UserId): Promise<unknown> => {
   const response = await apiClient.get(`/user/${userId}/activity`);
@@ -39,11 +32,8 @@ export const fetchUserActivityFromApi = async (userId: UserId): Promise<unknown>
 };
 
 /**
- * Fetches user average session duration data from the SportSee API
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Raw average sessions data from API
- * @example
- * const avgSessions = await fetchUserAverageSessionsFromApi(12);
+ * Fetches raw average session durations from `GET /user/:id/average-sessions`
+ * @param userId - The unique identifier of the user
  */
 export const fetchUserAverageSessionsFromApi = async (userId: UserId): Promise<unknown> => {
   const response = await apiClient.get(`/user/${userId}/average-sessions`);
@@ -51,11 +41,8 @@ export const fetchUserAverageSessionsFromApi = async (userId: UserId): Promise<u
 };
 
 /**
- * Fetches user performance data (sport-specific metrics) from the SportSee API
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Raw performance data from API
- * @example
- * const performance = await fetchUserPerformanceFromApi(12);
+ * Fetches raw performance data from `GET /user/:id/performance`
+ * @param userId - The unique identifier of the user
  */
 export const fetchUserPerformanceFromApi = async (userId: UserId): Promise<unknown> => {
   const response = await apiClient.get(`/user/${userId}/performance`);

@@ -11,14 +11,8 @@ export const CHART_COLORS = {
   cursor: '#c4c4c4',
 } as const;
 
-export const CHART_BREAKPOINTS = {
-  mobile: 768,
-  extraSmall: 420,
-} as const;
-
 export const CHART_VALUES = {
   minDisplayPoints: 7,
   barGapDefault: 8,
   cursorScale: 0.72,
-  cursorScaleMobile: 0.64,
 } as const;

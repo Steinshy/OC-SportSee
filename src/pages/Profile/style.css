@@ -52,36 +52,6 @@
   width: 228px;
 }
 
-.metric-icon {
-  align-items: center;
-  border-radius: 6px;
-  display: flex;
-  height: 60px;
-  justify-content: center;
-  width: 60px;
-}
-
-.metric-icon img {
-  height: 20px;
-  width: 20px;
-}
-
-.metric-card__icon--red {
-  background: rgb(255 0 0 / 7%);
-}
-
-.metric-card__icon--blue {
-  background: rgb(74 184 255 / 10%);
-}
-
-.metric-card__icon--yellow {
-  background: rgb(249 206 35 / 10%);
-}
-
-.metric-card__icon--pink {
-  background: rgb(253 81 129 / 10%);
-}
-
 .chart-skeleton {
   animation: shimmer 1.5s infinite;
   background: linear-gradient(90deg, rgb(0 0 0 / 5%) 0%, rgb(0 0 0 / 10%) 50%, rgb(0 0 0 / 5%) 100%);

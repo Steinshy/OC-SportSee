@@ -14,7 +14,7 @@ import './style.css';
 export default function Profile() {
   const { user, activity, avgSessions, performance } = useLoaderData<ProfileLoaderData>();
   const baseUrl = import.meta.env.BASE_URL;
-  
+
   const metricCards = useMemo(() => {
     if (!user) return [];
     return [
@@ -104,17 +104,7 @@ export default function Profile() {
 
         <aside className="dashboard-grid__cards">
           {metricCards.map((metric) => (
-            <MetricCard
-              key={metric.label}
-              label={metric.label}
-              value={metric.value}
-              unit={metric.unit}
-              icon={
-                <span className={`metric-icon ${metric.className}`}>
-                  <img src={metric.icon} alt={metric.label} />
-                </span>
-              }
-            />
+            <MetricCard key={metric.label} label={metric.label} value={metric.value} unit={metric.unit} icon={metric.icon} iconClassName={metric.className} />
           ))}
         </aside>
       </section>

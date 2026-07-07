@@ -1,4 +1,4 @@
-import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, Text } from './index';
+import { PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer, Text } from 'recharts';
 
 import type { UserPerformance } from '@/types/user';
 
