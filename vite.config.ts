@@ -144,12 +144,13 @@ export default defineConfig(({ mode }) => {
     },
     rollupOptions: {
       output: {
-        manualChunks: {
+        manualChunks(id) {
           // Split vendors - optimize chunk strategy
-          'vendor-react': ['react', 'react-dom', 'react-router'],
-          'vendor-charts': ['recharts'],
-          'vendor-utils': ['axios'],
-          'vendor-ui': ['lucide-react'],
+          if (!id.includes('node_modules')) return;
+          if (id.includes('node_modules/recharts')) return 'vendor-charts';
+          if (id.includes('node_modules/axios')) return 'vendor-utils';
+          if (id.includes('node_modules/lucide-react')) return 'vendor-ui';
+          if (/node_modules\/(react|react-dom|react-router)\//.test(id)) return 'vendor-react';
         },
       },
     },
