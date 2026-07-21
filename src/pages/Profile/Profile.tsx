@@ -4,24 +4,15 @@ import { useLoaderData } from 'react-router';
 import MetricCard from '@/components/MetricCard';
 import type { ProfileLoaderData } from '@/loaders/profileLoader';
 
-const ActivityBarChart = lazy(
-  () => import('@/components/Charts/ActivityBarChart')
-);
-const PerformanceRadarChart = lazy(
-  () => import('@/components/Charts/PerformanceRadarChart')
-);
-const ScoreRadialChart = lazy(
-  () => import('@/components/Charts/ScoreRadialChart')
-);
-const SessionLineChart = lazy(
-  () => import('@/components/Charts/SessionLineChart')
-);
+const ActivityBarChart = lazy(() => import('@/components/Charts/ActivityBarChart'));
+const PerformanceRadarChart = lazy(() => import('@/components/Charts/PerformanceRadarChart'));
+const ScoreRadialChart = lazy(() => import('@/components/Charts/ScoreRadialChart'));
+const SessionLineChart = lazy(() => import('@/components/Charts/SessionLineChart'));
 
 import './style.css';
 
 export default function Profile() {
-  const { user, activity, avgSessions, performance } =
-    useLoaderData<ProfileLoaderData>();
+  const { user, activity, avgSessions, performance } = useLoaderData<ProfileLoaderData>();
   const baseUrl = import.meta.env.BASE_URL;
 
   const metricCards = useMemo(() => {
@@ -58,6 +49,14 @@ export default function Profile() {
     ];
   }, [baseUrl, user]);
 
+  if (!user) {
+    return (
+      <div className="dashboard">
+        <p>Erreur: Données utilisateur indisponibles</p>
+      </div>
+    );
+  }
+
   return (
     <div className="dashboard">
       <header className="dashboard-header">
@@ -69,18 +68,34 @@ export default function Profile() {
 
       <section className="dashboard-grid">
         <div className="dashboard-grid__charts">
-          <Suspense
-            fallback={<div className="chart-skeleton chart-card--activity" />}
-          >
-            <ActivityBarChart sessions={activity.sessions} />
-          </Suspense>
+          {activity ? (
+            <Suspense fallback={<div className="chart-skeleton chart-card--activity" />}>
+              <ActivityBarChart sessions={activity.sessions} />
+            </Suspense>
+          ) : (
+            <div className="chart-card--activity">
+              <p>Données d'activité indisponibles</p>
+            </div>
+          )}
           <div className="dashboard-grid__bottom">
-            <Suspense fallback={<div className="chart-skeleton chart-card" />}>
-              <SessionLineChart sessions={avgSessions.sessions} />
-            </Suspense>
-            <Suspense fallback={<div className="chart-skeleton chart-card" />}>
-              <PerformanceRadarChart performance={performance} />
-            </Suspense>
+            {avgSessions ? (
+              <Suspense fallback={<div className="chart-skeleton chart-card" />}>
+                <SessionLineChart sessions={avgSessions.sessions} />
+              </Suspense>
+            ) : (
+              <div className="chart-card">
+                <p>Données de sessions indisponibles</p>
+              </div>
+            )}
+            {performance ? (
+              <Suspense fallback={<div className="chart-skeleton chart-card" />}>
+                <PerformanceRadarChart performance={performance} />
+              </Suspense>
+            ) : (
+              <div className="chart-card">
+                <p>Données de performance indisponibles</p>
+              </div>
+            )}
             <Suspense fallback={<div className="chart-skeleton chart-card" />}>
               <ScoreRadialChart score={user.score} />
             </Suspense>
@@ -89,17 +104,7 @@ export default function Profile() {
 
         <aside className="dashboard-grid__cards">
           {metricCards.map((metric) => (
-            <MetricCard
-              key={metric.label}
-              label={metric.label}
-              value={metric.value}
-              unit={metric.unit}
-              icon={
-                <span className={`metric-icon ${metric.className}`}>
-                  <img src={metric.icon} alt={metric.label} />
-                </span>
-              }
-            />
+            <MetricCard key={metric.label} label={metric.label} value={metric.value} unit={metric.unit} icon={metric.icon} iconClassName={metric.className} />
           ))}
         </aside>
       </section>

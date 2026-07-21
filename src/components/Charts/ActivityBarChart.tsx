@@ -1,16 +1,5 @@
 import { useMemo } from 'react';
-
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Legend,
-  Rectangle,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from './index';
+import { Bar, BarChart, CartesianGrid, Legend, Rectangle, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 import { CHART_COLORS, CHART_VALUES } from '@/constants/chartConstants';
 import type { ActivitySession } from '@/types/user';
@@ -35,13 +24,7 @@ type KgAxisConfig = {
   ticks: [number, number, number];
 };
 
-function CustomTooltip({
-  active,
-  payload,
-}: {
-  active?: boolean;
-  payload?: { value: number }[];
-}) {
+function CustomTooltip({ active, payload }: { active?: boolean; payload?: { value: number }[] }) {
   if (!active || !payload || payload.length < 2) return null;
 
   const kg = payload[0]?.value;
@@ -56,33 +39,12 @@ function CustomTooltip({
   );
 }
 
-function HoverCursor({
-  x,
-  y,
-  width,
-  height,
-  scale = CHART_VALUES.cursorScale,
-}: {
-  x?: number;
-  y?: number;
-  width?: number;
-  height?: number;
-  scale?: number;
-}) {
+function HoverCursor({ x, y, width, height, scale = CHART_VALUES.cursorScale }: { x?: number; y?: number; width?: number; height?: number; scale?: number }) {
   const slotWidth = width ?? 0;
   const cursorWidth = slotWidth * scale;
   const offset = (slotWidth - cursorWidth) / 2;
 
-  return (
-    <Rectangle
-      fill={CHART_COLORS.cursor}
-      fillOpacity={0.5}
-      height={height ?? 0}
-      width={cursorWidth}
-      x={(x ?? 0) + offset}
-      y={y ?? 0}
-    />
-  );
+  return <Rectangle fill={CHART_COLORS.cursor} fillOpacity={0.5} height={height ?? 0} width={cursorWidth} x={(x ?? 0) + offset} y={y ?? 0} />;
 }
 
 export default function ActivityBarChart({ sessions }: Props) {
@@ -120,28 +82,9 @@ export default function ActivityBarChart({ sessions }: Props) {
   return (
     <div className="chart-card chart-card--activity">
       <h3 className="activity-chart__title">Activité quotidienne</h3>
-      <ResponsiveContainer
-        width="100%"
-        height="100%"
-        minWidth={0}
-        minHeight={0}
-      >
-        <BarChart
-          data={chartData}
-          barGap={CHART_VALUES.barGapDefault}
-          barSize={7}
-          onMouseMove={(state) => {
-            if (!state.isTooltipActive || !state.activeCoordinate) {
-              return;
-            }
-          }}
-          margin={{ top: 18, right: 20, left: 20, bottom: 30 }}
-        >
-          <CartesianGrid
-            strokeDasharray="3"
-            vertical={false}
-            stroke={CHART_COLORS.strokeGrid}
-          />
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0} initialDimension={{ width: 100, height: 50 }}>
+        <BarChart data={chartData} barGap={CHART_VALUES.barGapDefault} barSize={7} margin={{ top: 18, right: 20, left: 20, bottom: 30 }}>
+          <CartesianGrid strokeDasharray="3" vertical={false} stroke={CHART_COLORS.strokeGrid} />
           <XAxis
             dataKey="day"
             tickLine={false}
@@ -177,32 +120,15 @@ export default function ActivityBarChart({ sessions }: Props) {
                 </li>
                 <li>
                   <svg width="10" height="10">
-                    <circle
-                      cx="5"
-                      cy="5"
-                      r="5"
-                      fill={CHART_COLORS.barCalories}
-                    />
+                    <circle cx="5" cy="5" r="5" fill={CHART_COLORS.barCalories} />
                   </svg>
                   Calories brûlées (kCal)
                 </li>
               </ul>
             )}
           />
-          <Bar
-            name="Poids (kg)"
-            yAxisId="kilogram"
-            dataKey="kilogram"
-            fill={CHART_COLORS.barWeight}
-            radius={[3, 3, 0, 0]}
-          />
-          <Bar
-            name="Calories brûlées (kCal)"
-            yAxisId="calories"
-            dataKey="calories"
-            fill={CHART_COLORS.barCalories}
-            radius={[3, 3, 0, 0]}
-          />
+          <Bar name="Poids (kg)" yAxisId="kilogram" dataKey="kilogram" fill={CHART_COLORS.barWeight} radius={[3, 3, 0, 0]} />
+          <Bar name="Calories brûlées (kCal)" yAxisId="calories" dataKey="calories" fill={CHART_COLORS.barCalories} radius={[3, 3, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>

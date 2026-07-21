@@ -1,24 +1,21 @@
 import axios from 'axios';
 
+import { API_URL } from '@/config/env';
 import type { UserId } from '@/types/user';
 
 /**
  * Axios HTTP client configured for SportSee API communication
- * @type {import('axios').AxiosInstance}
  * @see {@link https://axios-http.com/}
  */
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: API_URL,
   timeout: 5000,
   validateStatus: (status) => (status >= 200 && status < 300) || status === 404,
 });
 
 /**
- * Fetches user profile data from the SportSee API
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Raw user profile data from API
- * @example
- * const userData = await fetchUserFromApi(12);
+ * Fetches raw user profile data from `GET /user/:id`
+ * @param userId - The unique identifier of the user
  */
 export const fetchUserFromApi = async (userId: UserId): Promise<unknown> => {
   const response = await apiClient.get(`/user/${userId}`);
@@ -26,43 +23,28 @@ export const fetchUserFromApi = async (userId: UserId): Promise<unknown> => {
 };
 
 /**
- * Fetches user activity data (daily calorie and exercise metrics) from the SportSee API
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Raw activity data from API
- * @example
- * const activityData = await fetchUserActivityFromApi(12);
+ * Fetches raw daily activity data from `GET /user/:id/activity`
+ * @param userId - The unique identifier of the user
  */
-export const fetchUserActivityFromApi = async (
-  userId: UserId
-): Promise<unknown> => {
+export const fetchUserActivityFromApi = async (userId: UserId): Promise<unknown> => {
   const response = await apiClient.get(`/user/${userId}/activity`);
   return response.data;
 };
 
 /**
- * Fetches user average session duration data from the SportSee API
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Raw average sessions data from API
- * @example
- * const avgSessions = await fetchUserAverageSessionsFromApi(12);
+ * Fetches raw average session durations from `GET /user/:id/average-sessions`
+ * @param userId - The unique identifier of the user
  */
-export const fetchUserAverageSessionsFromApi = async (
-  userId: UserId
-): Promise<unknown> => {
+export const fetchUserAverageSessionsFromApi = async (userId: UserId): Promise<unknown> => {
   const response = await apiClient.get(`/user/${userId}/average-sessions`);
   return response.data;
 };
 
 /**
- * Fetches user performance data (sport-specific metrics) from the SportSee API
- * @param {UserId} userId - The unique identifier of the user
- * @returns {Promise<unknown>} Raw performance data from API
- * @example
- * const performance = await fetchUserPerformanceFromApi(12);
+ * Fetches raw performance data from `GET /user/:id/performance`
+ * @param userId - The unique identifier of the user
  */
-export const fetchUserPerformanceFromApi = async (
-  userId: UserId
-): Promise<unknown> => {
+export const fetchUserPerformanceFromApi = async (userId: UserId): Promise<unknown> => {
   const response = await apiClient.get(`/user/${userId}/performance`);
   return response.data;
 };

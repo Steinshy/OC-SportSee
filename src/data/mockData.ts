@@ -1,9 +1,4 @@
-import type {
-  UserActivity,
-  UserAverageSessions,
-  UserMainData,
-  UserPerformance,
-} from '@/types/user';
+import type { UserActivity, UserAverageSessions, UserMainData, UserPerformance } from '@/types/user';
 
 export const MOCK_USER_MAIN_DATA: UserMainData[] = [
   {

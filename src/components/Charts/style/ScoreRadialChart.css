@@ -19,7 +19,8 @@
   position: relative;
 }
 
-/* Center text overlay */
+/* Center text overlay — sized from card height so it stays inside the
+   radial chart, which recharts scales on the smaller dimension */
 .score-radial-chart__center {
   align-items: center;
   aspect-ratio: 1;
@@ -27,6 +28,7 @@
   border-radius: 50%;
   display: flex;
   flex-direction: column;
+  height: 52%;
   justify-content: center;
   left: 50%;
   pointer-events: none;
@@ -34,7 +36,7 @@
   text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 45%;
+  width: auto;
   z-index: 1;
 }
 

@@ -5,6 +5,9 @@ node_modules/
 dist/
 dist-ssr/
 
+# Generated documentation (typedoc — rebuilt in CI via `pnpm docs`)
+docs/
+
 # Logs
 *.log
 
@@ -13,7 +16,6 @@ dist-ssr/
 .eslintcache
 
 # Environment
-.env
 *.local
 
 # Editor & IDE
@@ -29,5 +31,4 @@ dist-ssr/
 public/api/
 Exemple
 memory
-CLAUDE.md
 .claude/
